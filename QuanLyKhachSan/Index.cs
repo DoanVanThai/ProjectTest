@@ -90,5 +90,11 @@ namespace QuanLyKhachSan
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Index());
+            label1.Text = "Home";
+        }
     }
 }
