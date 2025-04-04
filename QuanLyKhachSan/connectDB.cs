@@ -11,6 +11,10 @@ namespace QuanLyKhachSan
     {
         private static string connectionString = @"Data Source=DESKTOP-K31BK4E;Initial Catalog=QUANLYKHACHSANBACKUP;Integrated Security=True";
 
+        //ket noi cua hai vang :
+        //private static string connectionString = @"Data Source=DEVVG\\SQLEXPRESS;Initial Catalog=QUANLYKHACHSAN;Integrated Security=True";
+
+
         public static SqlConnection GetConnection()
         {
             SqlConnection conn = new SqlConnection(connectionString);
