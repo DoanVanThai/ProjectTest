@@ -16,15 +16,9 @@ namespace QuanLyKhachSan
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            tabControl.SelectedTab = tabChiTiet;
-        }
-
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
-
+            tabControl.SelectedTab = tabDanhSach;
         }
 
         private void btnIn_Click(object sender, EventArgs e)
@@ -44,6 +38,13 @@ namespace QuanLyKhachSan
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            DialogThemHoaDon dialogThemHoaDon = new DialogThemHoaDon();
+            dialogThemHoaDon.ShowDialog();
+            dialogThemHoaDon.StartPosition = FormStartPosition.Manual;
+            dialogThemHoaDon.Location = new Point(
+    this.Location.X + this.Width + 10,
+    this.Location.Y + (this.Height - dialogThemHoaDon.Height) / 2
+);
 
         }
 

@@ -15,6 +15,7 @@ namespace QuanLyKhachSan
         public Index()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         private Form currentFormChild;
         private void OpenChildForm(Form childForm)
