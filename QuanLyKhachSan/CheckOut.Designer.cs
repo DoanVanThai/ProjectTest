@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckOut));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabDanhSach = new System.Windows.Forms.TabPage();
-            this.tabChiTiet = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
+            this.tabChiTiet = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnThem = new System.Windows.Forms.ToolStripButton();
             this.btnSua = new System.Windows.Forms.ToolStripButton();
@@ -66,6 +65,16 @@
             this.tabDanhSach.Text = "Danh sách";
             this.tabDanhSach.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(654, 377);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // tabChiTiet
             // 
             this.tabChiTiet.Controls.Add(this.toolStrip1);
@@ -77,16 +86,6 @@
             this.tabChiTiet.Text = "Chi tiết";
             this.tabChiTiet.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(654, 377);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -97,56 +96,66 @@
             this.btnQuayLai});
             this.toolStrip1.Location = new System.Drawing.Point(3, 3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(746, 38);
+            this.toolStrip1.Size = new System.Drawing.Size(746, 54);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnThem
             // 
-            this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
+            this.btnThem.Image = global::QuanLyKhachSan.Properties.Resources.plus__1_;
+            this.btnThem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnThem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThem.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(42, 35);
+            this.btnThem.Size = new System.Drawing.Size(42, 51);
             this.btnThem.Text = "Thêm";
             this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
-            this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
+            this.btnSua.Image = global::QuanLyKhachSan.Properties.Resources.pen;
+            this.btnSua.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSua.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSua.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(30, 35);
+            this.btnSua.Size = new System.Drawing.Size(36, 51);
             this.btnSua.Text = "Sửa";
             this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.Image = global::QuanLyKhachSan.Properties.Resources.delete;
+            this.btnXoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(31, 35);
+            this.btnXoa.Size = new System.Drawing.Size(36, 51);
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnIn
             // 
-            this.btnIn.Image = ((System.Drawing.Image)(resources.GetObject("btnIn.Image")));
+            this.btnIn.Image = global::QuanLyKhachSan.Properties.Resources.print;
+            this.btnIn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnIn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnIn.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
             this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(23, 35);
+            this.btnIn.Size = new System.Drawing.Size(36, 51);
             this.btnIn.Text = "In";
             this.btnIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // btnQuayLai
             // 
-            this.btnQuayLai.Image = ((System.Drawing.Image)(resources.GetObject("btnQuayLai.Image")));
+            this.btnQuayLai.Image = global::QuanLyKhachSan.Properties.Resources.undo;
+            this.btnQuayLai.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnQuayLai.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnQuayLai.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
             this.btnQuayLai.Name = "btnQuayLai";
-            this.btnQuayLai.Size = new System.Drawing.Size(54, 35);
+            this.btnQuayLai.Size = new System.Drawing.Size(54, 51);
             this.btnQuayLai.Text = "Quay lại";
             this.btnQuayLai.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
@@ -159,6 +168,7 @@
             this.Controls.Add(this.tabControl);
             this.Name = "CheckOut";
             this.Text = "CheckOut";
+            this.Load += new System.EventHandler(this.CheckOut_Load);
             this.tabControl.ResumeLayout(false);
             this.tabDanhSach.ResumeLayout(false);
             this.tabChiTiet.ResumeLayout(false);

@@ -46,5 +46,10 @@ namespace QuanLyKhachSan
         {
 
         }
+
+        private void CheckOut_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
