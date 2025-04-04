@@ -16,15 +16,9 @@ namespace QuanLyKhachSan
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            tabControl.SelectedTab = tabChiTiet;
-        }
-
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
-
+            tabControl.SelectedTab = tabDanhSach;
         }
 
         private void btnIn_Click(object sender, EventArgs e)

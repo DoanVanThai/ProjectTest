@@ -30,7 +30,6 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabDanhSach = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabChiTiet = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnThem = new System.Windows.Forms.ToolStripButton();
@@ -39,7 +38,6 @@
             this.btnIn = new System.Windows.Forms.ToolStripButton();
             this.btnQuayLai = new System.Windows.Forms.ToolStripButton();
             this.tabControl.SuspendLayout();
-            this.tabDanhSach.SuspendLayout();
             this.tabChiTiet.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -48,6 +46,7 @@
             // 
             this.tabControl.Controls.Add(this.tabDanhSach);
             this.tabControl.Controls.Add(this.tabChiTiet);
+            this.tabControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(-1, 1);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -56,32 +55,21 @@
             // 
             // tabDanhSach
             // 
-            this.tabDanhSach.Controls.Add(this.button1);
-            this.tabDanhSach.Location = new System.Drawing.Point(4, 22);
+            this.tabDanhSach.Location = new System.Drawing.Point(4, 29);
             this.tabDanhSach.Name = "tabDanhSach";
             this.tabDanhSach.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDanhSach.Size = new System.Drawing.Size(752, 424);
+            this.tabDanhSach.Size = new System.Drawing.Size(752, 417);
             this.tabDanhSach.TabIndex = 0;
             this.tabDanhSach.Text = "Danh sách";
             this.tabDanhSach.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(654, 377);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // tabChiTiet
             // 
             this.tabChiTiet.Controls.Add(this.toolStrip1);
-            this.tabChiTiet.Location = new System.Drawing.Point(4, 22);
+            this.tabChiTiet.Location = new System.Drawing.Point(4, 29);
             this.tabChiTiet.Name = "tabChiTiet";
             this.tabChiTiet.Padding = new System.Windows.Forms.Padding(3);
-            this.tabChiTiet.Size = new System.Drawing.Size(752, 424);
+            this.tabChiTiet.Size = new System.Drawing.Size(752, 417);
             this.tabChiTiet.TabIndex = 1;
             this.tabChiTiet.Text = "Chi tiết";
             this.tabChiTiet.UseVisualStyleBackColor = true;
@@ -102,18 +90,20 @@
             // 
             // btnThem
             // 
+            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.Image = global::QuanLyKhachSan.Properties.Resources.plus__1_;
             this.btnThem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnThem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThem.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(42, 51);
+            this.btnThem.Size = new System.Drawing.Size(43, 51);
             this.btnThem.Text = "Thêm";
             this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
+            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.Image = global::QuanLyKhachSan.Properties.Resources.pen;
             this.btnSua.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSua.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -126,6 +116,7 @@
             // 
             // btnXoa
             // 
+            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Image = global::QuanLyKhachSan.Properties.Resources.delete;
             this.btnXoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -138,6 +129,7 @@
             // 
             // btnIn
             // 
+            this.btnIn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIn.Image = global::QuanLyKhachSan.Properties.Resources.print;
             this.btnIn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnIn.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -150,6 +142,7 @@
             // 
             // btnQuayLai
             // 
+            this.btnQuayLai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuayLai.Image = global::QuanLyKhachSan.Properties.Resources.undo;
             this.btnQuayLai.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnQuayLai.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -170,7 +163,6 @@
             this.Text = "CheckOut";
             this.Load += new System.EventHandler(this.CheckOut_Load);
             this.tabControl.ResumeLayout(false);
-            this.tabDanhSach.ResumeLayout(false);
             this.tabChiTiet.ResumeLayout(false);
             this.tabChiTiet.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -184,7 +176,6 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabDanhSach;
         private System.Windows.Forms.TabPage tabChiTiet;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnThem;
         private System.Windows.Forms.ToolStripButton btnSua;
