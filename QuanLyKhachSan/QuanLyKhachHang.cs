@@ -8,16 +8,49 @@ using System.Text;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace QuanLyKhachSan
 {
+    
     public partial class QuanLyKhachHang: Form
     {
+        connectDB db = new connectDB(); 
+        SqlConnection con;
+        SqlDataAdapter adt;
+        SqlCommand cmd;
+        DataTable dt;
+
+        private string selectedValue;
         public QuanLyKhachHang()
         {
             InitializeComponent();
+            Load_Data();
+            adt = new SqlDataAdapter();
+            dt = new DataTable();
         }
+        private void Load_Data()
+        {
+            string sqlstr = "select a.AuthorID, Name, Address, Gender, Birthday, Phone, b.Quantity " +
+                "from Authors a join Books b on a.AuthorID = b.AuthorID";
+            //string sqlcbb = "select AuthorID, Quantity from Books";
+            try
+            {
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+                cmd = new SqlCommand(sqlstr, con);
+                adt = new SqlDataAdapter(cmd);
+                dt = new DataTable();
+                adt.Fill(dt);
+                grvkh.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
+        }
         private void QuanLyKhachHang_Load(object sender, EventArgs e)
         {
             // Cài đặt văn bản placeholder mặc định
@@ -27,32 +60,26 @@ namespace QuanLyKhachSan
         private void textBox1_Paint(object sender, PaintEventArgs e)
         {
             // Hiển thị placeholder nếu TextBox chưa có dữ liệu và không đang có focus
-            if (string.IsNullOrEmpty(textBox1.Text) && !textBox1.Focused)
+            if (string.IsNullOrEmpty(searchName.Text) && !searchName.Focused)
             {
                 using (Brush brush = new SolidBrush(Color.Gray))
                 {
-                    e.Graphics.DrawString(textBox1.Text, textBox1.Font, brush, new PointF(5, 5));
+                    e.Graphics.DrawString(searchName.Text, searchName.Font, brush, new PointF(5, 5));
                 }
             }
-        }
-
-        private void textBox1_Enter(object sender, EventArgs e)
-        {
-            // Khi TextBox được focus, xóa placeholder
-            if (textBox1.Text == "Nhập tên khách hàng...")
+            if (string.IsNullOrEmpty(searchMKH.Text) && !searchMKH.Focused)
             {
-                textBox1.Text = "";
-                textBox1.ForeColor = Color.Black;  // Màu chữ đen khi bắt đầu nhập
+                using (Brush brush = new SolidBrush(Color.Gray))
+                {
+                    e.Graphics.DrawString(searchMKH.Text, searchMKH.Font, brush, new PointF(5, 5));
+                }
             }
-        }
-
-        private void textBox1_Leave(object sender, EventArgs e)
-        {
-            // Khi TextBox mất focus và không có dữ liệu, hiển thị lại placeholder
-            if (string.IsNullOrEmpty(textBox1.Text))
+            if (string.IsNullOrEmpty(searchPhoneNumber.Text) && !searchPhoneNumber.Focused)
             {
-                textBox1.Text = "Nhập tên khách hàng...";
-                textBox1.ForeColor = Color.Gray;  // Màu xám cho placeholder
+                using (Brush brush = new SolidBrush(Color.Gray))
+                {
+                    e.Graphics.DrawString(searchPhoneNumber.Text, searchPhoneNumber.Font, brush, new PointF(5, 5));
+                }
             }
         }
 
@@ -68,8 +95,77 @@ namespace QuanLyKhachSan
 
         private void QuanLyKhachHang_Load_1(object sender, EventArgs e)
         {
-            textBox1.Text = "Nhập tên khách hàng...";
-            textBox1.ForeColor = Color.Gray;  // Màu xám cho placeholder
+            searchName.Text = "Nhập tên khách hàng...";
+            searchName.ForeColor = Color.Gray;  // Màu xám cho placeholder
+            searchMKH.Text = "Nhập mã khách hàng...";
+            searchMKH.ForeColor = Color.Gray;  // Màu xám cho placeholder
+            searchPhoneNumber.Text = "Nhập số điện thoại...";
+            searchPhoneNumber.ForeColor = Color.Gray;
+        }
+
+        private void searchName_Enter(object sender, EventArgs e)
+        {
+            if (searchName.Text == "Nhập tên khách hàng...")
+            {
+                searchName.Text = "";
+                searchName.ForeColor = Color.Black;  // Màu chữ đen khi bắt đầu nhập
+            }
+        }
+
+        private void searchName_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(searchName.Text))
+            {
+                searchName.Text = "Nhập tên khách hàng...";
+                searchName.ForeColor = Color.Gray;  // Màu xám cho placeholder
+            }
+        }
+
+        private void searchMKH_Enter(object sender, EventArgs e)
+        {
+            if (searchMKH.Text == "Nhập mã khách hàng...")
+            {
+                searchMKH.Text = "";
+                searchMKH.ForeColor = Color.Black;  // Màu chữ đen khi bắt đầu nhập
+            }
+        }
+
+        private void searchMKH_Leave(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(searchMKH.Text))
+            {
+                searchMKH.Text = "Nhập mã khách hàng...";
+                searchMKH.ForeColor = Color.Gray;  // Màu xám cho placeholder
+            }
+        }
+
+        private void searchPhoneNumber_Enter(object sender, EventArgs e)
+        {
+            if (searchPhoneNumber.Text == "Nhập số điện thoại...")
+            {
+                searchPhoneNumber.Text = "";
+                searchPhoneNumber.ForeColor = Color.Black;  // Màu chữ đen khi bắt đầu nhập
+            }
+        }
+
+        private void searchPhoneNumber_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(searchPhoneNumber.Text))
+            {
+                searchPhoneNumber.Text = "Nhập số điện thoại...";
+                searchPhoneNumber.ForeColor = Color.Gray;  // Màu xám cho placeholder
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menu_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
