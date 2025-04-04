@@ -52,6 +52,7 @@
     <Compile Include="CheckOut.Designer.cs">
       <DependentUpon>CheckOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="connectDB.cs" />
     <Compile Include="DangKi.cs">
       <SubType>Form</SubType>
     </Compile>
