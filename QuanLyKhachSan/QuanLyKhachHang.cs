@@ -15,8 +15,8 @@ namespace QuanLyKhachSan
     
     public partial class QuanLyKhachHang: Form
     {
-        connectDB db = new connectDB(); 
-        SqlConnection con;
+        connectDB db = new connectDB();  // Sử dụng đối tượng kết nối
+        //SqlConnection con = db.GetConnection();  // Lấy kết nối từ class connectDB
         SqlDataAdapter adt;
         SqlCommand cmd;
         DataTable dt;
@@ -25,32 +25,32 @@ namespace QuanLyKhachSan
         public QuanLyKhachHang()
         {
             InitializeComponent();
-            Load_Data();
+            //Load_Data();
             adt = new SqlDataAdapter();
             dt = new DataTable();
         }
-        private void Load_Data()
-        {
-            string sqlstr = "select a.AuthorID, Name, Address, Gender, Birthday, Phone, b.Quantity " +
-                "from Authors a join Books b on a.AuthorID = b.AuthorID";
-            //string sqlcbb = "select AuthorID, Quantity from Books";
-            try
-            {
-                if (con.State == ConnectionState.Closed)
-                    con.Open();
-                cmd = new SqlCommand(sqlstr, con);
-                adt = new SqlDataAdapter(cmd);
-                dt = new DataTable();
-                adt.Fill(dt);
-                grvkh.DataSource = dt;
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        //private void Load_Data()
+        //{
+        //    string sqlstr = "select a.AuthorID, Name, Address, Gender, Birthday, Phone, b.Quantity " +
+        //        "from Authors a join Books b on a.AuthorID = b.AuthorID";
+        //    //string sqlcbb = "select AuthorID, Quantity from Books";
+        //    try
+        //    {
+        //        if (con.State == ConnectionState.Closed)
+        //         con.Open();
+        //        cmd = new SqlCommand(sqlstr, con);
+        //        adt = new SqlDataAdapter(cmd);
+        //        dt = new DataTable();
+        //        adt.Fill(dt);
+        //        grvkh.DataSource = dt;
+        //        con.Close();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
 
-        }
+        //}
         private void QuanLyKhachHang_Load(object sender, EventArgs e)
         {
             // Cài đặt văn bản placeholder mặc định

@@ -9,7 +9,7 @@ namespace QuanLyKhachSan
 {
     class connectDB
     {
-        private static string connectionString = @"Data Source=DESKTOP-K31BK4E;Initial Catalog=QUANLYKHACHSANBACKUP;Integrated Security=True";
+        private static string connectionString = @"Data Source=DESKTOP-K31BK4E;Initial Catalog=QUANLYKHACHSAN;Integrated Security=True";
 
         //ket noi cua hai vang :
         //private static string connectionString = @"Data Source=DEVVG\\SQLEXPRESS;Initial Catalog=QUANLYKHACHSAN;Integrated Security=True";
