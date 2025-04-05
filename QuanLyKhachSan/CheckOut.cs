@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyKhachSan.Library;
 
 namespace QuanLyKhachSan
 {
@@ -15,6 +16,17 @@ namespace QuanLyKhachSan
         public CheckOut()
         {
             InitializeComponent();
+            LoadData();
+        }
+        private void LoadData()
+        {
+            string query = "SELECT * FROM DatPhong";
+            DatabaseHelper db = DatabaseHelper.Instance;
+            DataTable dataTable = db.GetData(query);
+            if (dataTable != null)
+            {
+                dataGridView1.DataSource = dataTable;
+            }
         }
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
