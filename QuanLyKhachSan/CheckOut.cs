@@ -14,26 +14,56 @@ namespace QuanLyKhachSan
     public partial class CheckOut: Form
     {
         private DatabaseHelper dbHelper;
+        private bool isFilterVisible = false;
         public CheckOut()
         {
             InitializeComponent();
             dbHelper = new DatabaseHelper();
             LoadData();
+            HandleSearch(false);
+            HandleFilter(isFilterVisible);
         }
         private void LoadData()
         {
-            string query = "SELECT * FROM DatPhong";
+            string query = "SELECT * FROM HoaDonTongHop";
             DataTable dataTable = dbHelper.GetData(query);
             if (dataTable != null)
             {
                 dataGridView1.DataSource = dataTable;
+                // Tùy chỉnh hiển thị các cột
+                dataGridView1.EnableHeadersVisualStyles = false;
+                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkBlue;
+                dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9 , FontStyle.Bold);
+                dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                dataGridView1.Columns["HOADONID"].HeaderText = "ID";
+                dataGridView1.Columns["NGAYLAP"].HeaderText = "Ngày Lập";
+                dataGridView1.Columns["DATPHONGID"].HeaderText = "ĐặtPhòngID";
+                dataGridView1.Columns["PHONGID"].HeaderText = "PhòngID";
+                dataGridView1.Columns["NGAYDEN"].HeaderText = "Ngày Đến";
+                dataGridView1.Columns["NGAYDI"].HeaderText = "Ngày Đi";
+                dataGridView1.Columns["GIA"].HeaderText = "Đơn giá";
+                dataGridView1.Columns["TIENPHONG"].HeaderText = "Tiền Phòng";
+                dataGridView1.Columns["SOLUONGDICHVU"].HeaderText = "SL Dịch Vụ";
+                dataGridView1.Columns["TIENDICHVU"].HeaderText = "Tiền DV";
+                dataGridView1.Columns["TINHTRANGTHANHTOAN"].HeaderText = "Trạng Thái";
+                dataGridView1.Columns["NGAYTHANHTOAN"].HeaderText = "Ngày TT";
+                dataGridView1.Columns["HINHTHUCTHANHTOAN"].HeaderText = "KIỂU TT";
+                dataGridView1.RowHeadersWidth = 25;  
+                dataGridView1.Columns["HOADONID"].Width = 30;
+                dataGridView1.Columns["SOLUONGDICHVU"].Width = 39;
+                dataGridView1.Columns["DATPHONGID"].Width = 80;
+                dataGridView1.Columns["TIENDICHVU"].Width = 83;
+                dataGridView1.Columns["GIA"].Width = 90;
+                dataGridView1.Columns["NGAYDEN"].Width = 90;
+                dataGridView1.Columns["NGAYDI"].Width = 90;
+                dataGridView1.Columns["PHONGID"].Width = 70;
+                dataGridView1.Columns["NGAYLAP"].Width = 90;
+                dataGridView1.Columns["NGAYTHANHTOAN"].Width = 90;
+                dataGridView1.Columns["TINHTRANGTHANHTOAN"].Width = 122;
+                dataGridView1.Columns["HINHTHUCTHANHTOAN"].Width = 117;
             }
-            //DatabaseHelper db = DatabaseHelper.Instance;
-            //DataTable dataTable = db.GetData(query);
-            //if (dataTable != null)
-            //{
-            //    dataGridView1.DataSource = dataTable;
-            //}
         }
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
@@ -71,5 +101,101 @@ namespace QuanLyKhachSan
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTaoHoaDon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            HandleSearch(true);
+        }
+
+        private void btnDongTimKiem_Click(object sender, EventArgs e)
+        {
+            HandleSearch(false);
+        }
+        private void HandleSearch(Boolean check)
+        {
+            toolStripLabelDatPhongID.Visible = check;
+            toolStripLabelMaKH.Visible = check;
+            txtDatPhongID.Visible = check;
+            txtMaKH.Visible = check;
+            btnDongTimKiem.Visible = check;
+        }
+        private void HandleFilter(Boolean check)
+        {
+            toolStripLabelTrangThai.Visible = check;
+            toolStripLabelKieuThanhToan.Visible = check;
+            cbbTrangThai.Visible = check;
+            cbbKieuTT.Visible = check;
+            if (check)
+            {
+                // Khi hiện bộ lọc, reset lại lựa chọn
+                cbbTrangThai.SelectedIndex = 0;
+                cbbKieuTT.SelectedIndex = 0;
+            }
+        }
+
+        private void btnBoLoc_Click(object sender, EventArgs e)
+        {
+            isFilterVisible = !isFilterVisible;
+            HandleFilter(isFilterVisible);
+
+
+        }
+
+        private void cbbTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilterData();
+        }
+
+        private void cbbKieuTT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilterData();
+        }
+        private void FilterData()
+        {
+            string trangThai = cbbTrangThai.SelectedItem?.ToString();
+            string kieuTT = cbbKieuTT.SelectedItem?.ToString();
+
+            // Nếu cả 2 đều là "Mặc định" hoặc null thì load toàn bộ
+            if (string.IsNullOrEmpty(trangThai) || trangThai == "Chọn trạng thái")
+                trangThai = null;
+            if (string.IsNullOrEmpty(kieuTT) || kieuTT == "Chọn kiểu thanh toán")
+                kieuTT = null;
+
+            string query = "SELECT * FROM HoaDonTongHop WHERE 1=1";
+
+            if (trangThai != null)
+                query += $" AND TINHTRANGTHANHTOAN = N'{trangThai}'";
+
+            if (kieuTT != null)
+                query += $" AND HINHTHUCTHANHTOAN = N'{kieuTT}'";
+
+            DataTable filteredData = dbHelper.GetData(query);
+            dataGridView1.DataSource = filteredData;
+            if (filteredData.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có bản ghi nào thỏa mãn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
     }
 }
