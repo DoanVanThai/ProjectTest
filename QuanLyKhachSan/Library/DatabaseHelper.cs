@@ -11,30 +11,8 @@ namespace QuanLyKhachSan.Library
 {
     public class DatabaseHelper
     {
-        private static DatabaseHelper instance;
-        private string connectionString;
-        private DatabaseHelper()
-        {
-            // Lấy chuỗi kết nối từ biến môi trường
-            connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
-            if (string.IsNullOrEmpty(connectionString))
-            {
-                MessageBox.Show("Không tìm thấy chuỗi kết nối! Vui lòng thiết lập biến môi trường DB_CONNECTION_STRING.",
-                                "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw new Exception("Chuỗi kết nối chưa được thiết lập.");
-            }
-        }
-        public static DatabaseHelper Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new DatabaseHelper();
-                }
-                return instance;
-            }
-        }
+        // CHI CAN SUA LAI CONNECTSTRING , NEU DAT TEN DB GIONG HET THI CHI CAN CHINH SERVER LA XONG 
+        private string connectionString = "Server=DEVVG\\SQLEXPRESS;Database=QUANLYKHACHSAN;Integrated Security=True;";
         public DataTable GetData(string query, SqlParameter[] parameters = null)
         {
             using (SqlConnection con = new SqlConnection(connectionString))

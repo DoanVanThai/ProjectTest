@@ -13,20 +13,27 @@ namespace QuanLyKhachSan
 {
     public partial class CheckOut: Form
     {
+        private DatabaseHelper dbHelper;
         public CheckOut()
         {
             InitializeComponent();
+            dbHelper = new DatabaseHelper();
             LoadData();
         }
         private void LoadData()
         {
             string query = "SELECT * FROM DatPhong";
-            DatabaseHelper db = DatabaseHelper.Instance;
-            DataTable dataTable = db.GetData(query);
+            DataTable dataTable = dbHelper.GetData(query);
             if (dataTable != null)
             {
                 dataGridView1.DataSource = dataTable;
             }
+            //DatabaseHelper db = DatabaseHelper.Instance;
+            //DataTable dataTable = db.GetData(query);
+            //if (dataTable != null)
+            //{
+            //    dataGridView1.DataSource = dataTable;
+            //}
         }
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
