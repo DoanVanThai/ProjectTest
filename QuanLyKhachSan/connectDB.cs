@@ -9,7 +9,8 @@ namespace QuanLyKhachSan
 {
     class connectDB
     {
-        private static string connectionString = @"Data Source=DESKTOP-K31BK4E;Initial Catalog=QUANLYKHACHSAN;Integrated Security=True";
+        //ket noi cua DOAN VAN THAI :
+        private static string connectionString = @"Data Source=192.168.1.106\\SQLEXPRESS;Initial Catalog=QUANLYKHACHSANBACKUP;Integrated Security=True";
 
         //ket noi cua hai vang :
         //private static string connectionString = @"Data Source=DEVVG\\SQLEXPRESS;Initial Catalog=QUANLYKHACHSAN;Integrated Security=True";
