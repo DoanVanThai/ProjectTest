@@ -25,6 +25,28 @@ namespace QuanLyKhachSan
         {
 
         }
+        private decimal LayGiaPhongTheoID(string phongId)
+        {
+            string query = "SELECT GIA FROM Phong WHERE SOPHONG = @SoPhong";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+        new SqlParameter("@SoPhong", phongId)
+            };
+
+            DataTable result = dbHelper.GetData(query, parameters);
+
+            if (result != null && result.Rows.Count > 0)
+            {
+                object giaValue = result.Rows[0]["GIA"];
+                if (giaValue != DBNull.Value)
+                {
+                    return Convert.ToDecimal(giaValue);
+                }
+            }
+
+            return 0; // Giá mặc định nếu không tìm thấy
+        }
+
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -50,6 +72,7 @@ namespace QuanLyKhachSan
                 MessageBox.Show("Vui lòng nhập Mã Đặt Phòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             string queryCheck = "SELECT * FROM DatPhong WHERE DATPHONGID = @DatPhongID AND TINHTRANGDAT = N'ĐANG ĐẶT'";
             SqlParameter[] paramCheck = new SqlParameter[]
             {
@@ -62,6 +85,31 @@ namespace QuanLyKhachSan
             {
                 MessageBox.Show("Không tìm thấy đặt phòng đang đặt với ID đã nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }else
+            {
+                DataRow row = checkResult.Rows[0];
+                // Ví dụ: Lấy thông tin khách hàng ID và tên nhân viên xử lý
+                string khachHangID = row["KHACHHANGID"].ToString();
+                string phongID = row["PHONGID"].ToString();
+                DateTime ngayDen = Convert.ToDateTime(row["NGAYDEN"]);
+                DateTime ngayDi = Convert.ToDateTime(row["NGAYDI"]);
+
+                // Lấy giá bằng cách truy vấn trong bảng Phòng bằng ID:
+                decimal gia = LayGiaPhongTheoID(phongID);
+                txtDonGia_FormThemHoaDon.Text = gia.ToString();
+
+                // Lấy số ngày ở bằng cách dùng NgayDi - NgayDen
+                TimeSpan soNgayO = ngayDi.Date - ngayDen.Date;
+                txtSoNgayO_FormThemHoaDon.Text = soNgayO.Days.ToString();
+
+                // Tiền Phòng = Đơn giá x số ngày
+                decimal tienPhong = gia * soNgayO.Days;
+                txtTienPhong_FormThemHoaDon.Text = tienPhong.ToString();
+
+                // Hiển thị thông tin khác lên TextBox
+                txtPhongID_FormThemHoaDon.Text = khachHangID;
+                dtpNgayDen_FormThemHoaDon.Value = ngayDen;
+                dtpNgayDi_FormThemHoaDon.Value = ngayDi;
             }
             // Nếu tìm thấy thì tiếp tục lấy dịch vụ
             string queryDV = @"
@@ -85,6 +133,21 @@ namespace QuanLyKhachSan
             if (dvTable != null && dvTable.Rows.Count > 0)
             {
                 dataGridView_FormThemHoaDon.DataSource = dvTable;
+                // Tính tổng số lượng dịch vụ và tổng tiền dịch vụ
+                int tongSoLuongDV = 0;
+                decimal tongTienDV = 0;
+
+                foreach (DataRow row in dvTable.Rows)
+                {
+                    int soLuong = Convert.ToInt32(row["SL"]);
+                    decimal thanhTien = Convert.ToDecimal(row["Thành Tiền"]);
+
+                    tongSoLuongDV += soLuong;
+                    tongTienDV += thanhTien;
+                    txtSoLuongDichVu_FormThemHoaDon.Text = tongSoLuongDV.ToString();
+                    txtTienDichVu_FormThemHoaDon.Text = tongTienDV.ToString();
+                }
+
             }
             else
             {
