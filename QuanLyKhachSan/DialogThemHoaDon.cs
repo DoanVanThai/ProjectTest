@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -107,7 +108,7 @@ namespace QuanLyKhachSan
                 txtTienPhong_FormThemHoaDon.Text = tienPhong.ToString();
 
                 // Hiển thị thông tin khác lên TextBox
-                txtPhongID_FormThemHoaDon.Text = khachHangID;
+                txtPhongID_FormThemHoaDon.Text = phongID;
                 dtpNgayDen_FormThemHoaDon.Value = ngayDen;
                 dtpNgayDi_FormThemHoaDon.Value = ngayDi;
             }
@@ -181,6 +182,95 @@ namespace QuanLyKhachSan
         private void txtDonGia_FormThemHoaDon_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public event EventHandler HoaDonAdded;
+
+        private void btnXacNhan_FormThemHoaDon_Click(object sender, EventArgs e)
+        {
+            int datPhongID = int.Parse(txtDatPhongID_FormThemHoaDon.Text);
+            if(IsHoaDonExists(datPhongID)) {
+
+                MessageBox.Show("Hóa đơn cho đặt phòng này đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // Lấy dữ liệu từ form
+                
+                int phongID = int.Parse(txtPhongID_FormThemHoaDon.Text);
+
+                DateTime ngayLap = DateTime.Now;
+                DateTime ngayDen = dtpNgayDen_FormThemHoaDon.Value;
+                DateTime ngayDi = dtpNgayDi_FormThemHoaDon.Value;
+
+                decimal gia = decimal.Parse(txtDonGia_FormThemHoaDon.Text);
+                decimal tienPhong = decimal.Parse(txtTienPhong_FormThemHoaDon.Text);
+
+                int soLuongDV = string.IsNullOrEmpty(txtSoLuongDichVu_FormThemHoaDon.Text) ? 0 : int.Parse(txtSoLuongDichVu_FormThemHoaDon.Text);
+                decimal tienDV = string.IsNullOrEmpty(txtTienDichVu_FormThemHoaDon.Text) ? 0 : decimal.Parse(txtTienDichVu_FormThemHoaDon.Text);
+
+                string tinhTrangTT = "Chưa thanh toán";
+
+                // Tạo truy vấn INSERT
+                string insertQuery = @"
+            INSERT INTO HoaDonTongHop (
+                NGAYLAP, DATPHONGID, PHONGID, NGAYDEN, NGAYDI, GIA, TIENPHONG, 
+                SOLUONGDICHVU, TIENDICHVU, TINHTRANGTHANHTOAN
+            )
+            VALUES (
+                @NgayLap, @DatPhongID, @PhongID, @NgayDen, @NgayDi, @Gia, @TienPhong,
+                @SoLuongDV, @TienDV, @TinhTrangTT
+            )";
+
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+            new SqlParameter("@NgayLap", ngayLap),
+            new SqlParameter("@DatPhongID", datPhongID),
+            new SqlParameter("@PhongID", phongID),
+            new SqlParameter("@NgayDen", ngayDen),
+            new SqlParameter("@NgayDi", ngayDi),
+            new SqlParameter("@Gia", gia),
+            new SqlParameter("@TienPhong", tienPhong),
+            new SqlParameter("@SoLuongDV", soLuongDV),
+            new SqlParameter("@TienDV", tienDV),
+            new SqlParameter("@TinhTrangTT", tinhTrangTT)
+                };
+
+                bool rowsAffected = dbHelper.ExecuteQuery(insertQuery, parameters);
+
+                if (rowsAffected)
+                {
+                    HoaDonAdded?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show("Thêm hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Thêm hóa đơn thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private bool IsHoaDonExists(int datPhongId)
+        {
+            // Kiểm tra DatPhongID đã có trong bảng HoaDonTongHop chưa
+            string queryHoaDonCheck = "SELECT * FROM HoaDonTongHop WHERE DATPHONGID = @DatPhongID";
+            SqlParameter[] paramHoaDonCheck = new SqlParameter[]
+            {
+                new SqlParameter("@DatPhongID", datPhongId)
+            };
+
+            DataTable hoaDonResult = dbHelper.GetData(queryHoaDonCheck, paramHoaDonCheck);
+
+            if (hoaDonResult != null && hoaDonResult.Rows.Count > 0)
+            {
+                return true;
+            }else { return false; }
+            
         }
     }
 }
