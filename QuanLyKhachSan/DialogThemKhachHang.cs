@@ -9,6 +9,7 @@ namespace QuanLyKhachSan
     {
         public DialogThemKhachHang()
         {
+            
             InitializeComponent();
             typekhAdd.SelectedIndex = 0; // Chọn mặc định là --Chọn--
             cbbgt.Items.Add("--Chọn--");
@@ -16,6 +17,7 @@ namespace QuanLyKhachSan
             cbbgt.Items.Add("Nữ");
             cbbgt.SelectedIndex = 0; // Chọn mặc định là --Chọn--
         }
+        private QuanLyKhachHang quanlyKhachHang = new QuanLyKhachHang();
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -76,7 +78,7 @@ namespace QuanLyKhachSan
 
                 // Thông báo thành công
                 MessageBox.Show("Khách hàng đã được thêm thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+               
                 // Đóng form
                 this.Close();
             }

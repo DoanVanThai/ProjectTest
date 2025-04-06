@@ -52,17 +52,29 @@ namespace QuanLyKhachSan
                 dataGridView1.Columns["HINHTHUCTHANHTOAN"].HeaderText = "KIỂU TT";
                 dataGridView1.RowHeadersWidth = 25;  
                 dataGridView1.Columns["HOADONID"].Width = 30;
-                dataGridView1.Columns["SOLUONGDICHVU"].Width = 39;
-                dataGridView1.Columns["DATPHONGID"].Width = 80;
+                dataGridView1.Columns["SOLUONGDICHVU"].Width = 30;
+                dataGridView1.Columns["DATPHONGID"].Width = 70;
                 dataGridView1.Columns["TIENDICHVU"].Width = 83;
+                dataGridView1.Columns["TIENPHONG"].Width = 89;
                 dataGridView1.Columns["GIA"].Width = 90;
                 dataGridView1.Columns["NGAYDEN"].Width = 90;
                 dataGridView1.Columns["NGAYDI"].Width = 90;
-                dataGridView1.Columns["PHONGID"].Width = 70;
+                dataGridView1.Columns["PHONGID"].Width = 57;
                 dataGridView1.Columns["NGAYLAP"].Width = 90;
                 dataGridView1.Columns["NGAYTHANHTOAN"].Width = 90;
                 dataGridView1.Columns["TINHTRANGTHANHTOAN"].Width = 122;
-                dataGridView1.Columns["HINHTHUCTHANHTOAN"].Width = 117;
+                dataGridView1.Columns["HINHTHUCTHANHTOAN"].Width = 104;
+            }
+            if (!dataGridView1.Columns.Contains("ChiTiet"))
+            {
+                DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+                btnColumn.Name = "ChiTiet";
+                btnColumn.HeaderText = "";
+                btnColumn.Text = "Chi tiết";
+                btnColumn.UseColumnTextForButtonValue = true;
+                btnColumn.Width = 60;
+                btnColumn.DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridView1.Columns.Add(btnColumn); 
             }
         }
         private void btnQuayLai_Click(object sender, EventArgs e)
@@ -87,6 +99,7 @@ namespace QuanLyKhachSan
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             DialogThemHoaDon dialogThemHoaDon = new DialogThemHoaDon();
             dialogThemHoaDon.ShowDialog();
             dialogThemHoaDon.StartPosition = FormStartPosition.Manual;
@@ -95,6 +108,8 @@ namespace QuanLyKhachSan
             this.Location.Y + (this.Height - dialogThemHoaDon.Height) / 2
 );
 
+=======
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
         }
 
         private void CheckOut_Load(object sender, EventArgs e)
@@ -119,7 +134,13 @@ namespace QuanLyKhachSan
 
         private void btnTaoHoaDon_Click(object sender, EventArgs e)
         {
-
+            DialogThemHoaDon dialogThemHoaDon = new DialogThemHoaDon();
+            dialogThemHoaDon.ShowDialog();
+            dialogThemHoaDon.StartPosition = FormStartPosition.Manual;
+            dialogThemHoaDon.Location = new Point(
+            this.Location.X + this.Width + 10,
+            this.Location.Y + (this.Height - dialogThemHoaDon.Height) / 2
+            );
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -197,5 +218,25 @@ namespace QuanLyKhachSan
             }
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Đảm bảo không xử lý header hoặc các cột khác
+            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "ChiTiet")
+            {
+                // Lấy dòng được chọn
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+                tabControl.SelectedTab = tabChiTiet;
+            }
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

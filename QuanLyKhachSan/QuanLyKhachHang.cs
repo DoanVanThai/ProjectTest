@@ -251,5 +251,10 @@ namespace QuanLyKhachSan
             DialogThemKhachHang dialog = new DialogThemKhachHang();
             dialog.ShowDialog();
         }
+
+        internal void LoadData()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

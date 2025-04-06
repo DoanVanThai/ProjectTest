@@ -54,13 +54,23 @@
             this.btnIn = new System.Windows.Forms.ToolStripButton();
             this.btnQuayLai = new System.Windows.Forms.ToolStripButton();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+<<<<<<< HEAD
+=======
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             this.tabControl.SuspendLayout();
             this.tabDanhSach.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabChiTiet.SuspendLayout();
+<<<<<<< HEAD
             this.toolStrip1.SuspendLayout();
+=======
+            this.groupBox3.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             this.SuspendLayout();
             // 
             // tabControl
@@ -128,7 +138,11 @@
             // 
             this.toolStripLabelDatPhongID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabelDatPhongID.Name = "toolStripLabelDatPhongID";
+<<<<<<< HEAD
             this.toolStripLabelDatPhongID.Size = new System.Drawing.Size(126, 61);
+=======
+            this.toolStripLabelDatPhongID.Size = new System.Drawing.Size(81, 51);
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             this.toolStripLabelDatPhongID.Text = "Đặt Phòng ID";
             // 
             // txtDatPhongID
@@ -136,14 +150,22 @@
             this.txtDatPhongID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDatPhongID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDatPhongID.Name = "txtDatPhongID";
+<<<<<<< HEAD
             this.txtDatPhongID.Size = new System.Drawing.Size(149, 66);
+=======
+            this.txtDatPhongID.Size = new System.Drawing.Size(100, 54);
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             this.txtDatPhongID.Click += new System.EventHandler(this.toolStripTextBox1_Click);
             // 
             // toolStripLabelMaKH
             // 
             this.toolStripLabelMaKH.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabelMaKH.Name = "toolStripLabelMaKH";
+<<<<<<< HEAD
             this.toolStripLabelMaKH.Size = new System.Drawing.Size(148, 61);
+=======
+            this.toolStripLabelMaKH.Size = new System.Drawing.Size(93, 51);
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             this.toolStripLabelMaKH.Text = "Mã Khách Hàng";
             // 
             // txtMaKH
@@ -151,7 +173,11 @@
             this.txtMaKH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMaKH.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMaKH.Name = "txtMaKH";
+<<<<<<< HEAD
             this.txtMaKH.Size = new System.Drawing.Size(149, 66);
+=======
+            this.txtMaKH.Size = new System.Drawing.Size(100, 54);
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             // 
             // btnTimKiem
             // 
@@ -190,14 +216,110 @@
             this.btnBoLoc.Click += new System.EventHandler(this.btnBoLoc_Click);
             // 
             // toolStripLabelTrangThai
+<<<<<<< HEAD
+=======
+            // 
+            this.toolStripLabelTrangThai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabelTrangThai.Name = "toolStripLabelTrangThai";
+            this.toolStripLabelTrangThai.Size = new System.Drawing.Size(62, 51);
+            this.toolStripLabelTrangThai.Text = "Trạng thái";
+            // 
+            // cbbTrangThai
+            // 
+            this.cbbTrangThai.Items.AddRange(new object[] {
+            "Chọn trạng thái",
+            "Chưa thanh toán",
+            "Đã thanh toán"});
+            this.cbbTrangThai.Name = "cbbTrangThai";
+            this.cbbTrangThai.Size = new System.Drawing.Size(121, 54);
+            this.cbbTrangThai.SelectedIndexChanged += new System.EventHandler(this.cbbTrangThai_SelectedIndexChanged);
+            // 
+            // toolStripLabelKieuThanhToan
+            // 
+            this.toolStripLabelKieuThanhToan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabelKieuThanhToan.Name = "toolStripLabelKieuThanhToan";
+            this.toolStripLabelKieuThanhToan.Size = new System.Drawing.Size(95, 51);
+            this.toolStripLabelKieuThanhToan.Text = "Kiểu thanh toán";
+            // 
+            // cbbKieuTT
+            // 
+            this.cbbKieuTT.DropDownWidth = 121;
+            this.cbbKieuTT.Items.AddRange(new object[] {
+            "Chọn kiểu thanh toán",
+            "Ví điện tử",
+            "Chuyển Khoản",
+            "Tiền Mặt",
+            "Thẻ"});
+            this.cbbKieuTT.Name = "cbbKieuTT";
+            this.cbbKieuTT.Size = new System.Drawing.Size(150, 54);
+            this.cbbKieuTT.SelectedIndexChanged += new System.EventHandler(this.cbbKieuTT_SelectedIndexChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Location = new System.Drawing.Point(6, 60);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1129, 603);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Hóa Đơn Tổng Hợp";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 35);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1117, 448);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // tabChiTiet
+            // 
+            this.tabChiTiet.Controls.Add(this.groupBox3);
+            this.tabChiTiet.Controls.Add(this.toolStrip1);
+            this.tabChiTiet.Location = new System.Drawing.Point(4, 29);
+            this.tabChiTiet.Name = "tabChiTiet";
+            this.tabChiTiet.Padding = new System.Windows.Forms.Padding(3);
+            this.tabChiTiet.Size = new System.Drawing.Size(1138, 669);
+            this.tabChiTiet.TabIndex = 1;
+            this.tabChiTiet.Text = "Chi tiết";
+            this.tabChiTiet.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dataGridView2);
+            this.groupBox3.Location = new System.Drawing.Point(3, 60);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1135, 606);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Chi Tiết Hóa Đơn";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnThem,
+            this.btnSua,
+            this.btnXoa,
+            this.btnIn,
+            this.btnQuayLai});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1132, 54);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnThem
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             // 
             this.toolStripLabelTrangThai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabelTrangThai.Name = "toolStripLabelTrangThai";
             this.toolStripLabelTrangThai.Size = new System.Drawing.Size(99, 61);
             this.toolStripLabelTrangThai.Text = "Trạng thái";
             // 
-            // cbbTrangThai
+            // dataGridView2
             // 
+<<<<<<< HEAD
             this.cbbTrangThai.Items.AddRange(new object[] {
             "Chọn trạng thái",
             "Chưa thanh toán",
@@ -225,6 +347,13 @@
             this.cbbKieuTT.Name = "cbbKieuTT";
             this.cbbKieuTT.Size = new System.Drawing.Size(150, 66);
             this.cbbKieuTT.SelectedIndexChanged += new System.EventHandler(this.cbbKieuTT_SelectedIndexChanged);
+=======
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(208, 193);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(467, 207);
+            this.dataGridView2.TabIndex = 0;
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             // 
             // groupBox2
             // 
@@ -372,8 +501,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabChiTiet.ResumeLayout(false);
             this.tabChiTiet.PerformLayout();
+<<<<<<< HEAD
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+=======
+            this.groupBox3.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             this.ResumeLayout(false);
 
         }
@@ -406,5 +542,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabelTrangThai;
         private System.Windows.Forms.ToolStripLabel toolStripLabelKieuThanhToan;
         private System.Windows.Forms.ToolStripComboBox cbbKieuTT;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
