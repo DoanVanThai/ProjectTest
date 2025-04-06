@@ -99,7 +99,7 @@ namespace QuanLyKhachSan
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             DialogThemHoaDon dialogThemHoaDon = new DialogThemHoaDon();
             dialogThemHoaDon.ShowDialog();
             dialogThemHoaDon.StartPosition = FormStartPosition.Manual;
@@ -108,8 +108,7 @@ namespace QuanLyKhachSan
             this.Location.Y + (this.Height - dialogThemHoaDon.Height) / 2
 );
 
-=======
->>>>>>> 0f511a326530343e1012b77693a4b155828a3182
+
         }
 
         private void CheckOut_Load(object sender, EventArgs e)

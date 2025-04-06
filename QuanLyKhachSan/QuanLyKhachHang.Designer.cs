@@ -38,11 +38,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.grvkh = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.checkBoxSearch = new System.Windows.Forms.CheckBox();
+            this.dateTimeSearch = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.searchPhoneNumber = new System.Windows.Forms.TextBox();
-            this.searchMKH = new System.Windows.Forms.TextBox();
             this.search = new System.Windows.Forms.Button();
             this.searchName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -137,6 +136,7 @@
             this.edit.TabIndex = 10;
             this.edit.Text = "Sửa";
             this.edit.UseVisualStyleBackColor = false;
+            this.edit.Click += new System.EventHandler(this.edit_Click);
             // 
             // addnew
             // 
@@ -171,17 +171,17 @@
             this.grvkh.RowHeadersWidth = 62;
             this.grvkh.Size = new System.Drawing.Size(1659, 646);
             this.grvkh.TabIndex = 4;
+            this.grvkh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvkh_CellClick);
             this.grvkh.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grvkh_CellFormatting);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.RosyBrown;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.checkBoxSearch);
+            this.panel1.Controls.Add(this.dateTimeSearch);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.searchPhoneNumber);
-            this.panel1.Controls.Add(this.searchMKH);
             this.panel1.Controls.Add(this.search);
             this.panel1.Controls.Add(this.searchName);
             this.panel1.Location = new System.Drawing.Point(30, 12);
@@ -189,28 +189,28 @@
             this.panel1.Size = new System.Drawing.Size(1659, 104);
             this.panel1.TabIndex = 5;
             // 
-            // checkBox1
+            // checkBoxSearch
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(1162, 32);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(312, 42);
-            this.checkBox1.TabIndex = 15;
-            this.checkBox1.Text = "Tình trạng thanh toán";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxSearch.AutoSize = true;
+            this.checkBoxSearch.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxSearch.Location = new System.Drawing.Point(1162, 32);
+            this.checkBoxSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkBoxSearch.Name = "checkBoxSearch";
+            this.checkBoxSearch.Size = new System.Drawing.Size(312, 42);
+            this.checkBoxSearch.TabIndex = 15;
+            this.checkBoxSearch.Text = "Tình trạng thanh toán";
+            this.checkBoxSearch.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // dateTimeSearch
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(934, 32);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(220, 45);
-            this.dateTimePicker1.TabIndex = 14;
+            this.dateTimeSearch.CustomFormat = "dd/MM/yyyy";
+            this.dateTimeSearch.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeSearch.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimeSearch.Location = new System.Drawing.Point(934, 32);
+            this.dateTimeSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dateTimeSearch.Name = "dateTimeSearch";
+            this.dateTimeSearch.Size = new System.Drawing.Size(220, 45);
+            this.dateTimeSearch.TabIndex = 14;
             // 
             // label1
             // 
@@ -227,20 +227,14 @@
             // searchPhoneNumber
             // 
             this.searchPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchPhoneNumber.Location = new System.Drawing.Point(618, 33);
+            this.searchPhoneNumber.Location = new System.Drawing.Point(485, 33);
             this.searchPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchPhoneNumber.Name = "searchPhoneNumber";
-            this.searchPhoneNumber.Size = new System.Drawing.Size(308, 45);
+            this.searchPhoneNumber.Size = new System.Drawing.Size(441, 45);
             this.searchPhoneNumber.TabIndex = 12;
-            // 
-            // searchMKH
-            // 
-            this.searchMKH.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchMKH.Location = new System.Drawing.Point(295, 32);
-            this.searchMKH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.searchMKH.Name = "searchMKH";
-            this.searchMKH.Size = new System.Drawing.Size(315, 45);
-            this.searchMKH.TabIndex = 11;
+            this.searchPhoneNumber.TextChanged += new System.EventHandler(this.searchPhoneNumber_TextChanged);
+            this.searchPhoneNumber.Enter += new System.EventHandler(this.searchPhoneNumber_Enter_1);
+            this.searchPhoneNumber.Leave += new System.EventHandler(this.searchPhoneNumber_Leave_1);
             // 
             // search
             // 
@@ -252,6 +246,7 @@
             this.search.TabIndex = 9;
             this.search.Text = "Search";
             this.search.UseVisualStyleBackColor = true;
+            this.search.Click += new System.EventHandler(this.search_Click);
             // 
             // searchName
             // 
@@ -259,8 +254,10 @@
             this.searchName.Location = new System.Drawing.Point(15, 33);
             this.searchName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchName.Name = "searchName";
-            this.searchName.Size = new System.Drawing.Size(269, 45);
+            this.searchName.Size = new System.Drawing.Size(437, 45);
             this.searchName.TabIndex = 10;
+            this.searchName.Enter += new System.EventHandler(this.searchName_Enter_1);
+            this.searchName.Leave += new System.EventHandler(this.searchName_Leave);
             // 
             // label3
             // 
@@ -316,11 +313,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView grvkh;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.CheckBox checkBoxSearch;
+        private System.Windows.Forms.DateTimePicker dateTimeSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox searchPhoneNumber;
-        private System.Windows.Forms.TextBox searchMKH;
         private System.Windows.Forms.Button search;
         private System.Windows.Forms.TextBox searchName;
         private System.Windows.Forms.Label label3;

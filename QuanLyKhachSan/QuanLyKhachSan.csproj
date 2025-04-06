@@ -71,6 +71,12 @@
     <Compile Include="DatPhong.Designer.cs">
       <DependentUpon>DatPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogEditKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogEditKhachHang.Designer.cs">
+      <DependentUpon>DialogEditKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogThemHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DatPhong.resx">
       <DependentUpon>DatPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogEditKhachHang.resx">
+      <DependentUpon>DialogEditKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DialogThemHoaDon.resx">
       <DependentUpon>DialogThemHoaDon.cs</DependentUpon>
