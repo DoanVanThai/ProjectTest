@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace QuanLyKhachSan
             LoadData();
             HandleSearch(false);
             HandleFilter(isFilterVisible);
+            cbbKieuTT_FormChiTiet.SelectedIndex = 0;
+            cbbTrangThai_FormChiTiet.SelectedIndex = 0;
         }
         private void LoadData()
         {
@@ -81,7 +84,6 @@ namespace QuanLyKhachSan
         {
             tabControl.SelectedTab = tabDanhSach;
         }
-
         private void btnIn_Click(object sender, EventArgs e)
         {
 
@@ -110,7 +112,6 @@ namespace QuanLyKhachSan
         {
 
         }
-
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
 
@@ -124,6 +125,7 @@ namespace QuanLyKhachSan
         private void btnTaoHoaDon_Click(object sender, EventArgs e)
         {
             DialogThemHoaDon dialogThemHoaDon = new DialogThemHoaDon();
+            dialogThemHoaDon.HoaDonAdded += DialogThemHoaDon_HoaDonAdded;
             dialogThemHoaDon.ShowDialog();
             dialogThemHoaDon.StartPosition = FormStartPosition.Manual;
             dialogThemHoaDon.Location = new Point(
@@ -161,6 +163,11 @@ namespace QuanLyKhachSan
                 cbbTrangThai.SelectedIndex = 0;
                 cbbKieuTT.SelectedIndex = 0;
             }
+        }
+        private void DialogThemHoaDon_HoaDonAdded(object sender, EventArgs e)
+        {
+            // Khi hóa đơn đã được thêm thành công, load lại dữ liệu
+            LoadData();
         }
 
         private void btnBoLoc_Click(object sender, EventArgs e)
@@ -219,13 +226,207 @@ namespace QuanLyKhachSan
             {
                 // Lấy dòng được chọn
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+
+                string tinhTrang = selectedRow.Cells["TINHTRANGTHANHTOAN"].Value?.ToString();
+                if(tinhTrang == "Đã thanh toán")
+                {
+                    OnlyRead(true);
+                }
+                // Chuyển Tab
                 tabControl.SelectedTab = tabChiTiet;
+                string DatPhongID = selectedRow.Cells["DATPHONGID"].Value?.ToString();
+
+                // Thêm dữ liệu vào những ô đơn giản
+                txtDonGia_FormChiTiet.Text = selectedRow.Cells["GIA"].Value?.ToString();
+                txtHoaDonID_FormChiTiet.Text = selectedRow.Cells["HOADONID"].Value?.ToString();
+                txtDatPhongID_FormChiTiet.Text = selectedRow.Cells["DATPHONGID"].Value?.ToString();
+                txtPhongID_FormChiTiet.Text = selectedRow.Cells["PHONGID"].Value?.ToString();
+
+                //Thêm dữ liệu vào ô DateTime
+                if (DateTime.TryParse(selectedRow.Cells["NGAYLAP"].Value?.ToString(), out DateTime ngayLap))
+                    dtpNgayLap_FormChiTiet.Value = ngayLap;
+
+                if (DateTime.TryParse(selectedRow.Cells["NGAYDEN"].Value?.ToString(), out DateTime ngayDen))
+                    dtpNgayDen_FormChiTiet.Value = ngayDen;
+
+                if (DateTime.TryParse(selectedRow.Cells["NGAYDI"].Value?.ToString(), out DateTime ngayDi))
+                    dtpNgayDi_FormChiTiet.Value = ngayDi;
+
+                if (DateTime.TryParse(selectedRow.Cells["NGAYTHANHTOAN"].Value?.ToString(), out DateTime ngayTT))
+                    dtpNgayTT_FormChiTiet.Value = ngayTT;
+
+                //Tính số ngày ở 
+                TimeSpan soNgayO = ngayDi.Date - ngayDen.Date;
+                txtSoNgayO_FormChiTiet.Text = soNgayO.Days.ToString();
+
+                // Tính Toán Tiền Phòng = Đơn giá x số ngày
+                decimal gia = 0;
+                if (decimal.TryParse(selectedRow.Cells["GIA"].Value?.ToString(), out decimal parsedGia))
+                {
+                    gia = parsedGia;
+                }
+                decimal tienPhong = gia * soNgayO.Days;
+                txtTienPhong_FormChiTiet.Text = tienPhong.ToString();
+                LoadDichVu(DatPhongID);
+
+
+                // Tính toán Tổng Tiền = Tiền Phòng + Tiền Dịch Vụ
+                decimal tienDichVu = 0;
+                if (!decimal.TryParse(txtTienDV_FormChiTiet.Text, out tienDichVu))
+                {
+                    tienDichVu = 0; // Hoặc bạn có thể hiện thông báo lỗi
+                }
+                decimal Tong = tienPhong + tienDichVu;
+                txtTongTien_FormChiTiet.Text = Tong.ToString();
+
+                // Gán giá trị trạng thái thanh toán vào ComboBox
+                if (cbbTrangThai_FormChiTiet.Items.Contains(tinhTrang))
+                    cbbTrangThai_FormChiTiet.SelectedItem = tinhTrang;
+
+                // Gán giá trị kiểu thanh toán vào ComboBox
+                string hinhThuc = selectedRow.Cells["HINHTHUCTHANHTOAN"].Value?.ToString();
+                if (cbbKieuTT_FormChiTiet.Items.Contains(hinhThuc))
+                    cbbKieuTT_FormChiTiet.SelectedItem = hinhThuc;
             }
         }
-
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txtPhongID_FormChiTiet_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtHoaDonID_FormChiTiet_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpNgayTT_FormChiTiet_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbTrangThai_FormChiTiet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbKieuTT_FormChiTiet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTienDV_FormChiTiet_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTongTien_FormChiTiet_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTienPhong_FormChiTiet_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSoNgayO_FormChiTiet_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDonGia_FormChiTiet_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSLDV_FormChiTiet_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpNgayLap_FormChiTiet_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpNgayDen_FormChiTiet_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpNgayDi_FormChiTiet_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void LoadDichVu(string datPhongId)
+        {
+            string queryDV = @"
+                SELECT 
+                    dv.TENDICHVU AS [Tên Dịch Vụ],
+                    ddv.GIA AS [Giá],
+                    ddv.SOLUONG AS [SL],
+                    ddv.NGAYDAT AS [Ngày Đặt],
+                    (ddv.GIA * ddv.SOLUONG) AS [Thành Tiền]
+                FROM DatDichVu ddv
+                JOIN DichVu dv ON ddv.DICHVUID = dv.DICHVUID
+                WHERE ddv.DATPHONGID = @DatPhongID
+            ";
+
+            SqlParameter[] paramDV = new SqlParameter[]
+            {
+                new SqlParameter("@DatPhongID", datPhongId)
+            };
+
+            DataTable dvTable = dbHelper.GetData(queryDV, paramDV);
+            if (dvTable != null && dvTable.Rows.Count > 0)
+            {
+                dataGridView2.DataSource = dvTable;
+                // Tính tổng số lượng dịch vụ và tổng tiền dịch vụ
+                int tongSoLuongDV = 0;
+                decimal tongTienDV = 0;
+
+                foreach (DataRow row in dvTable.Rows)
+                {
+                    int soLuong = Convert.ToInt32(row["SL"]);
+                    decimal thanhTien = Convert.ToDecimal(row["Thành Tiền"]);
+
+                    tongSoLuongDV += soLuong;
+                    tongTienDV += thanhTien;
+                    txtSLDV_FormChiTiet.Text = tongSoLuongDV.ToString();
+                    txtTienDV_FormChiTiet.Text = tongTienDV.ToString();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy dịch vụ nào đã sử dụng cho đặt phòng này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dataGridView2.DataSource = null;
+            }
+        }
+        private void OnlyRead(bool check)
+        {
+            txtHoaDonID_FormChiTiet.Enabled = !check;
+            txtDatPhongID_FormChiTiet.Enabled = !check;
+            txtPhongID_FormChiTiet.Enabled = !check;
+            dtpNgayDen_FormChiTiet.Enabled = !check;
+            dtpNgayDi_FormChiTiet.Enabled = !check;
+            dtpNgayLap_FormChiTiet.Enabled = !check;
+            dtpNgayTT_FormChiTiet.Enabled = !check;
+            txtDonGia_FormChiTiet.Enabled = !check;
+            txtSoNgayO_FormChiTiet.Enabled = !check;
+            txtTienPhong_FormChiTiet.Enabled = !check;
+            txtTienDV_FormChiTiet.Enabled = !check;
+            txtSLDV_FormChiTiet.Enabled = !check;
+            txtTongTien_FormChiTiet.Enabled = !check;
+            cbbKieuTT_FormChiTiet.Enabled = !check;
+            cbbTrangThai_FormChiTiet.Enabled = !check;
+            btnThanhToan.Enabled = !check;
+            labelOnlyRead.Visible = check;
         }
     }
 }
