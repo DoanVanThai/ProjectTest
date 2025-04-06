@@ -91,8 +91,8 @@ namespace QuanLyKhachSan
             dialogThemHoaDon.ShowDialog();
             dialogThemHoaDon.StartPosition = FormStartPosition.Manual;
             dialogThemHoaDon.Location = new Point(
-    this.Location.X + this.Width + 10,
-    this.Location.Y + (this.Height - dialogThemHoaDon.Height) / 2
+            this.Location.X + this.Width + 10,
+            this.Location.Y + (this.Height - dialogThemHoaDon.Height) / 2
 );
 
         }
