@@ -88,15 +88,20 @@
             this.btnIn = new System.Windows.Forms.ToolStripButton();
             this.btnQuayLai = new System.Windows.Forms.ToolStripButton();
             this.labelOnlyRead = new System.Windows.Forms.Label();
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             this.tabControl.SuspendLayout();
             this.tabDanhSach.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabChiTiet.SuspendLayout();
+<<<<<<< HEAD
+            this.toolStrip1.SuspendLayout();
+=======
             this.groupBox3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             this.SuspendLayout();
             // 
             // tabControl
@@ -104,7 +109,8 @@
             this.tabControl.Controls.Add(this.tabDanhSach);
             this.tabControl.Controls.Add(this.tabChiTiet);
             this.tabControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl.Location = new System.Drawing.Point(-1, 1);
+            this.tabControl.Location = new System.Drawing.Point(-2, 2);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1146, 664);
@@ -114,7 +120,8 @@
             // 
             this.tabDanhSach.Controls.Add(this.toolStrip2);
             this.tabDanhSach.Controls.Add(this.groupBox2);
-            this.tabDanhSach.Location = new System.Drawing.Point(4, 29);
+            this.tabDanhSach.Location = new System.Drawing.Point(4, 40);
+            this.tabDanhSach.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabDanhSach.Name = "tabDanhSach";
             this.tabDanhSach.Padding = new System.Windows.Forms.Padding(3);
             this.tabDanhSach.Size = new System.Drawing.Size(1138, 631);
@@ -124,6 +131,7 @@
             // 
             // toolStrip2
             // 
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnTaoHoaDon,
             this.toolStripLabelDatPhongID,
@@ -137,9 +145,10 @@
             this.cbbTrangThai,
             this.toolStripLabelKieuThanhToan,
             this.cbbKieuTT});
-            this.toolStrip2.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip2.Location = new System.Drawing.Point(4, 5);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(1132, 54);
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.toolStrip2.Size = new System.Drawing.Size(1703, 66);
             this.toolStrip2.TabIndex = 4;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -147,7 +156,11 @@
             // 
             this.toolStripLabelDatPhongID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabelDatPhongID.Name = "toolStripLabelDatPhongID";
+<<<<<<< HEAD
+            this.toolStripLabelDatPhongID.Size = new System.Drawing.Size(126, 61);
+=======
             this.toolStripLabelDatPhongID.Size = new System.Drawing.Size(81, 51);
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             this.toolStripLabelDatPhongID.Text = "Đặt Phòng ID";
             // 
             // txtDatPhongID
@@ -155,14 +168,22 @@
             this.txtDatPhongID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDatPhongID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDatPhongID.Name = "txtDatPhongID";
+<<<<<<< HEAD
+            this.txtDatPhongID.Size = new System.Drawing.Size(149, 66);
+=======
             this.txtDatPhongID.Size = new System.Drawing.Size(100, 54);
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             this.txtDatPhongID.Click += new System.EventHandler(this.toolStripTextBox1_Click);
             // 
             // toolStripLabelMaKH
             // 
             this.toolStripLabelMaKH.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabelMaKH.Name = "toolStripLabelMaKH";
+<<<<<<< HEAD
+            this.toolStripLabelMaKH.Size = new System.Drawing.Size(148, 61);
+=======
             this.toolStripLabelMaKH.Size = new System.Drawing.Size(93, 51);
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             this.toolStripLabelMaKH.Text = "Mã Khách Hàng";
             // 
             // txtMaKH
@@ -170,9 +191,15 @@
             this.txtMaKH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMaKH.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMaKH.Name = "txtMaKH";
+<<<<<<< HEAD
+            this.txtMaKH.Size = new System.Drawing.Size(149, 66);
+=======
             this.txtMaKH.Size = new System.Drawing.Size(100, 54);
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             // 
             // toolStripLabelTrangThai
+<<<<<<< HEAD
+=======
             // 
             this.toolStripLabelTrangThai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabelTrangThai.Name = "toolStripLabelTrangThai";
@@ -727,7 +754,7 @@
             this.btnSua.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSua.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(36, 51);
+            this.btnSua.Size = new System.Drawing.Size(48, 61);
             this.btnSua.Text = "Sửa";
             this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
@@ -740,7 +767,7 @@
             this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnXoa.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(36, 51);
+            this.btnXoa.Size = new System.Drawing.Size(49, 61);
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -753,7 +780,7 @@
             this.btnIn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnIn.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
             this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(36, 51);
+            this.btnIn.Size = new System.Drawing.Size(36, 61);
             this.btnIn.Text = "In";
             this.btnIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
@@ -766,7 +793,7 @@
             this.btnQuayLai.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnQuayLai.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
             this.btnQuayLai.Name = "btnQuayLai";
-            this.btnQuayLai.Size = new System.Drawing.Size(54, 51);
+            this.btnQuayLai.Size = new System.Drawing.Size(86, 61);
             this.btnQuayLai.Text = "Quay lại";
             this.btnQuayLai.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
@@ -785,10 +812,11 @@
             // 
             // CheckOut
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1146, 663);
             this.Controls.Add(this.tabControl);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CheckOut";
             this.Text = "CheckOut";
             this.Load += new System.EventHandler(this.CheckOut_Load);
@@ -801,11 +829,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabChiTiet.ResumeLayout(false);
             this.tabChiTiet.PerformLayout();
+<<<<<<< HEAD
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+=======
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+>>>>>>> 0f511a326530343e1012b77693a4b155828a3182
             this.ResumeLayout(false);
 
         }

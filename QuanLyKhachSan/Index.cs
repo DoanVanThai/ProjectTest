@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,8 +16,10 @@ namespace QuanLyKhachSan
         public Index()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
-        }
+            OpenChildForm(new Home());
+            label1.Text = "Trang chủ";
+        } 
+
         private Form currentFormChild;
         private void OpenChildForm(Form childForm)
         {

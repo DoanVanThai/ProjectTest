@@ -25,32 +25,75 @@ namespace QuanLyKhachSan
         public QuanLyKhachHang()
         {
             InitializeComponent();
-            //Load_Data();
+            Load_Data();
             adt = new SqlDataAdapter();
             dt = new DataTable();
         }
-        //private void Load_Data()
-        //{
-        //    string sqlstr = "select a.AuthorID, Name, Address, Gender, Birthday, Phone, b.Quantity " +
-        //        "from Authors a join Books b on a.AuthorID = b.AuthorID";
-        //    //string sqlcbb = "select AuthorID, Quantity from Books";
-        //    try
-        //    {
-        //        if (con.State == ConnectionState.Closed)
-        //         con.Open();
-        //        cmd = new SqlCommand(sqlstr, con);
-        //        adt = new SqlDataAdapter(cmd);
-        //        dt = new DataTable();
-        //        adt.Fill(dt);
-        //        grvkh.DataSource = dt;
-        //        con.Close();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
 
-        //}
+        private void Load_Data()
+        {
+
+            // Đảm bảo kết nối được mở
+            SqlConnection con = connectDB.GetConnection();  // Sử dụng phương thức GetConnection từ class connectDB
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+
+            // Câu lệnh SQL để lấy dữ liệu khách hàng
+            string sqlkh = @"SELECT
+         kh.KHACHHANGID AS 'Mã khách hàng',
+         kh.HOTEN AS 'Họ tên',
+         kh.GIOITINH AS 'Giới tính',
+         kh.NGAYSINH AS 'Ngày sinh',
+         kh.SODIENTHOAI AS 'Số điện thoại',
+         kh.DIACHI AS 'Địa chỉ',
+         kh.EMAIL AS 'Email',
+         COALESCE(CAST(dp.NGAYDAT AS DATE), '1900-01-01') AS 'Ngày đặt phòng',  -- Thay thế NULL bằng ngày mặc định hợp lệ
+         SUM(ISNULL(hd.TIENPHONG, 0) + ISNULL(hd.TIENDICHVU, 0)) AS 'Tổng chi tiêu',  -- Tổng chi tiêu, nếu không có hóa đơn, trả về 0
+         kh.GHICHU AS 'Loại khách hàng'
+    FROM
+         KhachHang kh
+     LEFT JOIN
+         DatPhong dp ON kh.KHACHHANGID = dp.KHACHHANGID
+     LEFT JOIN
+         HoaDonTongHop hd ON dp.DATPHONGID = hd.DATPHONGID
+     LEFT JOIN
+         DatDichVu ddv ON dp.DATPHONGID = ddv.DATPHONGID
+     GROUP BY
+         kh.KHACHHANGID, kh.HOTEN, kh.GIOITINH, kh.NGAYSINH, kh.SODIENTHOAI, kh.DIACHI, kh.EMAIL, kh.GHICHU, dp.NGAYDAT
+     ORDER BY
+         kh.KHACHHANGID;";
+
+            try
+            {
+                cmd = new SqlCommand(sqlkh, con);
+
+                adt = new SqlDataAdapter(cmd);
+                dt = new DataTable();
+                adt.Fill(dt);
+                grvkh.DataSource = dt;
+
+                grvkh.Columns["Mã khách hàng"].Width = 50;  // Sử dụng tên cột chính xác
+                grvkh.Columns["Họ tên"].Width = 100;
+                grvkh.Columns["Giới tính"].Width = 50;
+                grvkh.Columns["Ngày sinh"].Width = 100;
+                grvkh.Columns["Số điện thoại"].Width = 100;
+                grvkh.Columns["Địa chỉ"].Width = 150;
+                grvkh.Columns["Email"].Width = 150;
+                grvkh.Columns["Ngày đặt phòng"].Width = 100;
+                grvkh.Columns["Tổng chi tiêu"].Width = 100;
+                grvkh.Columns["Loại khách hàng"].Width = 120;
+
+                // Đóng kết nối sau khi thực hiện xong
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                // Hiển thị thông báo lỗi nếu có vấn đề
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         private void QuanLyKhachHang_Load(object sender, EventArgs e)
         {
             // Cài đặt văn bản placeholder mặc định
@@ -95,7 +138,7 @@ namespace QuanLyKhachSan
 
         private void QuanLyKhachHang_Load_1(object sender, EventArgs e)
         {
-            searchName.Text = "Nhập tên khách hàng...";
+            searchName.Text = "Tên khách hàng...";
             searchName.ForeColor = Color.Gray;  // Màu xám cho placeholder
             searchMKH.Text = "Nhập mã khách hàng...";
             searchMKH.ForeColor = Color.Gray;  // Màu xám cho placeholder
@@ -105,7 +148,7 @@ namespace QuanLyKhachSan
 
         private void searchName_Enter(object sender, EventArgs e)
         {
-            if (searchName.Text == "Nhập tên khách hàng...")
+            if (searchName.Text == "Tên khách hàng...")
             {
                 searchName.Text = "";
                 searchName.ForeColor = Color.Black;  // Màu chữ đen khi bắt đầu nhập
@@ -116,7 +159,7 @@ namespace QuanLyKhachSan
         {
             if (string.IsNullOrEmpty(searchName.Text))
             {
-                searchName.Text = "Nhập tên khách hàng...";
+                searchName.Text = "Tên khách hàng...";
                 searchName.ForeColor = Color.Gray;  // Màu xám cho placeholder
             }
         }
@@ -166,6 +209,52 @@ namespace QuanLyKhachSan
         private void menu_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grvkh_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (grvkh.Columns[e.ColumnIndex].Name == "Ngày đặt phòng")
+            {
+                // Kiểm tra nếu giá trị là NULL
+                if (e.Value == DBNull.Value)
+                {
+                    e.Value = "Đang xử lý";  // Hiển thị "Đang xử lý" nếu là NULL
+                }
+                else if (e.Value is DateTime)
+                {
+                    // Kiểm tra nếu giá trị là ngày 1900-01-01
+                    DateTime dateValue = (DateTime)e.Value;
+                    if (dateValue == new DateTime(1900, 1, 1))
+                    {
+                        e.Value = "Đang xử lý";  // Hiển thị "Đang xử lý" nếu ngày là 1900-01-01
+                    }
+                }
+            }
+            if (grvkh.Columns[e.ColumnIndex].Name == "Tổng chi tiêu")
+            {
+                    // Kiểm tra nếu tổng chi tiêu bằng 0
+                    decimal totalAmount = Convert.ToDecimal(e.Value);
+                    if (totalAmount == 0)
+                    {
+                        e.Value = "Chưa thanh toán";  // Hiển thị "Chưa thanh toán" nếu tổng chi tiêu là 0
+                    }
+            }
+        }
+
+        private void addnew_Click(object sender, EventArgs e)
+        {
+            DialogThemKhachHang dialog = new DialogThemKhachHang();
+            dialog.ShowDialog();
+        }
+
+        internal void LoadData()
+        {
+            throw new NotImplementedException();
         }
     }
 }
