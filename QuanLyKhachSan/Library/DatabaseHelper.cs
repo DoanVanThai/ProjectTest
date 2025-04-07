@@ -13,7 +13,7 @@ namespace QuanLyKhachSan.Library
     {
         // CHI CAN SUA LAI CONNECTSTRING , NEU DAT TEN DB GIONG HET THI CHI CAN CHINH SERVER LA XONG 
         //SFWEFSDC34\SQLEXPRESS -- thai
-        private static string connectionString = "Server=SFWEFSDC34\\SQLEXPRESSS;Database=QUANLYKHACHSAN;Integrated Security=True;";
+        private static string connectionString = "Server=SFWEFSDC34\\SQLEXPRESS;Database=QUANLYKHACHSAN;Integrated Security=True;";
 
         public DataTable GetData(string query, SqlParameter[] parameters = null)
         {
