@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView_FormThemHoaDon = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.txtDatPhongID_FormThemHoaDon = new System.Windows.Forms.ToolStripTextBox();
             this.btnTimKiem_FormThemHoaDon = new System.Windows.Forms.ToolStripButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox_FormThemHoaDon = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtTienDichVu_FormThemHoaDon = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,7 +57,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_FormThemHoaDon)).BeginInit();
             this.toolStrip1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBox_FormThemHoaDon.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -77,14 +76,6 @@
             // dataGridView_FormThemHoaDon
             // 
             this.dataGridView_FormThemHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_FormThemHoaDon.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView_FormThemHoaDon.Location = new System.Drawing.Point(8, 23);
             this.dataGridView_FormThemHoaDon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView_FormThemHoaDon.Name = "dataGridView_FormThemHoaDon";
@@ -130,35 +121,35 @@
             this.btnTimKiem_FormThemHoaDon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnTimKiem_FormThemHoaDon.Click += new System.EventHandler(this.btnTimKiem_FormThemHoaDon_Click);
             // 
-            // groupBox2
+            // groupBox_FormThemHoaDon
             // 
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.txtTienDichVu_FormThemHoaDon);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.txtSoLuongDichVu_FormThemHoaDon);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.txtTienPhong_FormThemHoaDon);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.txtSoNgayO_FormThemHoaDon);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.txtDonGia_FormThemHoaDon);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.dtpNgayDi_FormThemHoaDon);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.dtpNgayDen_FormThemHoaDon);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.dtpNgayLap_FormThemHoaDon);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.txtPhongID_FormThemHoaDon);
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(8, 98);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox2.Size = new System.Drawing.Size(538, 387);
-            this.groupBox2.TabIndex = 22;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Form Hóa Đơn";
+            this.groupBox_FormThemHoaDon.Controls.Add(this.label10);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.txtTienDichVu_FormThemHoaDon);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.label9);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.txtSoLuongDichVu_FormThemHoaDon);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.label8);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.txtTienPhong_FormThemHoaDon);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.label7);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.txtSoNgayO_FormThemHoaDon);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.label6);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.txtDonGia_FormThemHoaDon);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.label5);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.dtpNgayDi_FormThemHoaDon);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.label4);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.dtpNgayDen_FormThemHoaDon);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.label3);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.dtpNgayLap_FormThemHoaDon);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.label2);
+            this.groupBox_FormThemHoaDon.Controls.Add(this.txtPhongID_FormThemHoaDon);
+            this.groupBox_FormThemHoaDon.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox_FormThemHoaDon.Location = new System.Drawing.Point(8, 98);
+            this.groupBox_FormThemHoaDon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox_FormThemHoaDon.Name = "groupBox_FormThemHoaDon";
+            this.groupBox_FormThemHoaDon.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox_FormThemHoaDon.Size = new System.Drawing.Size(538, 387);
+            this.groupBox_FormThemHoaDon.TabIndex = 22;
+            this.groupBox_FormThemHoaDon.TabStop = false;
+            this.groupBox_FormThemHoaDon.Text = "Form Hóa Đơn";
             // 
             // label10
             // 
@@ -365,7 +356,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(777, 680);
             this.Controls.Add(this.btnXacNhan_FormThemHoaDon);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox_FormThemHoaDon);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -377,8 +368,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_FormThemHoaDon)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBox_FormThemHoaDon.ResumeLayout(false);
+            this.groupBox_FormThemHoaDon.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,7 +382,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox txtDatPhongID_FormThemHoaDon;
         private System.Windows.Forms.ToolStripButton btnTimKiem_FormThemHoaDon;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox_FormThemHoaDon;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtTienDichVu_FormThemHoaDon;
         private System.Windows.Forms.Label label9;
