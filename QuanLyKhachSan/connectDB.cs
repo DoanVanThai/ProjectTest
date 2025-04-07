@@ -16,7 +16,9 @@ namespace QuanLyKhachSan
         //ket noi cua hai vang :
         //private static string connectionString = @"Data Source=DEVVG\\SQLEXPRESS;Initial Catalog=QUANLYKHACHSAN;Integrated Security=True";
 
-
+        //ket noi cua TT
+        private static string connectionString = "Data Source = TT; Initial Catalog = QUANLYKHACHSAN; Integrated Security = True";
+        
         public static SqlConnection GetConnection()
         {
             SqlConnection conn = new SqlConnection(connectionString);
