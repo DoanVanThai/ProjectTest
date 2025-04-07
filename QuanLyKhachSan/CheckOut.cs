@@ -109,11 +109,6 @@ namespace QuanLyKhachSan
             this.Location.X + this.Width + 10,
             this.Location.Y + (this.Height - dialogThemHoaDon.Height) / 2
 );
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 82015b0a851610cd2dbc58e8256b82a4cd45c1ad
         }
 
         private void CheckOut_Load(object sender, EventArgs e)

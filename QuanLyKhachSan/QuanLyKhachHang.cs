@@ -428,5 +428,72 @@ namespace QuanLyKhachSan
                 MessageBox.Show("Vui lòng chọn một khách hàng để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Chức năng này chưa được triển khai.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra nếu có dòng nào trong DataGridView được chọn
+            if (grvkh.SelectedRows.Count > 0)
+            {
+                // Lấy ID khách hàng từ hàng đã chọn
+                int customerId = Convert.ToInt32(grvkh.SelectedRows[0].Cells["Mã khách hàng"].Value);
+
+                // Xác nhận xóa khách hàng
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa khách hàng này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // Tạo kết nối đến cơ sở dữ liệu
+                    SqlConnection con = connectDB.GetConnection();
+                    try
+                    {
+                        if (con.State == ConnectionState.Closed)
+                            con.Open();
+
+                        // Câu lệnh SQL để xóa khách hàng
+                        string sqlDelete = "DELETE FROM KhachHang WHERE KHACHHANGID = @KHACHHANGID";
+
+                        // Tạo SqlCommand và thêm tham số
+                        SqlCommand cmd = new SqlCommand(sqlDelete, con);
+                        cmd.Parameters.AddWithValue("@KHACHHANGID", customerId);
+
+                        // Thực thi câu lệnh xóa
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            // Thông báo xóa thành công
+                            MessageBox.Show("Khách hàng đã được xóa thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Cập nhật lại dữ liệu trong DataGridView sau khi xóa
+                            Load_Data(); // Gọi lại hàm LoadData để reload data vào DataGridView
+                        }
+                        else
+                        {
+                            // Nếu không có hàng nào bị xóa
+                            MessageBox.Show("Khách hàng không tồn tại hoặc đã bị xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Hiển thị lỗi nếu có
+                        MessageBox.Show("Lỗi khi xóa khách hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        con.Close(); // Đảm bảo đóng kết nối
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn khách hàng để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
     }
 }

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.menu = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.delete = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
             this.addnew = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,10 +57,10 @@
             this.menu.AccessibleName = "Menu";
             this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.menu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.menu.Controls.Add(this.button4);
             this.menu.Controls.Add(this.button3);
             this.menu.Controls.Add(this.button2);
             this.menu.Controls.Add(this.button1);
-            this.menu.Controls.Add(this.delete);
             this.menu.Controls.Add(this.edit);
             this.menu.Controls.Add(this.addnew);
             this.menu.Controls.Add(this.label2);
@@ -70,6 +70,20 @@
             this.menu.Size = new System.Drawing.Size(1659, 107);
             this.menu.TabIndex = 3;
             this.menu.Paint += new System.Windows.Forms.PaintEventHandler(this.menu_Paint);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button4.Location = new System.Drawing.Point(646, 30);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(135, 48);
+            this.button4.TabIndex = 15;
+            this.button4.Text = "Xóa";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -110,19 +124,6 @@
             this.button1.Text = "Thống kê";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // delete
-            // 
-            this.delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.delete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delete.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.delete.Location = new System.Drawing.Point(579, 30);
-            this.delete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(135, 48);
-            this.delete.TabIndex = 11;
-            this.delete.Text = "Xóa";
-            this.delete.UseVisualStyleBackColor = false;
             // 
             // edit
             // 
@@ -307,7 +308,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.Button addnew;
-        private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -321,5 +321,6 @@
         private System.Windows.Forms.TextBox searchName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button4;
     }
 }
