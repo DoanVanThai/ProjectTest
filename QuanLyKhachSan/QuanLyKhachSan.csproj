@@ -70,7 +70,6 @@
     <Compile Include="CheckOut.Designer.cs">
       <DependentUpon>CheckOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClassHoaDon.cs" />
     <Compile Include="connectDB.cs" />
     <Compile Include="DangKi.cs">
       <SubType>Form</SubType>
@@ -114,6 +113,7 @@
     <Compile Include="FormXuatHoaDon.Designer.cs">
       <DependentUpon>FormXuatHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="HoaDonC.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
