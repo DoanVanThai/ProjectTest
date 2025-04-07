@@ -82,11 +82,11 @@
             this.dtpNgayLap_FormChiTiet = new System.Windows.Forms.DateTimePicker();
             this.label26 = new System.Windows.Forms.Label();
             this.txtPhongID_FormChiTiet = new System.Windows.Forms.TextBox();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.toolStrip_FormChiTiet = new System.Windows.Forms.ToolStrip();
             this.btnXoa_FormChiTiet = new System.Windows.Forms.ToolStripButton();
             this.btnIn_FormChiTiet = new System.Windows.Forms.ToolStripButton();
             this.btnQuayLai_FormChiTiet = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip_FormChiTiet = new System.Windows.Forms.ToolStrip();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.tabControl.SuspendLayout();
             this.tabDanhSach.SuspendLayout();
             this.toolStrip_FormDanhSach.SuspendLayout();
@@ -185,6 +185,7 @@
             this.txtMaKH_FormDanhSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMaKH_FormDanhSach.Name = "txtMaKH_FormDanhSach";
             this.txtMaKH_FormDanhSach.Size = new System.Drawing.Size(67, 54);
+            this.txtMaKH_FormDanhSach.Click += new System.EventHandler(this.txtMaKH_FormDanhSach_Click);
             // 
             // btnTimKiem_FormDanhSach
             // 
@@ -238,6 +239,7 @@
             this.cbbTrangThai_FormDanhSach.Name = "cbbTrangThai_FormDanhSach";
             this.cbbTrangThai_FormDanhSach.Size = new System.Drawing.Size(82, 54);
             this.cbbTrangThai_FormDanhSach.SelectedIndexChanged += new System.EventHandler(this.cbbTrangThai_SelectedIndexChanged);
+            this.cbbTrangThai_FormDanhSach.Click += new System.EventHandler(this.cbbTrangThai_FormDanhSach_Click);
             // 
             // toolStripLabelKieuThanhToan
             // 
@@ -258,6 +260,7 @@
             this.cbbKieuTT_FormDanhSach.Name = "cbbKieuTT_FormDanhSach";
             this.cbbKieuTT_FormDanhSach.Size = new System.Drawing.Size(150, 54);
             this.cbbKieuTT_FormDanhSach.SelectedIndexChanged += new System.EventHandler(this.cbbKieuTT_SelectedIndexChanged);
+            this.cbbKieuTT_FormDanhSach.Click += new System.EventHandler(this.cbbKieuTT_FormDanhSach_Click);
             // 
             // groupBox2
             // 
@@ -721,6 +724,18 @@
             this.txtPhongID_FormChiTiet.TabIndex = 47;
             this.txtPhongID_FormChiTiet.TextChanged += new System.EventHandler(this.txtPhongID_FormChiTiet_TextChanged);
             // 
+            // toolStrip_FormChiTiet
+            // 
+            this.toolStrip_FormChiTiet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnXoa_FormChiTiet,
+            this.btnIn_FormChiTiet,
+            this.btnQuayLai_FormChiTiet});
+            this.toolStrip_FormChiTiet.Location = new System.Drawing.Point(2, 2);
+            this.toolStrip_FormChiTiet.Name = "toolStrip_FormChiTiet";
+            this.toolStrip_FormChiTiet.Size = new System.Drawing.Size(1132, 54);
+            this.toolStrip_FormChiTiet.TabIndex = 0;
+            this.toolStrip_FormChiTiet.Text = "toolStrip1";
+            // 
             // btnXoa_FormChiTiet
             // 
             this.btnXoa_FormChiTiet.Enabled = false;
@@ -761,18 +776,6 @@
             this.btnQuayLai_FormChiTiet.Text = "Quay lại";
             this.btnQuayLai_FormChiTiet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnQuayLai_FormChiTiet.Click += new System.EventHandler(this.btnQuayLai_Click);
-            // 
-            // toolStrip_FormChiTiet
-            // 
-            this.toolStrip_FormChiTiet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnXoa_FormChiTiet,
-            this.btnIn_FormChiTiet,
-            this.btnQuayLai_FormChiTiet});
-            this.toolStrip_FormChiTiet.Location = new System.Drawing.Point(2, 2);
-            this.toolStrip_FormChiTiet.Name = "toolStrip_FormChiTiet";
-            this.toolStrip_FormChiTiet.Size = new System.Drawing.Size(1132, 54);
-            this.toolStrip_FormChiTiet.TabIndex = 0;
-            this.toolStrip_FormChiTiet.Text = "toolStrip1";
             // 
             // CheckOut
             // 

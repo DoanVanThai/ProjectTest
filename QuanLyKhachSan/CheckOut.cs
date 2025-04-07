@@ -191,7 +191,42 @@ namespace QuanLyKhachSan
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            HandleSearch(true);
+            if (!txtMaKH_FormDanhSach.Visible)
+            {
+                HandleSearch(true);
+            }else
+            {
+                string khachHangId = txtMaKH_FormDanhSach.Text.Trim();
+                string datPhongId = txtDatPhongID_FormDanhSach.Text.Trim();
+
+                string query = @"
+                    SELECT hd.*
+                    FROM HoaDonTongHop hd
+                    JOIN DatPhong dp ON hd.DATPHONGID = dp.DATPHONGID
+                    WHERE 1=1";
+
+                List<SqlParameter> parameters = new List<SqlParameter>();
+
+                if (!string.IsNullOrEmpty(khachHangId))
+                {
+                    query += " AND dp.KHACHHANGID = @KhachHangId";
+                    parameters.Add(new SqlParameter("@KhachHangId", khachHangId));
+                }
+
+                if (!string.IsNullOrEmpty(datPhongId))
+                {
+                    query += " AND hd.DATPHONGID = @DatPhongId";
+                    parameters.Add(new SqlParameter("@DatPhongId", datPhongId));
+                }
+
+                DatabaseHelper db = new DatabaseHelper();
+                DataTable result = db.GetData(query, parameters.ToArray());
+
+                if (result != null)
+                {
+                    dataGridView_FormDanhSach.DataSource = result;
+                }
+            }
         }
 
         private void btnDongTimKiem_Click(object sender, EventArgs e)
@@ -620,6 +655,21 @@ namespace QuanLyKhachSan
             {
                 MessageBox.Show("Cập nhật thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtMaKH_FormDanhSach_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbTrangThai_FormDanhSach_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbKieuTT_FormDanhSach_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
