@@ -72,11 +72,11 @@ namespace QuanLyKhachSan
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_file = new System.Windows.Forms.TextBox();
             this.cbb_chucvu = new System.Windows.Forms.ComboBox();
@@ -86,6 +86,8 @@ namespace QuanLyKhachSan
             this.dt_ngayvaolam = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_upload = new System.Windows.Forms.Button();
+            this.btn_luu = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txt_cccd = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -101,6 +103,10 @@ namespace QuanLyKhachSan
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_themmoi = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_xuatfile = new System.Windows.Forms.Button();
+            this.btn_refesh = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_timkiem = new System.Windows.Forms.Button();
@@ -119,12 +125,6 @@ namespace QuanLyKhachSan
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label14 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btn_upload = new System.Windows.Forms.Button();
-            this.btn_luu = new System.Windows.Forms.Button();
-            this.btn_themmoi = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btn_xuatfile = new System.Windows.Forms.Button();
-            this.btn_refesh = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -143,7 +143,7 @@ namespace QuanLyKhachSan
             // txt_file
             // 
             this.txt_file.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_file.Location = new System.Drawing.Point(223, 31);
+            this.txt_file.Location = new System.Drawing.Point(541, 31);
             this.txt_file.Name = "txt_file";
             this.txt_file.Size = new System.Drawing.Size(561, 22);
             this.txt_file.TabIndex = 25;
@@ -153,7 +153,7 @@ namespace QuanLyKhachSan
             // 
             this.cbb_chucvu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_chucvu.FormattingEnabled = true;
-            this.cbb_chucvu.Location = new System.Drawing.Point(875, 108);
+            this.cbb_chucvu.Location = new System.Drawing.Point(1326, 101);
             this.cbb_chucvu.Name = "cbb_chucvu";
             this.cbb_chucvu.Size = new System.Drawing.Size(197, 24);
             this.cbb_chucvu.TabIndex = 24;
@@ -164,7 +164,7 @@ namespace QuanLyKhachSan
             // 
             this.txt_luong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_luong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_luong.Location = new System.Drawing.Point(875, 147);
+            this.txt_luong.Location = new System.Drawing.Point(1326, 140);
             this.txt_luong.Name = "txt_luong";
             this.txt_luong.Size = new System.Drawing.Size(197, 22);
             this.txt_luong.TabIndex = 23;
@@ -184,7 +184,7 @@ namespace QuanLyKhachSan
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(801, 150);
+            this.label13.Location = new System.Drawing.Point(1252, 143);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(63, 19);
             this.label13.TabIndex = 22;
@@ -196,7 +196,7 @@ namespace QuanLyKhachSan
             this.dt_ngayvaolam.CustomFormat = "yyyy-mm-dd";
             this.dt_ngayvaolam.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_ngayvaolam.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dt_ngayvaolam.Location = new System.Drawing.Point(875, 75);
+            this.dt_ngayvaolam.Location = new System.Drawing.Point(1326, 68);
             this.dt_ngayvaolam.Name = "dt_ngayvaolam";
             this.dt_ngayvaolam.Size = new System.Drawing.Size(197, 22);
             this.dt_ngayvaolam.TabIndex = 21;
@@ -206,7 +206,7 @@ namespace QuanLyKhachSan
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(752, 81);
+            this.label12.Location = new System.Drawing.Point(1203, 74);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(117, 19);
             this.label12.TabIndex = 20;
@@ -238,20 +238,51 @@ namespace QuanLyKhachSan
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(15, 438);
+            this.groupBox2.Location = new System.Drawing.Point(12, 802);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1120, 233);
+            this.groupBox2.Size = new System.Drawing.Size(1699, 245);
             this.groupBox2.TabIndex = 43;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin Nhân Viên";
             this.groupBox2.UseWaitCursor = true;
+            // 
+            // btn_upload
+            // 
+            this.btn_upload.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btn_upload.Image = global::QuanLyKhachSan.Properties.Resources.wallet__1_;
+            this.btn_upload.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_upload.Location = new System.Drawing.Point(1125, 23);
+            this.btn_upload.Name = "btn_upload";
+            this.btn_upload.Size = new System.Drawing.Size(113, 37);
+            this.btn_upload.TabIndex = 19;
+            this.btn_upload.Text = "Nhập file";
+            this.btn_upload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_upload.UseVisualStyleBackColor = false;
+            this.btn_upload.UseWaitCursor = true;
+            this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
+            // 
+            // btn_luu
+            // 
+            this.btn_luu.BackColor = System.Drawing.Color.Aquamarine;
+            this.btn_luu.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_luu.Image = global::QuanLyKhachSan.Properties.Resources.save;
+            this.btn_luu.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btn_luu.Location = new System.Drawing.Point(1548, 186);
+            this.btn_luu.Name = "btn_luu";
+            this.btn_luu.Size = new System.Drawing.Size(82, 43);
+            this.btn_luu.TabIndex = 16;
+            this.btn_luu.Text = "Lưu";
+            this.btn_luu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_luu.UseVisualStyleBackColor = false;
+            this.btn_luu.UseWaitCursor = true;
+            this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(792, 112);
+            this.label6.Location = new System.Drawing.Point(1243, 105);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 19);
             this.label6.TabIndex = 18;
@@ -262,9 +293,9 @@ namespace QuanLyKhachSan
             // 
             this.txt_cccd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_cccd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_cccd.Location = new System.Drawing.Point(494, 78);
+            this.txt_cccd.Location = new System.Drawing.Point(817, 71);
             this.txt_cccd.Name = "txt_cccd";
-            this.txt_cccd.Size = new System.Drawing.Size(197, 22);
+            this.txt_cccd.Size = new System.Drawing.Size(279, 22);
             this.txt_cccd.TabIndex = 17;
             this.txt_cccd.UseWaitCursor = true;
             this.txt_cccd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ktra_cccd);
@@ -273,7 +304,7 @@ namespace QuanLyKhachSan
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(399, 81);
+            this.label10.Location = new System.Drawing.Point(722, 74);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(89, 19);
             this.label10.TabIndex = 16;
@@ -289,9 +320,9 @@ namespace QuanLyKhachSan
             "Nam ",
             "Nữ",
             "Khác"});
-            this.cbb_gioitinh.Location = new System.Drawing.Point(128, 147);
+            this.cbb_gioitinh.Location = new System.Drawing.Point(237, 137);
             this.cbb_gioitinh.Name = "cbb_gioitinh";
-            this.cbb_gioitinh.Size = new System.Drawing.Size(197, 24);
+            this.cbb_gioitinh.Size = new System.Drawing.Size(279, 24);
             this.cbb_gioitinh.TabIndex = 15;
             this.cbb_gioitinh.UseWaitCursor = true;
             // 
@@ -299,9 +330,9 @@ namespace QuanLyKhachSan
             // 
             this.txt_sdt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_sdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_sdt.Location = new System.Drawing.Point(494, 141);
+            this.txt_sdt.Location = new System.Drawing.Point(817, 134);
             this.txt_sdt.Name = "txt_sdt";
-            this.txt_sdt.Size = new System.Drawing.Size(197, 22);
+            this.txt_sdt.Size = new System.Drawing.Size(279, 22);
             this.txt_sdt.TabIndex = 13;
             this.txt_sdt.UseWaitCursor = true;
             this.txt_sdt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ktra_sdt);
@@ -310,7 +341,7 @@ namespace QuanLyKhachSan
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(399, 149);
+            this.label9.Location = new System.Drawing.Point(722, 142);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(96, 19);
             this.label9.TabIndex = 11;
@@ -322,9 +353,9 @@ namespace QuanLyKhachSan
             this.dt_ngaysinh.CustomFormat = "yyyy-mm-dd";
             this.dt_ngaysinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_ngaysinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dt_ngaysinh.Location = new System.Drawing.Point(128, 110);
+            this.dt_ngaysinh.Location = new System.Drawing.Point(237, 100);
             this.dt_ngaysinh.Name = "dt_ngaysinh";
-            this.dt_ngaysinh.Size = new System.Drawing.Size(197, 22);
+            this.dt_ngaysinh.Size = new System.Drawing.Size(279, 22);
             this.dt_ngaysinh.TabIndex = 9;
             this.dt_ngaysinh.UseWaitCursor = true;
             // 
@@ -332,7 +363,7 @@ namespace QuanLyKhachSan
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(399, 112);
+            this.label8.Location = new System.Drawing.Point(722, 105);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 19);
             this.label8.TabIndex = 8;
@@ -343,7 +374,7 @@ namespace QuanLyKhachSan
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(36, 116);
+            this.label7.Location = new System.Drawing.Point(145, 106);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 19);
             this.label7.TabIndex = 7;
@@ -354,9 +385,9 @@ namespace QuanLyKhachSan
             // 
             this.txt_email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_email.Location = new System.Drawing.Point(494, 108);
+            this.txt_email.Location = new System.Drawing.Point(817, 101);
             this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(197, 22);
+            this.txt_email.Size = new System.Drawing.Size(279, 22);
             this.txt_email.TabIndex = 6;
             this.txt_email.UseWaitCursor = true;
             // 
@@ -364,9 +395,9 @@ namespace QuanLyKhachSan
             // 
             this.txt_hoten.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_hoten.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_hoten.Location = new System.Drawing.Point(130, 75);
+            this.txt_hoten.Location = new System.Drawing.Point(239, 65);
             this.txt_hoten.Name = "txt_hoten";
-            this.txt_hoten.Size = new System.Drawing.Size(195, 22);
+            this.txt_hoten.Size = new System.Drawing.Size(277, 22);
             this.txt_hoten.TabIndex = 5;
             this.txt_hoten.UseWaitCursor = true;
             // 
@@ -374,7 +405,7 @@ namespace QuanLyKhachSan
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(32, 153);
+            this.label4.Location = new System.Drawing.Point(145, 140);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 19);
             this.label4.TabIndex = 2;
@@ -385,7 +416,7 @@ namespace QuanLyKhachSan
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(36, 81);
+            this.label5.Location = new System.Drawing.Point(145, 71);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 19);
             this.label5.TabIndex = 1;
@@ -410,11 +441,65 @@ namespace QuanLyKhachSan
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btn_xuatfile);
             this.panel1.Controls.Add(this.btn_refesh);
-            this.panel1.Location = new System.Drawing.Point(31, 56);
+            this.panel1.Location = new System.Drawing.Point(25, 78);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(262, 61);
+            this.panel1.Size = new System.Drawing.Size(262, 67);
             this.panel1.TabIndex = 45;
             this.panel1.UseWaitCursor = true;
+            // 
+            // btn_themmoi
+            // 
+            this.btn_themmoi.BackColor = System.Drawing.Color.LightBlue;
+            this.btn_themmoi.Image = global::QuanLyKhachSan.Properties.Resources.them;
+            this.btn_themmoi.Location = new System.Drawing.Point(18, 3);
+            this.btn_themmoi.Name = "btn_themmoi";
+            this.btn_themmoi.Size = new System.Drawing.Size(53, 54);
+            this.btn_themmoi.TabIndex = 31;
+            this.btn_themmoi.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_themmoi.UseVisualStyleBackColor = false;
+            this.btn_themmoi.UseWaitCursor = true;
+            this.btn_themmoi.Click += new System.EventHandler(this.btn_themmoi_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.MistyRose;
+            this.button1.Image = global::QuanLyKhachSan.Properties.Resources.timmmm;
+            this.button1.Location = new System.Drawing.Point(136, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(53, 54);
+            this.button1.TabIndex = 34;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.UseWaitCursor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_xuatfile
+            // 
+            this.btn_xuatfile.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_xuatfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_xuatfile.Image = global::QuanLyKhachSan.Properties.Resources.xuatfile;
+            this.btn_xuatfile.Location = new System.Drawing.Point(77, 3);
+            this.btn_xuatfile.Name = "btn_xuatfile";
+            this.btn_xuatfile.Size = new System.Drawing.Size(53, 54);
+            this.btn_xuatfile.TabIndex = 23;
+            this.btn_xuatfile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_xuatfile.UseVisualStyleBackColor = false;
+            this.btn_xuatfile.UseWaitCursor = true;
+            this.btn_xuatfile.Click += new System.EventHandler(this.btn_xuatfile_Click);
+            // 
+            // btn_refesh
+            // 
+            this.btn_refesh.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_refesh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refesh.Image = global::QuanLyKhachSan.Properties.Resources.refesh;
+            this.btn_refesh.Location = new System.Drawing.Point(195, 4);
+            this.btn_refesh.Name = "btn_refesh";
+            this.btn_refesh.Size = new System.Drawing.Size(53, 54);
+            this.btn_refesh.TabIndex = 33;
+            this.btn_refesh.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_refesh.UseVisualStyleBackColor = false;
+            this.btn_refesh.UseWaitCursor = true;
+            this.btn_refesh.Click += new System.EventHandler(this.btn_refesh_Click);
             // 
             // panel2
             // 
@@ -425,9 +510,9 @@ namespace QuanLyKhachSan
             this.panel2.Controls.Add(this.btn_timkiem);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.cbb_timchucvu);
-            this.panel2.Location = new System.Drawing.Point(648, 91);
+            this.panel2.Location = new System.Drawing.Point(1229, 101);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(481, 73);
+            this.panel2.Size = new System.Drawing.Size(482, 64);
             this.panel2.TabIndex = 46;
             this.panel2.UseWaitCursor = true;
             // 
@@ -477,20 +562,20 @@ namespace QuanLyKhachSan
             // 
             // tble_nhanvien
             // 
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tble_nhanvien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tble_nhanvien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.tble_nhanvien.BackgroundColor = System.Drawing.Color.Silver;
             this.tble_nhanvien.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tble_nhanvien.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.tble_nhanvien.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tble_nhanvien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tble_nhanvien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tble_nhanvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tble_nhanvien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -504,35 +589,35 @@ namespace QuanLyKhachSan
             this.Column9,
             this.Column10,
             this.Column11});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tble_nhanvien.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tble_nhanvien.DefaultCellStyle = dataGridViewCellStyle3;
             this.tble_nhanvien.GridColor = System.Drawing.Color.Black;
             this.tble_nhanvien.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tble_nhanvien.Location = new System.Drawing.Point(9, 170);
+            this.tble_nhanvien.Location = new System.Drawing.Point(12, 199);
             this.tble_nhanvien.Name = "tble_nhanvien";
             this.tble_nhanvien.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tble_nhanvien.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tble_nhanvien.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.tble_nhanvien.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tble_nhanvien.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tble_nhanvien.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.tble_nhanvien.RowTemplate.Height = 24;
-            this.tble_nhanvien.Size = new System.Drawing.Size(1120, 262);
+            this.tble_nhanvien.Size = new System.Drawing.Size(1699, 597);
             this.tble_nhanvien.StandardTab = true;
             this.tble_nhanvien.TabIndex = 42;
             this.tble_nhanvien.UseWaitCursor = true;
@@ -633,11 +718,11 @@ namespace QuanLyKhachSan
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label14.Location = new System.Drawing.Point(409, 22);
+            this.label14.Location = new System.Drawing.Point(713, 9);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(357, 38);
+            this.label14.Size = new System.Drawing.Size(430, 46);
             this.label14.TabIndex = 44;
             this.label14.Text = "DANH SÁCH NHÂN VIÊN ";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -647,94 +732,9 @@ namespace QuanLyKhachSan
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // btn_upload
-            // 
-            this.btn_upload.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btn_upload.Image = global::QuanLyKhachSan.Properties.Resources.wallet__1_;
-            this.btn_upload.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_upload.Location = new System.Drawing.Point(807, 23);
-            this.btn_upload.Name = "btn_upload";
-            this.btn_upload.Size = new System.Drawing.Size(113, 37);
-            this.btn_upload.TabIndex = 19;
-            this.btn_upload.Text = "Nhập file";
-            this.btn_upload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_upload.UseVisualStyleBackColor = false;
-            this.btn_upload.UseWaitCursor = true;
-            this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
-            // 
-            // btn_luu
-            // 
-            this.btn_luu.BackColor = System.Drawing.Color.Aquamarine;
-            this.btn_luu.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_luu.Image = global::QuanLyKhachSan.Properties.Resources.save;
-            this.btn_luu.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btn_luu.Location = new System.Drawing.Point(990, 184);
-            this.btn_luu.Name = "btn_luu";
-            this.btn_luu.Size = new System.Drawing.Size(82, 43);
-            this.btn_luu.TabIndex = 16;
-            this.btn_luu.Text = "Lưu";
-            this.btn_luu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_luu.UseVisualStyleBackColor = false;
-            this.btn_luu.UseWaitCursor = true;
-            this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
-            // 
-            // btn_themmoi
-            // 
-            this.btn_themmoi.BackColor = System.Drawing.Color.LightBlue;
-            this.btn_themmoi.Image = global::QuanLyKhachSan.Properties.Resources.them;
-            this.btn_themmoi.Location = new System.Drawing.Point(18, 3);
-            this.btn_themmoi.Name = "btn_themmoi";
-            this.btn_themmoi.Size = new System.Drawing.Size(53, 54);
-            this.btn_themmoi.TabIndex = 31;
-            this.btn_themmoi.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_themmoi.UseVisualStyleBackColor = false;
-            this.btn_themmoi.UseWaitCursor = true;
-            this.btn_themmoi.Click += new System.EventHandler(this.btn_themmoi_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.MistyRose;
-            this.button1.Image = global::QuanLyKhachSan.Properties.Resources.timmmm;
-            this.button1.Location = new System.Drawing.Point(136, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(53, 54);
-            this.button1.TabIndex = 34;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.UseWaitCursor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btn_xuatfile
-            // 
-            this.btn_xuatfile.BackColor = System.Drawing.Color.LightGreen;
-            this.btn_xuatfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_xuatfile.Image = global::QuanLyKhachSan.Properties.Resources.xuatfile;
-            this.btn_xuatfile.Location = new System.Drawing.Point(77, 3);
-            this.btn_xuatfile.Name = "btn_xuatfile";
-            this.btn_xuatfile.Size = new System.Drawing.Size(53, 54);
-            this.btn_xuatfile.TabIndex = 23;
-            this.btn_xuatfile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_xuatfile.UseVisualStyleBackColor = false;
-            this.btn_xuatfile.UseWaitCursor = true;
-            this.btn_xuatfile.Click += new System.EventHandler(this.btn_xuatfile_Click);
-            // 
-            // btn_refesh
-            // 
-            this.btn_refesh.BackColor = System.Drawing.Color.LightGreen;
-            this.btn_refesh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_refesh.Image = global::QuanLyKhachSan.Properties.Resources.refesh;
-            this.btn_refesh.Location = new System.Drawing.Point(195, 4);
-            this.btn_refesh.Name = "btn_refesh";
-            this.btn_refesh.Size = new System.Drawing.Size(53, 54);
-            this.btn_refesh.TabIndex = 33;
-            this.btn_refesh.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_refesh.UseVisualStyleBackColor = false;
-            this.btn_refesh.UseWaitCursor = true;
-            this.btn_refesh.Click += new System.EventHandler(this.btn_refesh_Click);
-            // 
             // QuanLyNhanVien
             // 
-            this.ClientSize = new System.Drawing.Size(1144, 693);
+            this.ClientSize = new System.Drawing.Size(1723, 1059);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -766,7 +766,13 @@ namespace QuanLyKhachSan
                 "nv.SODIENTHOAI, nv.EMAIL, cv.TENCHUCVU, nv.NGAYVAOLAM, nv.LUONG " +
                 "FROM  NhanVien nv LEFT JOIN ChucVu cv ON nv.CHUCVUID = cv.CHUCVUID";
             DataTable tb = new DataTable();
-            classTT.load_nhanvien(tble_nhanvien);
+            SqlCommand cmd = new SqlCommand(search, classTT.con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            da.Fill(tb);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            classTT.con.Close();
             DialogResult result = MessageBox.Show("Bạn muốn xuất file Excel?", "THÔNG BÁO", MessageBoxButtons.OKCancel);
 
             if (result == DialogResult.OK)
@@ -859,51 +865,23 @@ namespace QuanLyKhachSan
             int columnStart = 1;
             int rowEnd = rowStart + tb.Rows.Count - 1;
             int columnEnd = tb.Columns.Count;
-            if (oSheet != null)
-            {
-                els.Range c1 = (els.Range)oSheet.Cells[rowStart, columnStart];
-                els.Range c2 = (els.Range)oSheet.Cells[rowEnd, columnEnd];
-
-                if (c1 != null && c2 != null)
-                {
-                    els.Range range = oSheet.get_Range(c1, c2);
-                    range.Value2 = arr; // Điền dữ liệu vào vùng
-                }
-                else
-                {
-                    MessageBox.Show("Ô không hợp lệ.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Worksheet không hợp lệ.");
-            }
-
+            //Ô bắt đầu điền dữ liệu
             // Ô bắt đầu điền dữ liệu
-            //if (oSheet != null)
-            //{
-            //    els.Range c1 = (els.Range)oSheet.Cells[rowStart, columnStart];
-            //    els.Range c2 = (els.Range)oSheet.Cells[rowEnd, columnEnd];
+            els.Range c1 = (els.Range)oSheet.Cells[rowStart, columnStart];
+            // Ô kết thúc điền dữ liệu
+            els.Range c2 = (els.Range)oSheet.Cells[rowEnd, columnEnd];
+            // Lấy về vùng điền dữ liệu
+            els.Range range = oSheet.get_Range(c1, c2);
+            //Điền dữ liệu vào vùng đã thiết lập
+            range.Value2 = arr;
+            // Kẻ viền
+            range.Borders.LineStyle = els.Constants.xlSolid;
 
-            //    if (c1 != null && c2 != null)
-            //    {
-            //        // Lấy về vùng điền dữ liệu
-            //        els.Range a = oSheet.get_Range(c1, c2);
-            //        //Điền dữ liệu vào vùng đã thiết lập
-            //        a.Value2 = arr;
-            //        // Kẻ viền
-            //        a.Borders.LineStyle = els.Constants.xlSolid;
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Ô không hợp lệ.");
-            //    }
-
-            // Căn giữa cột STT
-            //els.Range c3 = (els.Range)oSheet.Cells[rowEnd, columnStart];
-            //els.Range c4 = oSheet.get_Range(c1, c3);
-            //oSheet.get_Range(c3, c4).HorizontalAlignment = els.XlHAlign.xlHAlignCenter;
-            //định dạng ngày sinh 
+            //Căn giữa cột STT
+            els.Range c3 = (els.Range)oSheet.Cells[rowEnd, columnStart];
+                els.Range c4 = oSheet.get_Range(c1, c3);
+                oSheet.get_Range(c3, c4).HorizontalAlignment = els.XlHAlign.xlHAlignCenter;
+                //định dạng ngày sinh
             els.Range cl_ns = oSheet.get_Range("C" + rowStart, "C" + rowEnd);
             cl_ns.Columns.NumberFormat = "dd/mm/yyyy";
             els.Range cl_nvl = oSheet.get_Range("H" + rowStart, "H" + rowEnd);
@@ -972,7 +950,7 @@ namespace QuanLyKhachSan
             }
 
             // Kiểm tra số lượng ký tự đã nhập
-            if (txt_sdt.Text.Length != 10 && !char.IsControl(e.KeyChar))
+            if (txt_sdt.Text.Length > 10 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true; // Ngăn không cho nhập thêm ký tự nếu đã đủ 10 số
                 MessageBox.Show("SDT chỉ chứa 10 chữ số", "THÔNG BÁO");
@@ -1029,10 +1007,10 @@ namespace QuanLyKhachSan
             }
 
             // Kiểm tra số lượng ký tự đã nhập
-            if (txt_cccd.Text.Length != 12 && !char.IsControl(e.KeyChar))
+            if (txt_cccd.Text.Length > 12 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true; // Ngăn không cho nhập thêm ký tự nếu đã đủ 10 số
-                MessageBox.Show("CCCD phải chứa 12 chữ số", "THÔNG BÁO");
+                MessageBox.Show("CCCD chỉ chứa 12 chữ số", "THÔNG BÁO");
             }
         }
 
@@ -1055,9 +1033,9 @@ namespace QuanLyKhachSan
         }
         private void FormatExcelSheet(xls.Worksheet wsheet)
         {
-            xls.Range dateRangecol2 = wsheet.Columns[2];
+            xls.Range dateRangecol2 = (els.Range)wsheet.Columns[2];
             dateRangecol2.NumberFormat = "yyyy/mm/dd";
-            xls.Range dateRangecol8 = wsheet.Columns[8];
+            xls.Range dateRangecol8 = (els.Range)wsheet.Columns[8];
             dateRangecol8.NumberFormat = "yyyy/mm/dd";
         }
         private void ReadExcel(String filename)
@@ -1085,6 +1063,7 @@ namespace QuanLyKhachSan
                             //Đổ dòng dữ liệu vào DB
                             DateTime ns;
                             DateTime nvl = DateTime.MinValue;
+
                             if (DateTime.TryParse(wsheet.Cells[i, 2].Value?.ToString(), out ns) &&
                                 DateTime.TryParse(wsheet.Cells[i, 8].Value?.ToString(), out nvl))
                             {
@@ -1198,6 +1177,16 @@ namespace QuanLyKhachSan
                 txt_cccd.Focus();
                 return;
             }
+            if (cccd.Length<12)
+            {
+                MessageBox.Show("CCCD phải chứa 12 chữ số!", "THÔNG BÁO");
+                return;
+            }
+            if (sdt.Length <10)
+            {
+                MessageBox.Show("SDT phải chứa 10 chữ số!", "THÔNG BÁO");
+                return;
+            }
             if (!email.EndsWith("@gmail.com") ||
                     email.Length < 11 ||
                     !char.IsLetter(email[0]) ||
@@ -1213,7 +1202,7 @@ namespace QuanLyKhachSan
             cmd.Parameters.Add("@ten", SqlDbType.NVarChar, 100).Value = hoten;
             cmd.Parameters.Add("@ns", SqlDbType.Date).Value = ngaysinh;
             cmd.Parameters.Add("@gt", SqlDbType.NVarChar, 10).Value = gioitinh;
-            cmd.Parameters.Add("@cccd", SqlDbType.VarChar, 10).Value = cccd;
+            cmd.Parameters.Add("@cccd", SqlDbType.VarChar, 12).Value = cccd;
             cmd.Parameters.Add("@sdt", SqlDbType.VarChar, 10).Value = sdt;
             cmd.Parameters.Add("@email", SqlDbType.NVarChar, 100).Value = email;
             cmd.Parameters.Add("@chucvu", SqlDbType.NVarChar, 100).Value = chucvu;
@@ -1222,7 +1211,7 @@ namespace QuanLyKhachSan
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             classTT.con.Close();
-            MessageBox.Show("Thêm mới nhân viên thành công", "THÔNG BÁO");
+            MessageBox.Show("Thêm mới nhân viên thành công!", "THÔNG BÁO");
             xoatrang();
             classTT.load_nhanvien(tble_nhanvien);
         }

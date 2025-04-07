@@ -84,7 +84,7 @@ namespace QuanLyKhachSan
             cmd.Parameters.Add("@ten", SqlDbType.NVarChar, 100).Value = hoten;
             cmd.Parameters.Add("@ns", SqlDbType.Date).Value = ngaysinh;
             cmd.Parameters.Add("@gt", SqlDbType.NVarChar, 10).Value = gioitinh;
-            cmd.Parameters.Add("@cccd", SqlDbType.VarChar, 10).Value = cccd;
+            cmd.Parameters.Add("@cccd", SqlDbType.VarChar, 12).Value = cccd;
             cmd.Parameters.Add("@sdt", SqlDbType.VarChar, 10).Value = sdt;
             cmd.Parameters.Add("@email", SqlDbType.NVarChar, 100).Value = email;
             cmd.Parameters.Add("@chucvu", SqlDbType.NVarChar, 100).Value = chucvu;
