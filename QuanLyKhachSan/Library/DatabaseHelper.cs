@@ -12,7 +12,8 @@ namespace QuanLyKhachSan.Library
     public class DatabaseHelper
     {
         // CHI CAN SUA LAI CONNECTSTRING , NEU DAT TEN DB GIONG HET THI CHI CAN CHINH SERVER LA XONG 
-        private string connectionString = "Server=DEVVG\\SQLEXPRESS;Database=QUANLYKHACHSAN;Integrated Security=True;";
+        private static string connectionString = "Server=SFWEFSDC34\\SQLEXPRESS;Database=QUANLYKHACHSAN;Integrated Security=True;";
+
         public DataTable GetData(string query, SqlParameter[] parameters = null)
         {
             using (SqlConnection con = new SqlConnection(connectionString))

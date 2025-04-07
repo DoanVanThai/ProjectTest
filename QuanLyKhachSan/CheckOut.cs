@@ -14,6 +14,7 @@ namespace QuanLyKhachSan
 {
     public partial class CheckOut: Form
     {
+        private int hoaDonIDCurrent;
         private DatabaseHelper dbHelper;
         private bool isFilterVisible = false;
         public CheckOut()
@@ -32,43 +33,43 @@ namespace QuanLyKhachSan
             DataTable dataTable = dbHelper.GetData(query);
             if (dataTable != null)
             {
-                dataGridView1.DataSource = dataTable;
+                dataGridView_FormDanhSach.DataSource = dataTable;
                 // Tùy chỉnh hiển thị các cột
-                dataGridView1.EnableHeadersVisualStyles = false;
-                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkBlue;
-                dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-                dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9 , FontStyle.Bold);
-                dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dataGridView_FormDanhSach.EnableHeadersVisualStyles = false;
+                dataGridView_FormDanhSach.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkBlue;
+                dataGridView_FormDanhSach.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                dataGridView_FormDanhSach.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9 , FontStyle.Bold);
+                dataGridView_FormDanhSach.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-                dataGridView1.Columns["HOADONID"].HeaderText = "ID";
-                dataGridView1.Columns["NGAYLAP"].HeaderText = "Ngày Lập";
-                dataGridView1.Columns["DATPHONGID"].HeaderText = "ĐặtPhòngID";
-                dataGridView1.Columns["PHONGID"].HeaderText = "PhòngID";
-                dataGridView1.Columns["NGAYDEN"].HeaderText = "Ngày Đến";
-                dataGridView1.Columns["NGAYDI"].HeaderText = "Ngày Đi";
-                dataGridView1.Columns["GIA"].HeaderText = "Đơn giá";
-                dataGridView1.Columns["TIENPHONG"].HeaderText = "Tiền Phòng";
-                dataGridView1.Columns["SOLUONGDICHVU"].HeaderText = "SL Dịch Vụ";
-                dataGridView1.Columns["TIENDICHVU"].HeaderText = "Tiền DV";
-                dataGridView1.Columns["TINHTRANGTHANHTOAN"].HeaderText = "Trạng Thái";
-                dataGridView1.Columns["NGAYTHANHTOAN"].HeaderText = "Ngày TT";
-                dataGridView1.Columns["HINHTHUCTHANHTOAN"].HeaderText = "KIỂU TT";
-                dataGridView1.RowHeadersWidth = 25;  
-                dataGridView1.Columns["HOADONID"].Width = 30;
-                dataGridView1.Columns["SOLUONGDICHVU"].Width = 30;
-                dataGridView1.Columns["DATPHONGID"].Width = 70;
-                dataGridView1.Columns["TIENDICHVU"].Width = 83;
-                dataGridView1.Columns["TIENPHONG"].Width = 89;
-                dataGridView1.Columns["GIA"].Width = 90;
-                dataGridView1.Columns["NGAYDEN"].Width = 90;
-                dataGridView1.Columns["NGAYDI"].Width = 90;
-                dataGridView1.Columns["PHONGID"].Width = 57;
-                dataGridView1.Columns["NGAYLAP"].Width = 90;
-                dataGridView1.Columns["NGAYTHANHTOAN"].Width = 90;
-                dataGridView1.Columns["TINHTRANGTHANHTOAN"].Width = 122;
-                dataGridView1.Columns["HINHTHUCTHANHTOAN"].Width = 104;
+                dataGridView_FormDanhSach.Columns["HOADONID"].HeaderText = "ID";
+                dataGridView_FormDanhSach.Columns["NGAYLAP"].HeaderText = "Ngày Lập";
+                dataGridView_FormDanhSach.Columns["DATPHONGID"].HeaderText = "ĐặtPhòngID";
+                dataGridView_FormDanhSach.Columns["PHONGID"].HeaderText = "PhòngID";
+                dataGridView_FormDanhSach.Columns["NGAYDEN"].HeaderText = "Ngày Đến";
+                dataGridView_FormDanhSach.Columns["NGAYDI"].HeaderText = "Ngày Đi";
+                dataGridView_FormDanhSach.Columns["GIA"].HeaderText = "Đơn giá";
+                dataGridView_FormDanhSach.Columns["TIENPHONG"].HeaderText = "Tiền Phòng";
+                dataGridView_FormDanhSach.Columns["SOLUONGDICHVU"].HeaderText = "SL Dịch Vụ";
+                dataGridView_FormDanhSach.Columns["TIENDICHVU"].HeaderText = "Tiền DV";
+                dataGridView_FormDanhSach.Columns["TINHTRANGTHANHTOAN"].HeaderText = "Trạng Thái";
+                dataGridView_FormDanhSach.Columns["NGAYTHANHTOAN"].HeaderText = "Ngày TT";
+                dataGridView_FormDanhSach.Columns["HINHTHUCTHANHTOAN"].HeaderText = "KIỂU TT";
+                dataGridView_FormDanhSach.RowHeadersWidth = 25;  
+                dataGridView_FormDanhSach.Columns["HOADONID"].Width = 30;
+                dataGridView_FormDanhSach.Columns["SOLUONGDICHVU"].Width = 30;
+                dataGridView_FormDanhSach.Columns["DATPHONGID"].Width = 70;
+                dataGridView_FormDanhSach.Columns["TIENDICHVU"].Width = 83;
+                dataGridView_FormDanhSach.Columns["TIENPHONG"].Width = 89;
+                dataGridView_FormDanhSach.Columns["GIA"].Width = 90;
+                dataGridView_FormDanhSach.Columns["NGAYDEN"].Width = 90;
+                dataGridView_FormDanhSach.Columns["NGAYDI"].Width = 90;
+                dataGridView_FormDanhSach.Columns["PHONGID"].Width = 57;
+                dataGridView_FormDanhSach.Columns["NGAYLAP"].Width = 90;
+                dataGridView_FormDanhSach.Columns["NGAYTHANHTOAN"].Width = 90;
+                dataGridView_FormDanhSach.Columns["TINHTRANGTHANHTOAN"].Width = 122;
+                dataGridView_FormDanhSach.Columns["HINHTHUCTHANHTOAN"].Width = 104;
             }
-            if (!dataGridView1.Columns.Contains("ChiTiet"))
+            if (!dataGridView_FormDanhSach.Columns.Contains("ChiTiet"))
             {
                 DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
                 btnColumn.Name = "ChiTiet";
@@ -77,7 +78,7 @@ namespace QuanLyKhachSan
                 btnColumn.UseColumnTextForButtonValue = true;
                 btnColumn.Width = 60;
                 btnColumn.DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                dataGridView1.Columns.Add(btnColumn); 
+                dataGridView_FormDanhSach.Columns.Add(btnColumn); 
             }
         }
         private void btnQuayLai_Click(object sender, EventArgs e)
@@ -86,17 +87,55 @@ namespace QuanLyKhachSan
         }
         private void btnIn_Click(object sender, EventArgs e)
         {
-
+            FormXuatHoaDon formXuatHoaDon = new FormXuatHoaDon();
+            formXuatHoaDon.ShowDialog();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if(cbbTrangThai_FormChiTiet.SelectedIndex == 1)
+            {
+                return;
+            }
+            DialogResult result = MessageBox.Show(
+                "Bạn có chắc chắn muốn xóa không?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
+            if (result == DialogResult.Yes)
+            {
+                string query = "DELETE FROM HoaDonTongHop WHERE HOADONID = @HOADONID";
+
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@HOADONID", hoaDonIDCurrent)
+                };
+
+                DatabaseHelper db = new DatabaseHelper();
+                bool success = db.ExecuteQuery(query, parameters);
+
+                if (success)
+                {
+                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData(); // Cập nhật lại danh sách sau khi xóa
+                    ResetFields();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                // Người dùng chọn "Không", không làm gì cả
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-
+            OnlyRead(false);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -155,21 +194,21 @@ namespace QuanLyKhachSan
         {
             toolStripLabelDatPhongID.Visible = check;
             toolStripLabelMaKH.Visible = check;
-            txtDatPhongID.Visible = check;
-            txtMaKH.Visible = check;
-            btnDongTimKiem.Visible = check;
+            txtDatPhongID_FormDanhSach.Visible = check;
+            txtMaKH_FormDanhSach.Visible = check;
+            btnDongTimKiem_FormDanhSach.Visible = check;
         }
         private void HandleFilter(Boolean check)
         {
             toolStripLabelTrangThai.Visible = check;
             toolStripLabelKieuThanhToan.Visible = check;
-            cbbTrangThai.Visible = check;
-            cbbKieuTT.Visible = check;
+            cbbTrangThai_FormDanhSach.Visible = check;
+            cbbKieuTT_FormDanhSach.Visible = check;
             if (check)
             {
                 // Khi hiện bộ lọc, reset lại lựa chọn
-                cbbTrangThai.SelectedIndex = 0;
-                cbbKieuTT.SelectedIndex = 0;
+                cbbTrangThai_FormDanhSach.SelectedIndex = 0;
+                cbbKieuTT_FormDanhSach.SelectedIndex = 0;
             }
         }
         private void DialogThemHoaDon_HoaDonAdded(object sender, EventArgs e)
@@ -197,8 +236,8 @@ namespace QuanLyKhachSan
         }
         private void FilterData()
         {
-            string trangThai = cbbTrangThai.SelectedItem?.ToString();
-            string kieuTT = cbbKieuTT.SelectedItem?.ToString();
+            string trangThai = cbbTrangThai_FormDanhSach.SelectedItem?.ToString();
+            string kieuTT = cbbKieuTT_FormDanhSach.SelectedItem?.ToString();
 
             // Nếu cả 2 đều là "Mặc định" hoặc null thì load toàn bộ
             if (string.IsNullOrEmpty(trangThai) || trangThai == "Chọn trạng thái")
@@ -215,7 +254,7 @@ namespace QuanLyKhachSan
                 query += $" AND HINHTHUCTHANHTOAN = N'{kieuTT}'";
 
             DataTable filteredData = dbHelper.GetData(query);
-            dataGridView1.DataSource = filteredData;
+            dataGridView_FormDanhSach.DataSource = filteredData;
             if (filteredData.Rows.Count == 0)
             {
                 MessageBox.Show("Không có bản ghi nào thỏa mãn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -229,22 +268,27 @@ namespace QuanLyKhachSan
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             // Đảm bảo không xử lý header hoặc các cột khác
-            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "ChiTiet")
+            if (e.RowIndex >= 0 && dataGridView_FormDanhSach.Columns[e.ColumnIndex].Name == "ChiTiet")
             {
                 // Lấy dòng được chọn
-                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow selectedRow = dataGridView_FormDanhSach.Rows[e.RowIndex];
 
                 string tinhTrang = selectedRow.Cells["TINHTRANGTHANHTOAN"].Value?.ToString();
                 if(tinhTrang == "Đã thanh toán")
                 {
                     OnlyRead(true);
+                }else
+                {
+                    OnlyRead(false);
                 }
                 // Chuyển Tab
                 tabControl.SelectedTab = tabChiTiet;
                 string DatPhongID = selectedRow.Cells["DATPHONGID"].Value?.ToString();
 
                 // Thêm dữ liệu vào những ô đơn giản
+                hoaDonIDCurrent = Convert.ToInt32(selectedRow.Cells["HOADONID"].Value);
                 txtDonGia_FormChiTiet.Text = selectedRow.Cells["GIA"].Value?.ToString();
                 txtHoaDonID_FormChiTiet.Text = selectedRow.Cells["HOADONID"].Value?.ToString();
                 txtDatPhongID_FormChiTiet.Text = selectedRow.Cells["DATPHONGID"].Value?.ToString();
@@ -291,8 +335,20 @@ namespace QuanLyKhachSan
                 if (cbbTrangThai_FormChiTiet.Items.Contains(tinhTrang))
                     cbbTrangThai_FormChiTiet.SelectedItem = tinhTrang;
 
+                // Kiểm tra nếu trạng thái là đã thanh toán thì không cho xóa
+                if(cbbTrangThai_FormChiTiet.SelectedIndex == 1)
+                {
+                    btnXoa_FormChiTiet.Enabled = false;
+                }else
+                {
+                    btnXoa_FormChiTiet.Enabled=true;
+                }
                 // Gán giá trị kiểu thanh toán vào ComboBox
                 string hinhThuc = selectedRow.Cells["HINHTHUCTHANHTOAN"].Value?.ToString();
+                if(hinhThuc == "")
+                {
+                    cbbKieuTT_FormChiTiet.SelectedIndex = 0;
+                }
                 if (cbbKieuTT_FormChiTiet.Items.Contains(hinhThuc))
                     cbbKieuTT_FormChiTiet.SelectedItem = hinhThuc;
             }
@@ -393,7 +449,7 @@ namespace QuanLyKhachSan
             DataTable dvTable = dbHelper.GetData(queryDV, paramDV);
             if (dvTable != null && dvTable.Rows.Count > 0)
             {
-                dataGridView2.DataSource = dvTable;
+                dataGridView_FormChiTiet.DataSource = dvTable;
                 // Tính tổng số lượng dịch vụ và tổng tiền dịch vụ
                 int tongSoLuongDV = 0;
                 decimal tongTienDV = 0;
@@ -413,7 +469,7 @@ namespace QuanLyKhachSan
             else
             {
                 MessageBox.Show("Không tìm thấy dịch vụ nào đã sử dụng cho đặt phòng này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dataGridView2.DataSource = null;
+                dataGridView_FormChiTiet.DataSource = null;
             }
         }
         private void OnlyRead(bool check)
@@ -433,10 +489,29 @@ namespace QuanLyKhachSan
             txtTongTien_FormChiTiet.Enabled = !check;
             cbbKieuTT_FormChiTiet.Enabled = !check;
             cbbTrangThai_FormChiTiet.Enabled = !check;
-            btnThanhToan.Enabled = !check;
+            btnThanhToan_FormChiTiet.Enabled = !check;
             labelOnlyRead.Visible = check;
         }
-
+        private void ResetFields()
+        {
+            txtHoaDonID_FormChiTiet.Clear();
+            txtDatPhongID_FormChiTiet.Clear();
+            txtPhongID_FormChiTiet.Clear();
+            dtpNgayDen_FormChiTiet.Value = DateTime.Now;
+            dtpNgayDi_FormChiTiet.Value = DateTime.Now;
+            dtpNgayLap_FormChiTiet.Value = DateTime.Now;
+            dtpNgayTT_FormChiTiet.Value = DateTime.Now;
+            txtDonGia_FormChiTiet.Clear();
+            txtSoNgayO_FormChiTiet.Clear();
+            txtTienPhong_FormChiTiet.Clear();
+            txtTienDV_FormChiTiet.Clear();
+            txtSLDV_FormChiTiet.Clear();
+            txtTongTien_FormChiTiet.Clear();
+            cbbKieuTT_FormChiTiet.SelectedIndex = 0; // hoặc -1 nếu bạn muốn để trống
+            cbbTrangThai_FormChiTiet.SelectedIndex = 0;
+            labelOnlyRead.Visible = false;
+            dataGridView_FormChiTiet.DataSource = null;
+        }
         private void label19_Click(object sender, EventArgs e)
         {
 
@@ -445,6 +520,45 @@ namespace QuanLyKhachSan
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnThanhToan_FormChiTiet_Click(object sender, EventArgs e)
+        {
+            if (cbbKieuTT_FormChiTiet.SelectedIndex == 0)
+            {
+                MessageBox.Show("Phải lựa chọn kiểu thanh toán", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string kieuThanhToan = cbbKieuTT_FormChiTiet.SelectedItem.ToString();
+            //DateTime ngayThanhToan = DateTime.Now;
+            DateTime ngayThanhToan = dtpNgayTT_FormChiTiet.Value;
+            string query = @"UPDATE HoaDonTongHop
+                     SET TINHTRANGTHANHTOAN = @TINHTRANGTHANHTOAN,
+                         HINHTHUCTHANHTOAN = @HINHTHUCTHANHTOAN,
+                         NGAYTHANHTOAN = @NGAYTHANHTOAN
+                     WHERE HOADONID = @HOADONID";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@TINHTRANGTHANHTOAN", "Đã thanh toán"),
+                new SqlParameter("@HINHTHUCTHANHTOAN", kieuThanhToan),
+                new SqlParameter("@NGAYTHANHTOAN", ngayThanhToan),
+                new SqlParameter("@HOADONID", hoaDonIDCurrent)
+            };
+
+            DatabaseHelper db = new DatabaseHelper();
+            bool success = db.ExecuteQuery(query, parameters);
+
+            if (success)
+            {
+                MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+                tabControl.SelectedTab = tabDanhSach;
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
