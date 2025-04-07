@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
 using System.IO;
+using System.Globalization;
+using System.Runtime.InteropServices;
 namespace QuanLyKhachSan
 {
     
@@ -671,6 +673,7 @@ namespace QuanLyKhachSan
                     dt.Columns.Add(columnName);
                 }
             }
+
             // Lấy dữ liệu từ các hàng còn lại
             for (int row = 2; row <= range.Rows.Count; row++)  // Bắt đầu từ dòng thứ 2 vì dòng 1 là tiêu đề cột
             {
@@ -678,32 +681,60 @@ namespace QuanLyKhachSan
                 for (int col = 1; col <= range.Columns.Count; col++)
                 {
                     string cellValue = range.Cells[row, col].Value2?.ToString();
+                    string columnName = dt.Columns[col - 1].ColumnName;
 
                     // Kiểm tra và xử lý cột "Ngày sinh" để chuyển đổi định dạng ngày hợp lệ
-                    if (range.Cells[1, col].Value2?.ToString() == "Ngày sinh")
+                    if (columnName == "Ngày sinh" && !string.IsNullOrEmpty(cellValue))
                     {
-                        DateTime birthDate;
-                        if (DateTime.TryParse(cellValue, out birthDate))
+                        try
                         {
-                            newRow[col - 1] = birthDate.ToString("yyyy-MM-dd");
+                            DateTime ngaySinh;
+
+                            // Kiểm tra nếu giá trị là một số (serial number của Excel)
+                            if (double.TryParse(cellValue, out double serialDate))
+                            {
+                                ngaySinh = DateTime.FromOADate(serialDate); // Chuyển số serial thành DateTime
+                            }
+                            else
+                            {
+                                ngaySinh = DateTime.ParseExact(cellValue, "yyyy/MM/dd", CultureInfo.InvariantCulture);
+                            }
+
+                            // Chuyển đổi thành chuỗi theo định dạng yyyy-MM-dd
+                            newRow[col - 1] = ngaySinh.ToString("yyyy-MM-dd");
                         }
-                        else
+                        catch (FormatException)
                         {
-                            newRow[col - 1] = DBNull.Value;  // Nếu không hợp lệ, để trống
+                            MessageBox.Show($"Ngày sinh '{cellValue}' không hợp lệ tại dòng {row}.", "Lỗi định dạng ngày sinh", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            newRow[col - 1] = DBNull.Value; // Nếu không hợp lệ, đặt giá trị trống (DBNull)
                         }
                     }
                     else
                     {
-                        newRow[col - 1] = cellValue;  // Lưu giá trị ô vào DataRow
+                        // Kiểm tra nếu giá trị là null hoặc rỗng
+                        if (string.IsNullOrEmpty(cellValue))
+                        {
+                            newRow[col - 1] = DBNull.Value; // Nếu ô trống, gán DBNull.Value
+                        }
+                        else
+                        {
+                            newRow[col - 1] = cellValue; // Nếu có giá trị, gán giá trị ô vào DataRow
+                        }
                     }
                 }
+
                 dt.Rows.Add(newRow);  // Thêm dòng vào DataTable
             }
-
 
             // Đóng Excel sau khi xử lý xong
             workbook.Close(false);
             excelApp.Quit();
+
+            // Giải phóng tài nguyên Excel
+            Marshal.ReleaseComObject(range);
+            Marshal.ReleaseComObject(worksheet);
+            Marshal.ReleaseComObject(workbook);
+            Marshal.ReleaseComObject(excelApp);
 
             // Gán DataTable vào DataGridView
             grvkh.DataSource = dt;
