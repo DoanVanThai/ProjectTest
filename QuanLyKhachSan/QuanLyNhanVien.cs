@@ -143,7 +143,7 @@ namespace QuanLyKhachSan
             // txt_file
             // 
             this.txt_file.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_file.Location = new System.Drawing.Point(541, 31);
+            this.txt_file.Location = new System.Drawing.Point(289, 31);
             this.txt_file.Name = "txt_file";
             this.txt_file.Size = new System.Drawing.Size(561, 22);
             this.txt_file.TabIndex = 25;
@@ -153,9 +153,9 @@ namespace QuanLyKhachSan
             // 
             this.cbb_chucvu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_chucvu.FormattingEnabled = true;
-            this.cbb_chucvu.Location = new System.Drawing.Point(1326, 101);
+            this.cbb_chucvu.Location = new System.Drawing.Point(916, 121);
             this.cbb_chucvu.Name = "cbb_chucvu";
-            this.cbb_chucvu.Size = new System.Drawing.Size(197, 24);
+            this.cbb_chucvu.Size = new System.Drawing.Size(200, 24);
             this.cbb_chucvu.TabIndex = 24;
             this.cbb_chucvu.UseWaitCursor = true;
             this.cbb_chucvu.TextChanged += new System.EventHandler(this.luong_change);
@@ -164,9 +164,9 @@ namespace QuanLyKhachSan
             // 
             this.txt_luong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_luong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_luong.Location = new System.Drawing.Point(1326, 140);
+            this.txt_luong.Location = new System.Drawing.Point(916, 160);
             this.txt_luong.Name = "txt_luong";
-            this.txt_luong.Size = new System.Drawing.Size(197, 22);
+            this.txt_luong.Size = new System.Drawing.Size(200, 22);
             this.txt_luong.TabIndex = 23;
             this.txt_luong.UseWaitCursor = true;
             // 
@@ -184,7 +184,7 @@ namespace QuanLyKhachSan
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(1252, 143);
+            this.label13.Location = new System.Drawing.Point(842, 163);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(63, 19);
             this.label13.TabIndex = 22;
@@ -196,9 +196,9 @@ namespace QuanLyKhachSan
             this.dt_ngayvaolam.CustomFormat = "yyyy-mm-dd";
             this.dt_ngayvaolam.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_ngayvaolam.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dt_ngayvaolam.Location = new System.Drawing.Point(1326, 68);
+            this.dt_ngayvaolam.Location = new System.Drawing.Point(916, 88);
             this.dt_ngayvaolam.Name = "dt_ngayvaolam";
-            this.dt_ngayvaolam.Size = new System.Drawing.Size(197, 22);
+            this.dt_ngayvaolam.Size = new System.Drawing.Size(200, 22);
             this.dt_ngayvaolam.TabIndex = 21;
             this.dt_ngayvaolam.UseWaitCursor = true;
             // 
@@ -206,7 +206,7 @@ namespace QuanLyKhachSan
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1203, 74);
+            this.label12.Location = new System.Drawing.Point(793, 94);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(117, 19);
             this.label12.TabIndex = 20;
@@ -238,9 +238,9 @@ namespace QuanLyKhachSan
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 802);
+            this.groupBox2.Location = new System.Drawing.Point(12, 583);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1699, 245);
+            this.groupBox2.Size = new System.Drawing.Size(1223, 245);
             this.groupBox2.TabIndex = 43;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin Nhân Viên";
@@ -251,7 +251,7 @@ namespace QuanLyKhachSan
             this.btn_upload.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btn_upload.Image = global::QuanLyKhachSan.Properties.Resources.wallet__1_;
             this.btn_upload.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_upload.Location = new System.Drawing.Point(1125, 23);
+            this.btn_upload.Location = new System.Drawing.Point(873, 23);
             this.btn_upload.Name = "btn_upload";
             this.btn_upload.Size = new System.Drawing.Size(113, 37);
             this.btn_upload.TabIndex = 19;
@@ -267,7 +267,7 @@ namespace QuanLyKhachSan
             this.btn_luu.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_luu.Image = global::QuanLyKhachSan.Properties.Resources.save;
             this.btn_luu.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btn_luu.Location = new System.Drawing.Point(1548, 186);
+            this.btn_luu.Location = new System.Drawing.Point(1121, 186);
             this.btn_luu.Name = "btn_luu";
             this.btn_luu.Size = new System.Drawing.Size(82, 43);
             this.btn_luu.TabIndex = 16;
@@ -282,7 +282,7 @@ namespace QuanLyKhachSan
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(1243, 105);
+            this.label6.Location = new System.Drawing.Point(833, 125);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 19);
             this.label6.TabIndex = 18;
@@ -293,9 +293,9 @@ namespace QuanLyKhachSan
             // 
             this.txt_cccd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_cccd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_cccd.Location = new System.Drawing.Point(817, 71);
+            this.txt_cccd.Location = new System.Drawing.Point(509, 91);
             this.txt_cccd.Name = "txt_cccd";
-            this.txt_cccd.Size = new System.Drawing.Size(279, 22);
+            this.txt_cccd.Size = new System.Drawing.Size(200, 22);
             this.txt_cccd.TabIndex = 17;
             this.txt_cccd.UseWaitCursor = true;
             this.txt_cccd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ktra_cccd);
@@ -304,7 +304,7 @@ namespace QuanLyKhachSan
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(722, 74);
+            this.label10.Location = new System.Drawing.Point(414, 94);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(89, 19);
             this.label10.TabIndex = 16;
@@ -320,9 +320,9 @@ namespace QuanLyKhachSan
             "Nam ",
             "Nữ",
             "Khác"});
-            this.cbb_gioitinh.Location = new System.Drawing.Point(237, 137);
+            this.cbb_gioitinh.Location = new System.Drawing.Point(147, 160);
             this.cbb_gioitinh.Name = "cbb_gioitinh";
-            this.cbb_gioitinh.Size = new System.Drawing.Size(279, 24);
+            this.cbb_gioitinh.Size = new System.Drawing.Size(200, 24);
             this.cbb_gioitinh.TabIndex = 15;
             this.cbb_gioitinh.UseWaitCursor = true;
             // 
@@ -330,9 +330,9 @@ namespace QuanLyKhachSan
             // 
             this.txt_sdt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_sdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_sdt.Location = new System.Drawing.Point(817, 134);
+            this.txt_sdt.Location = new System.Drawing.Point(509, 154);
             this.txt_sdt.Name = "txt_sdt";
-            this.txt_sdt.Size = new System.Drawing.Size(279, 22);
+            this.txt_sdt.Size = new System.Drawing.Size(200, 22);
             this.txt_sdt.TabIndex = 13;
             this.txt_sdt.UseWaitCursor = true;
             this.txt_sdt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ktra_sdt);
@@ -341,7 +341,7 @@ namespace QuanLyKhachSan
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(722, 142);
+            this.label9.Location = new System.Drawing.Point(414, 162);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(96, 19);
             this.label9.TabIndex = 11;
@@ -353,9 +353,9 @@ namespace QuanLyKhachSan
             this.dt_ngaysinh.CustomFormat = "yyyy-mm-dd";
             this.dt_ngaysinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_ngaysinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dt_ngaysinh.Location = new System.Drawing.Point(237, 100);
+            this.dt_ngaysinh.Location = new System.Drawing.Point(147, 123);
             this.dt_ngaysinh.Name = "dt_ngaysinh";
-            this.dt_ngaysinh.Size = new System.Drawing.Size(279, 22);
+            this.dt_ngaysinh.Size = new System.Drawing.Size(200, 22);
             this.dt_ngaysinh.TabIndex = 9;
             this.dt_ngaysinh.UseWaitCursor = true;
             // 
@@ -363,7 +363,7 @@ namespace QuanLyKhachSan
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(722, 105);
+            this.label8.Location = new System.Drawing.Point(414, 125);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 19);
             this.label8.TabIndex = 8;
@@ -374,7 +374,7 @@ namespace QuanLyKhachSan
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(145, 106);
+            this.label7.Location = new System.Drawing.Point(55, 129);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 19);
             this.label7.TabIndex = 7;
@@ -385,9 +385,9 @@ namespace QuanLyKhachSan
             // 
             this.txt_email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_email.Location = new System.Drawing.Point(817, 101);
+            this.txt_email.Location = new System.Drawing.Point(509, 121);
             this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(279, 22);
+            this.txt_email.Size = new System.Drawing.Size(200, 22);
             this.txt_email.TabIndex = 6;
             this.txt_email.UseWaitCursor = true;
             // 
@@ -395,9 +395,9 @@ namespace QuanLyKhachSan
             // 
             this.txt_hoten.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_hoten.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_hoten.Location = new System.Drawing.Point(239, 65);
+            this.txt_hoten.Location = new System.Drawing.Point(149, 88);
             this.txt_hoten.Name = "txt_hoten";
-            this.txt_hoten.Size = new System.Drawing.Size(277, 22);
+            this.txt_hoten.Size = new System.Drawing.Size(200, 22);
             this.txt_hoten.TabIndex = 5;
             this.txt_hoten.UseWaitCursor = true;
             // 
@@ -405,7 +405,7 @@ namespace QuanLyKhachSan
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(145, 140);
+            this.label4.Location = new System.Drawing.Point(55, 163);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 19);
             this.label4.TabIndex = 2;
@@ -416,7 +416,7 @@ namespace QuanLyKhachSan
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(145, 71);
+            this.label5.Location = new System.Drawing.Point(55, 94);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 19);
             this.label5.TabIndex = 1;
@@ -510,7 +510,7 @@ namespace QuanLyKhachSan
             this.panel2.Controls.Add(this.btn_timkiem);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.cbb_timchucvu);
-            this.panel2.Location = new System.Drawing.Point(1229, 101);
+            this.panel2.Location = new System.Drawing.Point(712, 103);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(482, 64);
             this.panel2.TabIndex = 46;
@@ -599,7 +599,7 @@ namespace QuanLyKhachSan
             this.tble_nhanvien.DefaultCellStyle = dataGridViewCellStyle3;
             this.tble_nhanvien.GridColor = System.Drawing.Color.Black;
             this.tble_nhanvien.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tble_nhanvien.Location = new System.Drawing.Point(12, 199);
+            this.tble_nhanvien.Location = new System.Drawing.Point(-1, 182);
             this.tble_nhanvien.Name = "tble_nhanvien";
             this.tble_nhanvien.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -617,7 +617,7 @@ namespace QuanLyKhachSan
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.tble_nhanvien.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.tble_nhanvien.RowTemplate.Height = 24;
-            this.tble_nhanvien.Size = new System.Drawing.Size(1699, 597);
+            this.tble_nhanvien.Size = new System.Drawing.Size(1236, 395);
             this.tble_nhanvien.StandardTab = true;
             this.tble_nhanvien.TabIndex = 42;
             this.tble_nhanvien.UseWaitCursor = true;
@@ -720,9 +720,9 @@ namespace QuanLyKhachSan
             this.label14.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label14.Location = new System.Drawing.Point(713, 9);
+            this.label14.Location = new System.Drawing.Point(559, 9);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(430, 46);
+            this.label14.Size = new System.Drawing.Size(418, 45);
             this.label14.TabIndex = 44;
             this.label14.Text = "DANH SÁCH NHÂN VIÊN ";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -734,7 +734,7 @@ namespace QuanLyKhachSan
             // 
             // QuanLyNhanVien
             // 
-            this.ClientSize = new System.Drawing.Size(1723, 1059);
+            this.ClientSize = new System.Drawing.Size(1528, 840);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -898,6 +898,7 @@ namespace QuanLyKhachSan
             txt_luong.Clear();
             txt_timmanv.Clear();
             cbb_chucvu.SelectedIndex = 0;
+            txt_file.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -1048,10 +1049,12 @@ namespace QuanLyKhachSan
             {
                 xls.Application Excel = new xls.Application();
                 Excel.Workbooks.Open(filename);
-                //đọc dữ liệu từng sheet của excel
+                int totalAdded = 0; // Biến đếm số nhân viên đã thêm
+
+                // Đọc dữ liệu từng sheet của excel
                 foreach (xls.Worksheet wsheet in Excel.Worksheets)
                 {
-                    int i = 2;  //để đọc từng dòng của sheet bắt đầu từ dòng số 2
+                    int i = 2;  // Để đọc từng dòng của sheet bắt đầu từ dòng số 2
                     do
                     {
                         if (wsheet.Cells[i, 1].Value == null && wsheet.Cells[i, 2].Value == null && wsheet.Cells[i, 3].Value == null)
@@ -1060,7 +1063,7 @@ namespace QuanLyKhachSan
                         }
                         else
                         {
-                            //Đổ dòng dữ liệu vào DB
+                            // Đổ dòng dữ liệu vào DB
                             DateTime ns;
                             DateTime nvl = DateTime.MinValue;
 
@@ -1078,6 +1081,7 @@ namespace QuanLyKhachSan
                                     nvl,
                                     wsheet.Cells[i, 9].Value?.ToString() ?? ""
                                 );
+                                totalAdded++; // Tăng biến đếm
                             }
                             else
                             {
@@ -1088,6 +1092,9 @@ namespace QuanLyKhachSan
                     }
                     while (true);
                 }
+
+                // Hiển thị thông báo tổng số nhân viên đã thêm
+                MessageBox.Show($"Thêm mới {totalAdded} nhân viên thành công", "THÔNG BÁO");
             }
         }
         private void ThemmoiNhanVien(string hoten, DateTime ngaysinh, string gioitinh, string cccd, string sdt, string email, string chucvu, DateTime ngayvaolam, string luong)
@@ -1108,7 +1115,6 @@ namespace QuanLyKhachSan
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             classTT.con.Close();
-            MessageBox.Show("Thêm mới nhân viên thành công", "THÔNG BÁO");
             classTT.load_nhanvien(tble_nhanvien);
         }
 

@@ -110,6 +110,7 @@ namespace QuanLyKhachSan
                 cmd.Parameters.Add("@id", SqlDbType.VarChar, 10).Value = ma;
                 cmd.ExecuteNonQuery();
                 classTT.con.Close();
+                MessageBox.Show("Đã xóa thành công!", "THÔNG BÁO");
             }
             else
             {
