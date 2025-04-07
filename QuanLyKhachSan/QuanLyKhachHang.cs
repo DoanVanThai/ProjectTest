@@ -1,14 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.Data;
+using System.IO;
+using System.Globalization;
+using System.Runtime.InteropServices;
 namespace QuanLyKhachSan
 {
     
@@ -329,7 +330,7 @@ namespace QuanLyKhachSan
             // Kiểm tra nếu tình trạng thanh toán được chọn
             if (isPaid)
             {
-                sql += " AND hd.TINHTRANGTHANHTOAN = 'Đã thanh toán'";
+                sql += " AND hd.TINHTRANGTHANHTOAN = 'Chưa thanh toán'";
             }
             sql += @" GROUP BY
                      kh.KHACHHANGID,kh.SOCCCD, kh.HOTEN, kh.GIOITINH, kh.NGAYSINH, kh.SODIENTHOAI, kh.DIACHI, kh.EMAIL, kh.GHICHU, dp.NGAYDAT
@@ -494,5 +495,315 @@ namespace QuanLyKhachSan
             }
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application oExcel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Workbooks oBooks;
+            Microsoft.Office.Interop.Excel.Sheets oSheets;
+            Microsoft.Office.Interop.Excel.Workbook oBook;
+            Microsoft.Office.Interop.Excel.Worksheet oSheet;
+
+            // Tạo mới một Excel WorkBook
+            oExcel.Visible = true;
+            oExcel.DisplayAlerts = false;
+            oExcel.Application.SheetsInNewWorkbook = 1;
+            oBooks = oExcel.Workbooks;
+            oBook = (Microsoft.Office.Interop.Excel.Workbook)(oExcel.Workbooks.Add(Type.Missing));
+            oSheets = oBook.Worksheets;
+            oSheet = (Microsoft.Office.Interop.Excel.Worksheet)oSheets.get_Item(1);
+            oSheet.Name = "Danh sách khách hàng";
+
+            // Tạo phần đầu của Excel sheet
+            Microsoft.Office.Interop.Excel.Range head = oSheet.get_Range("A1", "I1");
+            head.MergeCells = true;
+            head.Value2 = "DANH SÁCH KHÁCH HÀNG";
+            head.Font.Bold = true;
+            head.Font.Name = "Tahoma";
+            head.Font.Size = 18;
+            head.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            // Tạo tiêu đề cột
+            // Thiết lập tên cột và độ rộng cho các cột trong Excel
+            Microsoft.Office.Interop.Excel.Range cl1 = oSheet.get_Range("A3", "A3");
+            cl1.Value2 = "Mã khách hàng";
+            cl1.ColumnWidth = 12.0;
+
+            Microsoft.Office.Interop.Excel.Range cl2 = oSheet.get_Range("B3", "B3");
+            cl2.Value2 = "Họ tên";
+            cl2.ColumnWidth = 25.0;
+
+            Microsoft.Office.Interop.Excel.Range cl3 = oSheet.get_Range("C3", "C3");
+            cl3.Value2 = "Giới tính";
+            cl3.ColumnWidth = 12.0;
+
+            Microsoft.Office.Interop.Excel.Range cl4 = oSheet.get_Range("D3", "D3");
+            cl4.Value2 = "Ngày sinh";
+            cl4.ColumnWidth = 15.0;
+
+            Microsoft.Office.Interop.Excel.Range cl5 = oSheet.get_Range("E3", "E3");
+            cl5.Value2 = "Số điện thoại";
+            cl5.ColumnWidth = 20.0;
+
+            Microsoft.Office.Interop.Excel.Range cl6 = oSheet.get_Range("F3", "F3");
+            cl6.Value2 = "Địa chỉ";
+            cl6.ColumnWidth = 25.0;
+
+            Microsoft.Office.Interop.Excel.Range cl7 = oSheet.get_Range("G3", "G3");
+            cl7.Value2 = "Số CCCD"; // Cột Số CCCD
+            cl7.ColumnWidth = 20.0;
+
+            Microsoft.Office.Interop.Excel.Range cl8 = oSheet.get_Range("H3", "H3");
+            cl8.Value2 = "Email"; // Cột Email
+            cl8.ColumnWidth = 25.0;
+
+            Microsoft.Office.Interop.Excel.Range cl9 = oSheet.get_Range("I3", "I3");
+            cl9.Value2 = "Ngày đặt phòng"; // Cột Ngày đặt phòng
+            cl9.ColumnWidth = 15.0;
+
+            Microsoft.Office.Interop.Excel.Range cl10 = oSheet.get_Range("J3", "J3");
+            cl10.Value2 = "Tổng chi tiêu"; // Cột Tổng chi tiêu
+            cl10.ColumnWidth = 18.0;
+
+            Microsoft.Office.Interop.Excel.Range cl11 = oSheet.get_Range("K3", "K3");
+            cl11.Value2 = "Loại khách"; // Cột Loại khách
+            cl11.ColumnWidth = 15.0;
+
+
+
+            // Định dạng dòng tiêu đề
+            Microsoft.Office.Interop.Excel.Range rowHead = oSheet.get_Range("A3", "K3");
+            rowHead.Font.Bold = true;
+            rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+            rowHead.Interior.ColorIndex = 15;
+            rowHead.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+            // Tạo mảng đối tượng để lưu dữ liệu từ DataGridView
+            object[,] arr = new object[grvkh.Rows.Count, grvkh.Columns.Count];
+
+            // Chuyển dữ liệu từ DataGridView vào mảng đối tượng
+            for (int r = 0; r < grvkh.Rows.Count; r++)
+            {
+                DataGridViewRow dr = grvkh.Rows[r];
+                for (int c = 0; c < grvkh.Columns.Count; c++)
+                {
+                    // Kiểm tra cột "Ngày sinh"
+                    if (grvkh.Columns[c].Name == "Ngày sinh" || grvkh.Columns[c].Name == "Ngày đặt phòng")
+                    {
+                        if (dr.Cells[c].Value != null && DateTime.TryParse(dr.Cells[c].Value.ToString(), out DateTime birthDate))
+                        {
+                            arr[r, c] = birthDate.ToString("dd/MM/yyyy"); // Định dạng ngày sinh
+                        }
+                        else
+                        {
+                            arr[r, c] = "";  // Nếu không hợp lệ, để trống
+                        }
+                    }
+                    // Kiểm tra các cột "Số điện thoại" và "Số CCCD"
+                    else if (grvkh.Columns[c].Name == "Số điện thoại" || grvkh.Columns[c].Name == "Số CCCD")
+                    {
+                        if (dr.Cells[c].Value != null)
+                        {
+                            // Đảm bảo dữ liệu không bị mất số 0, dùng dấu nháy đơn để Excel nhận là chuỗi
+                            arr[r, c] = "'" + dr.Cells[c].Value.ToString();
+                        }
+                        else
+                        {
+                            arr[r, c] = "";  // Nếu không có giá trị, để trống
+                        }
+                    }
+                    else
+                    {
+                        // Lưu các cột khác
+                        arr[r, c] = dr.Cells[c].Value ?? ""; // Nếu giá trị ô là null, trả về chuỗi rỗng
+                    }
+                }
+            }
+
+            // Thiết lập vùng để điền dữ liệu vào Excel
+            int rowStart = 4;
+            int columnStart = 1;
+            int rowEnd = rowStart + grvkh.Rows.Count - 1;
+            int columnEnd = grvkh.Columns.Count;
+
+            // Lấy vùng cần điền dữ liệu
+            Microsoft.Office.Interop.Excel.Range c1 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowStart, columnStart];
+            Microsoft.Office.Interop.Excel.Range c2 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, columnEnd];
+            Microsoft.Office.Interop.Excel.Range range = oSheet.get_Range(c1, c2);
+
+            // Điền dữ liệu vào vùng Excel đã chọn
+            range.Value2 = arr;
+
+            // Kẻ viền cho các ô đã điền dữ liệu
+            range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+
+            // Căn giữa cột dữ liệu
+            Microsoft.Office.Interop.Excel.Range c3 = (Microsoft.Office.Interop.Excel.Range)oSheet.Cells[rowEnd, columnStart];
+            Microsoft.Office.Interop.Excel.Range c4 = oSheet.get_Range(c1, c3);
+            oSheet.get_Range(c3, c4).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+    }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                ImportExcel(filePath);
+                InsertDataIntoDatabase();
+            }
+
+        }
+
+        // Đọc dữ liệu từ Excel và chuyển vào DataTable
+        public void ImportExcel(string filePath)
+        {
+            // Khởi tạo ứng dụng Excel
+            Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Workbook workbook = excelApp.Workbooks.Open(filePath);
+            Microsoft.Office.Interop.Excel.Worksheet worksheet = workbook.Sheets[1]; // Lấy sheet đầu tiên
+            Microsoft.Office.Interop.Excel.Range range = worksheet.UsedRange; // Lấy phạm vi đã sử dụng
+
+            // Tạo một DataTable để lưu dữ liệu
+            DataTable dt = new DataTable();
+
+            // Lấy tên cột từ hàng đầu tiên của sheet
+            for (int col = 1; col <= range.Columns.Count; col++)
+            {
+                string columnName = range.Cells[1, col].Value2?.ToString();
+                if (!string.IsNullOrEmpty(columnName))  // Kiểm tra tên cột không rỗng
+                {
+                    dt.Columns.Add(columnName);
+                }
+            }
+
+            // Lấy dữ liệu từ các hàng còn lại
+            for (int row = 2; row <= range.Rows.Count; row++)  // Bắt đầu từ dòng thứ 2 vì dòng 1 là tiêu đề cột
+            {
+                DataRow newRow = dt.NewRow();
+                for (int col = 1; col <= range.Columns.Count; col++)
+                {
+                    string cellValue = range.Cells[row, col].Value2?.ToString();
+                    string columnName = dt.Columns[col - 1].ColumnName;
+
+                    // Kiểm tra và xử lý cột "Ngày sinh" để chuyển đổi định dạng ngày hợp lệ
+                    if (columnName == "Ngày sinh" && !string.IsNullOrEmpty(cellValue))
+                    {
+                        try
+                        {
+                            DateTime ngaySinh;
+
+                            // Kiểm tra nếu giá trị là một số (serial number của Excel)
+                            if (double.TryParse(cellValue, out double serialDate))
+                            {
+                                ngaySinh = DateTime.FromOADate(serialDate); // Chuyển số serial thành DateTime
+                            }
+                            else
+                            {
+                                ngaySinh = DateTime.ParseExact(cellValue, "yyyy/MM/dd", CultureInfo.InvariantCulture);
+                            }
+
+                            // Chuyển đổi thành chuỗi theo định dạng yyyy-MM-dd
+                            newRow[col - 1] = ngaySinh.ToString("yyyy-MM-dd");
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show($"Ngày sinh '{cellValue}' không hợp lệ tại dòng {row}.", "Lỗi định dạng ngày sinh", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            newRow[col - 1] = DBNull.Value; // Nếu không hợp lệ, đặt giá trị trống (DBNull)
+                        }
+                    }
+                    else
+                    {
+                        // Kiểm tra nếu giá trị là null hoặc rỗng
+                        if (string.IsNullOrEmpty(cellValue))
+                        {
+                            newRow[col - 1] = DBNull.Value; // Nếu ô trống, gán DBNull.Value
+                        }
+                        else
+                        {
+                            newRow[col - 1] = cellValue; // Nếu có giá trị, gán giá trị ô vào DataRow
+                        }
+                    }
+                }
+
+                dt.Rows.Add(newRow);  // Thêm dòng vào DataTable
+            }
+
+            // Đóng Excel sau khi xử lý xong
+            workbook.Close(false);
+            excelApp.Quit();
+
+            // Giải phóng tài nguyên Excel
+            Marshal.ReleaseComObject(range);
+            Marshal.ReleaseComObject(worksheet);
+            Marshal.ReleaseComObject(workbook);
+            Marshal.ReleaseComObject(excelApp);
+
+            // Gán DataTable vào DataGridView
+            grvkh.DataSource = dt;
+        }
+
+        // Chèn dữ liệu từ DataTable vào cơ sở dữ liệu
+        public void InsertDataIntoDatabase()
+        {
+            // Kết nối với cơ sở dữ liệu
+            SqlConnection con = connectDB.GetConnection();
+            try
+            {
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+                // Chuẩn bị câu lệnh INSERT
+                string insertQuery = @"INSERT INTO KhachHang (HOTEN, GIOITINH, NGAYSINH, SODIENTHOAI, DIACHI, SOCCCD, EMAIL, GHICHU) 
+                               VALUES (@HOTEN, @GIOITINH, @NGAYSINH, @SODIENTHOAI, @DIACHI, @SOCCCD, @EMAIL, @GHICHU)";
+
+                // Duyệt qua từng dòng trong DataGridView và thêm vào cơ sở dữ liệu
+                foreach (DataGridViewRow row in grvkh.Rows)
+                {
+                    // Bỏ qua hàng trống
+                    if (row.IsNewRow) continue;
+
+                    // Tạo đối tượng SqlCommand
+                    SqlCommand cmd = new SqlCommand(insertQuery, con);
+
+                    // Kiểm tra và chuyển đổi ngày tháng
+                    DateTime birthDate;
+                    object birthDateValue = row.Cells["Ngày sinh"].Value;
+                   
+                    if (birthDateValue != null && DateTime.TryParse(birthDateValue.ToString(), out birthDate))
+                    {
+                        cmd.Parameters.AddWithValue("@NGAYSINH", birthDate);
+                    }
+                    else
+                    {
+                        // Nếu ngày sinh không hợp lệ (trống hoặc không thể chuyển đổi), gán giá trị mặc định
+                        cmd.Parameters.AddWithValue("@NGAYSINH", new DateTime(1900, 1, 1));
+                    }
+                    // Thêm các tham số khác từ DataGridView vào câu lệnh INSERT
+                    cmd.Parameters.AddWithValue("@HOTEN", row.Cells["Họ tên"].Value ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@GIOITINH", row.Cells["Giới tính"].Value ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@SODIENTHOAI", row.Cells["Số điện thoại"].Value ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@DIACHI", row.Cells["Địa chỉ"].Value ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@SOCCCD", row.Cells["Số CCCD"].Value ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@EMAIL", row.Cells["Email"].Value ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@GHICHU", row.Cells["Loại khách hàng"].Value ?? DBNull.Value);
+
+                    // Thực thi câu lệnh
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Dữ liệu đã được nhập vào cơ sở dữ liệu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi nhập dữ liệu vào DB: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close(); // Đảm bảo đóng kết nối
+            }
+        }
+
+
     }
 }
