@@ -87,7 +87,8 @@ namespace QuanLyKhachSan
         }
         private void btnIn_Click(object sender, EventArgs e)
         {
-
+            FormXuatHoaDon formXuatHoaDon = new FormXuatHoaDon();
+            formXuatHoaDon.ShowDialog();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

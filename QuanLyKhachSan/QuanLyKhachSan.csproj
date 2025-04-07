@@ -70,6 +70,7 @@
     <Compile Include="CheckOut.Designer.cs">
       <DependentUpon>CheckOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClassHoaDon.cs" />
     <Compile Include="connectDB.cs" />
     <Compile Include="DangKi.cs">
       <SubType>Form</SubType>
@@ -106,6 +107,12 @@
     </Compile>
     <Compile Include="DialogThemKhachHang.Designer.cs">
       <DependentUpon>DialogThemKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormXuatHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormXuatHoaDon.Designer.cs">
+      <DependentUpon>FormXuatHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -177,6 +184,9 @@
     <EmbeddedResource Include="DialogThemKhachHang.resx">
       <DependentUpon>DialogThemKhachHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormXuatHoaDon.resx">
+      <DependentUpon>FormXuatHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +223,7 @@
       <DependentUpon>ThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\HoaDon.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
