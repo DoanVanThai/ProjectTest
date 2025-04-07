@@ -357,6 +357,7 @@
             // 
             // btnThanhToan_FormChiTiet
             // 
+            this.btnThanhToan_FormChiTiet.Enabled = false;
             this.btnThanhToan_FormChiTiet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThanhToan_FormChiTiet.ForeColor = System.Drawing.Color.Red;
             this.btnThanhToan_FormChiTiet.Image = global::QuanLyKhachSan.Properties.Resources.wallet__1_;
@@ -369,6 +370,7 @@
             this.btnThanhToan_FormChiTiet.Text = "Thanh Toán";
             this.btnThanhToan_FormChiTiet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThanhToan_FormChiTiet.UseVisualStyleBackColor = true;
+            this.btnThanhToan_FormChiTiet.Click += new System.EventHandler(this.btnThanhToan_FormChiTiet_Click);
             // 
             // dataGridView_FormChiTiet
             // 

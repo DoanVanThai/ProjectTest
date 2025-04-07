@@ -14,6 +14,7 @@ namespace QuanLyKhachSan
 {
     public partial class CheckOut: Form
     {
+        private int hoaDonIDCurrent;
         private DatabaseHelper dbHelper;
         private bool isFilterVisible = false;
         public CheckOut()
@@ -91,12 +92,49 @@ namespace QuanLyKhachSan
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if(cbbTrangThai_FormChiTiet.SelectedIndex == 1)
+            {
+                return;
+            }
+            DialogResult result = MessageBox.Show(
+                "Bạn có chắc chắn muốn xóa không?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
+            if (result == DialogResult.Yes)
+            {
+                string query = "DELETE FROM HoaDonTongHop WHERE HOADONID = @HOADONID";
+
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@HOADONID", hoaDonIDCurrent)
+                };
+
+                DatabaseHelper db = new DatabaseHelper();
+                bool success = db.ExecuteQuery(query, parameters);
+
+                if (success)
+                {
+                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData(); // Cập nhật lại danh sách sau khi xóa
+                    ResetFields();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                // Người dùng chọn "Không", không làm gì cả
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-
+            OnlyRead(false);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -229,6 +267,7 @@ namespace QuanLyKhachSan
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             // Đảm bảo không xử lý header hoặc các cột khác
             if (e.RowIndex >= 0 && dataGridView_FormDanhSach.Columns[e.ColumnIndex].Name == "ChiTiet")
             {
@@ -239,12 +278,16 @@ namespace QuanLyKhachSan
                 if(tinhTrang == "Đã thanh toán")
                 {
                     OnlyRead(true);
+                }else
+                {
+                    OnlyRead(false);
                 }
                 // Chuyển Tab
                 tabControl.SelectedTab = tabChiTiet;
                 string DatPhongID = selectedRow.Cells["DATPHONGID"].Value?.ToString();
 
                 // Thêm dữ liệu vào những ô đơn giản
+                hoaDonIDCurrent = Convert.ToInt32(selectedRow.Cells["HOADONID"].Value);
                 txtDonGia_FormChiTiet.Text = selectedRow.Cells["GIA"].Value?.ToString();
                 txtHoaDonID_FormChiTiet.Text = selectedRow.Cells["HOADONID"].Value?.ToString();
                 txtDatPhongID_FormChiTiet.Text = selectedRow.Cells["DATPHONGID"].Value?.ToString();
@@ -291,8 +334,20 @@ namespace QuanLyKhachSan
                 if (cbbTrangThai_FormChiTiet.Items.Contains(tinhTrang))
                     cbbTrangThai_FormChiTiet.SelectedItem = tinhTrang;
 
+                // Kiểm tra nếu trạng thái là đã thanh toán thì không cho xóa
+                if(cbbTrangThai_FormChiTiet.SelectedIndex == 1)
+                {
+                    btnXoa_FormChiTiet.Enabled = false;
+                }else
+                {
+                    btnXoa_FormChiTiet.Enabled=true;
+                }
                 // Gán giá trị kiểu thanh toán vào ComboBox
                 string hinhThuc = selectedRow.Cells["HINHTHUCTHANHTOAN"].Value?.ToString();
+                if(hinhThuc == "")
+                {
+                    cbbKieuTT_FormChiTiet.SelectedIndex = 0;
+                }
                 if (cbbKieuTT_FormChiTiet.Items.Contains(hinhThuc))
                     cbbKieuTT_FormChiTiet.SelectedItem = hinhThuc;
             }
@@ -436,7 +491,26 @@ namespace QuanLyKhachSan
             btnThanhToan_FormChiTiet.Enabled = !check;
             labelOnlyRead.Visible = check;
         }
-
+        private void ResetFields()
+        {
+            txtHoaDonID_FormChiTiet.Clear();
+            txtDatPhongID_FormChiTiet.Clear();
+            txtPhongID_FormChiTiet.Clear();
+            dtpNgayDen_FormChiTiet.Value = DateTime.Now;
+            dtpNgayDi_FormChiTiet.Value = DateTime.Now;
+            dtpNgayLap_FormChiTiet.Value = DateTime.Now;
+            dtpNgayTT_FormChiTiet.Value = DateTime.Now;
+            txtDonGia_FormChiTiet.Clear();
+            txtSoNgayO_FormChiTiet.Clear();
+            txtTienPhong_FormChiTiet.Clear();
+            txtTienDV_FormChiTiet.Clear();
+            txtSLDV_FormChiTiet.Clear();
+            txtTongTien_FormChiTiet.Clear();
+            cbbKieuTT_FormChiTiet.SelectedIndex = 0; // hoặc -1 nếu bạn muốn để trống
+            cbbTrangThai_FormChiTiet.SelectedIndex = 0;
+            labelOnlyRead.Visible = false;
+            dataGridView_FormChiTiet.DataSource = null;
+        }
         private void label19_Click(object sender, EventArgs e)
         {
 
@@ -445,6 +519,45 @@ namespace QuanLyKhachSan
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnThanhToan_FormChiTiet_Click(object sender, EventArgs e)
+        {
+            if (cbbKieuTT_FormChiTiet.SelectedIndex == 0)
+            {
+                MessageBox.Show("Phải lựa chọn kiểu thanh toán", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string kieuThanhToan = cbbKieuTT_FormChiTiet.SelectedItem.ToString();
+            //DateTime ngayThanhToan = DateTime.Now;
+            DateTime ngayThanhToan = dtpNgayTT_FormChiTiet.Value;
+            string query = @"UPDATE HoaDonTongHop
+                     SET TINHTRANGTHANHTOAN = @TINHTRANGTHANHTOAN,
+                         HINHTHUCTHANHTOAN = @HINHTHUCTHANHTOAN,
+                         NGAYTHANHTOAN = @NGAYTHANHTOAN
+                     WHERE HOADONID = @HOADONID";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@TINHTRANGTHANHTOAN", "Đã thanh toán"),
+                new SqlParameter("@HINHTHUCTHANHTOAN", kieuThanhToan),
+                new SqlParameter("@NGAYTHANHTOAN", ngayThanhToan),
+                new SqlParameter("@HOADONID", hoaDonIDCurrent)
+            };
+
+            DatabaseHelper db = new DatabaseHelper();
+            bool success = db.ExecuteQuery(query, parameters);
+
+            if (success)
+            {
+                MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+                tabControl.SelectedTab = tabDanhSach;
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
