@@ -82,20 +82,17 @@
             this.dtpNgayLap_FormChiTiet = new System.Windows.Forms.DateTimePicker();
             this.label26 = new System.Windows.Forms.Label();
             this.txtPhongID_FormChiTiet = new System.Windows.Forms.TextBox();
-            this.toolStrip_FormChiTiet = new System.Windows.Forms.ToolStrip();
-            this.btnSua_FormChiTiet = new System.Windows.Forms.ToolStripButton();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.btnXoa_FormChiTiet = new System.Windows.Forms.ToolStripButton();
             this.btnIn_FormChiTiet = new System.Windows.Forms.ToolStripButton();
             this.btnQuayLai_FormChiTiet = new System.Windows.Forms.ToolStripButton();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-
+            this.toolStrip_FormChiTiet = new System.Windows.Forms.ToolStrip();
             this.tabControl.SuspendLayout();
             this.tabDanhSach.SuspendLayout();
             this.toolStrip_FormDanhSach.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_FormDanhSach)).BeginInit();
             this.tabChiTiet.SuspendLayout();
-
             this.groupBox_CTHD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_FormChiTiet)).BeginInit();
             this.toolStrip_FormChiTiet.SuspendLayout();
@@ -164,7 +161,6 @@
             // 
             this.toolStripLabelDatPhongID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabelDatPhongID.Name = "toolStripLabelDatPhongID";
-
             this.toolStripLabelDatPhongID.Size = new System.Drawing.Size(81, 51);
             this.toolStripLabelDatPhongID.Text = "Đặt Phòng ID";
             // 
@@ -185,7 +181,6 @@
             // 
             // txtMaKH_FormDanhSach
             // 
-
             this.txtMaKH_FormDanhSach.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMaKH_FormDanhSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMaKH_FormDanhSach.Name = "txtMaKH_FormDanhSach";
@@ -360,7 +355,6 @@
             this.labelOnlyRead.Visible = false;
             // 
             // btnThanhToan_FormChiTiet
-
             // 
             this.btnThanhToan_FormChiTiet.Enabled = false;
             this.btnThanhToan_FormChiTiet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -379,14 +373,12 @@
             // 
             // dataGridView_FormChiTiet
             // 
-
             this.dataGridView_FormChiTiet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_FormChiTiet.Location = new System.Drawing.Point(284, 125);
             this.dataGridView_FormChiTiet.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView_FormChiTiet.Name = "dataGridView_FormChiTiet";
             this.dataGridView_FormChiTiet.Size = new System.Drawing.Size(568, 207);
             this.dataGridView_FormChiTiet.TabIndex = 0;
-
             // 
             // label4
             // 
@@ -729,34 +721,9 @@
             this.txtPhongID_FormChiTiet.TabIndex = 47;
             this.txtPhongID_FormChiTiet.TextChanged += new System.EventHandler(this.txtPhongID_FormChiTiet_TextChanged);
             // 
-            // toolStrip_FormChiTiet
-            // 
-            this.toolStrip_FormChiTiet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnSua_FormChiTiet,
-            this.btnXoa_FormChiTiet,
-            this.btnIn_FormChiTiet,
-            this.btnQuayLai_FormChiTiet});
-            this.toolStrip_FormChiTiet.Location = new System.Drawing.Point(2, 2);
-            this.toolStrip_FormChiTiet.Name = "toolStrip_FormChiTiet";
-            this.toolStrip_FormChiTiet.Size = new System.Drawing.Size(1132, 54);
-            this.toolStrip_FormChiTiet.TabIndex = 0;
-            this.toolStrip_FormChiTiet.Text = "toolStrip1";
-            // 
-            // btnSua_FormChiTiet
-            // 
-            this.btnSua_FormChiTiet.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua_FormChiTiet.Image = global::QuanLyKhachSan.Properties.Resources.pen;
-            this.btnSua_FormChiTiet.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnSua_FormChiTiet.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSua_FormChiTiet.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnSua_FormChiTiet.Name = "btnSua_FormChiTiet";
-            this.btnSua_FormChiTiet.Size = new System.Drawing.Size(36, 51);
-            this.btnSua_FormChiTiet.Text = "Sửa";
-            this.btnSua_FormChiTiet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSua_FormChiTiet.Click += new System.EventHandler(this.btnSua_Click);
-            // 
             // btnXoa_FormChiTiet
             // 
+            this.btnXoa_FormChiTiet.Enabled = false;
             this.btnXoa_FormChiTiet.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa_FormChiTiet.Image = global::QuanLyKhachSan.Properties.Resources.delete;
             this.btnXoa_FormChiTiet.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -770,6 +737,7 @@
             // 
             // btnIn_FormChiTiet
             // 
+            this.btnIn_FormChiTiet.Enabled = false;
             this.btnIn_FormChiTiet.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIn_FormChiTiet.Image = global::QuanLyKhachSan.Properties.Resources.print;
             this.btnIn_FormChiTiet.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -794,6 +762,18 @@
             this.btnQuayLai_FormChiTiet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnQuayLai_FormChiTiet.Click += new System.EventHandler(this.btnQuayLai_Click);
             // 
+            // toolStrip_FormChiTiet
+            // 
+            this.toolStrip_FormChiTiet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnXoa_FormChiTiet,
+            this.btnIn_FormChiTiet,
+            this.btnQuayLai_FormChiTiet});
+            this.toolStrip_FormChiTiet.Location = new System.Drawing.Point(2, 2);
+            this.toolStrip_FormChiTiet.Name = "toolStrip_FormChiTiet";
+            this.toolStrip_FormChiTiet.Size = new System.Drawing.Size(1132, 54);
+            this.toolStrip_FormChiTiet.TabIndex = 0;
+            this.toolStrip_FormChiTiet.Text = "toolStrip1";
+            // 
             // CheckOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -812,7 +792,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_FormDanhSach)).EndInit();
             this.tabChiTiet.ResumeLayout(false);
             this.tabChiTiet.PerformLayout();
-
             this.groupBox_CTHD.ResumeLayout(false);
             this.groupBox_CTHD.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_FormChiTiet)).EndInit();
@@ -827,11 +806,6 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabDanhSach;
         private System.Windows.Forms.TabPage tabChiTiet;
-        private System.Windows.Forms.ToolStrip toolStrip_FormChiTiet;
-        private System.Windows.Forms.ToolStripButton btnSua_FormChiTiet;
-        private System.Windows.Forms.ToolStripButton btnXoa_FormChiTiet;
-        private System.Windows.Forms.ToolStripButton btnIn_FormChiTiet;
-        private System.Windows.Forms.ToolStripButton btnQuayLai_FormChiTiet;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox_CTHD;
         private System.Windows.Forms.ColorDialog colorDialog1;
@@ -884,5 +858,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnThanhToan_FormChiTiet;
         private System.Windows.Forms.Label labelOnlyRead;
+        private System.Windows.Forms.ToolStrip toolStrip_FormChiTiet;
+        private System.Windows.Forms.ToolStripButton btnXoa_FormChiTiet;
+        private System.Windows.Forms.ToolStripButton btnIn_FormChiTiet;
+        private System.Windows.Forms.ToolStripButton btnQuayLai_FormChiTiet;
     }
 }

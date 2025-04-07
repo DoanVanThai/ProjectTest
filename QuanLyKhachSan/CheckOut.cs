@@ -14,7 +14,15 @@ namespace QuanLyKhachSan
 {
     public partial class CheckOut: Form
     {
+        private List<HoaDonC> hoaDonList;
         private int hoaDonIDCurrent;
+        private string ngayDenCurrent;
+        private string ngayDiCurrent;
+        private string ngayTTCurrent;
+        private string phongIDCurrent;
+        private string tenKHCurrent;
+        private string tongTienCurrent;
+
         private DatabaseHelper dbHelper;
         private bool isFilterVisible = false;
         public CheckOut()
@@ -87,7 +95,7 @@ namespace QuanLyKhachSan
         }
         private void btnIn_Click(object sender, EventArgs e)
         {
-            FormXuatHoaDon formXuatHoaDon = new FormXuatHoaDon();
+            FormXuatHoaDon formXuatHoaDon = new FormXuatHoaDon(hoaDonIDCurrent.ToString(),ngayDenCurrent,ngayDiCurrent,ngayTTCurrent,phongIDCurrent,tenKHCurrent, hoaDonList,tongTienCurrent);
             formXuatHoaDon.ShowDialog();
         }
 
@@ -269,6 +277,7 @@ namespace QuanLyKhachSan
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            hoaDonList = new List<HoaDonC>();
             // Đảm bảo không xử lý header hoặc các cột khác
             if (e.RowIndex >= 0 && dataGridView_FormDanhSach.Columns[e.ColumnIndex].Name == "ChiTiet")
             {
@@ -279,16 +288,27 @@ namespace QuanLyKhachSan
                 if(tinhTrang == "Đã thanh toán")
                 {
                     OnlyRead(true);
+                    btnIn_FormChiTiet.Enabled = true;
                 }else
                 {
+                    btnIn_FormChiTiet.Enabled=false;
                     OnlyRead(false);
                 }
                 // Chuyển Tab
                 tabControl.SelectedTab = tabChiTiet;
-                string DatPhongID = selectedRow.Cells["DATPHONGID"].Value?.ToString();
 
-                // Thêm dữ liệu vào những ô đơn giản
+                // Chuẩn bị dữ liệu để in
+                string DatPhongID = selectedRow.Cells["DATPHONGID"].Value?.ToString();
+                int datPhongIDInt = Convert.ToInt32(selectedRow.Cells["DATPHONGID"].Value);
                 hoaDonIDCurrent = Convert.ToInt32(selectedRow.Cells["HOADONID"].Value);
+                ngayDenCurrent = Convert.ToDateTime(selectedRow.Cells["NGAYDEN"].Value).ToString("dd-MM-yyyy");
+                ngayDiCurrent = Convert.ToDateTime(selectedRow.Cells["NGAYDI"].Value).ToString("dd-MM-yyyy");
+                ngayTTCurrent = Convert.ToDateTime(selectedRow.Cells["NGAYTHANHTOAN"].Value).ToString("dd-MM-yyyy");
+                phongIDCurrent = selectedRow.Cells["PHONGID"].Value?.ToString();  
+                tenKHCurrent = LayHoTenKhachHang(datPhongIDInt);
+
+
+                 // Thêm dữ liệu vào những ô đơn giản
                 txtDonGia_FormChiTiet.Text = selectedRow.Cells["GIA"].Value?.ToString();
                 txtHoaDonID_FormChiTiet.Text = selectedRow.Cells["HOADONID"].Value?.ToString();
                 txtDatPhongID_FormChiTiet.Text = selectedRow.Cells["DATPHONGID"].Value?.ToString();
@@ -319,7 +339,15 @@ namespace QuanLyKhachSan
                 }
                 decimal tienPhong = gia * soNgayO.Days;
                 txtTienPhong_FormChiTiet.Text = tienPhong.ToString();
-                LoadDichVu(DatPhongID);
+                // Thêm vào danh sách danhSachDichVu - Tiền Phòng là một dịch vụ
+                HoaDonC tienPhongHoaDon = new HoaDonC
+                {
+                    TenDV = "Tiền Phòng",
+                    DonGia = gia,
+                    SL = soNgayO.Days
+                };
+                hoaDonList.Add(tienPhongHoaDon);
+                LoadDichVu(DatPhongID, hoaDonList);
 
 
                 // Tính toán Tổng Tiền = Tiền Phòng + Tiền Dịch Vụ
@@ -330,6 +358,7 @@ namespace QuanLyKhachSan
                 }
                 decimal Tong = tienPhong + tienDichVu;
                 txtTongTien_FormChiTiet.Text = Tong.ToString();
+                tongTienCurrent = Tong.ToString();
 
                 // Gán giá trị trạng thái thanh toán vào ComboBox
                 if (cbbTrangThai_FormChiTiet.Items.Contains(tinhTrang))
@@ -427,7 +456,7 @@ namespace QuanLyKhachSan
         {
 
         }
-        private void LoadDichVu(string datPhongId)
+        private void LoadDichVu(string datPhongId, List<HoaDonC> hoaDonList)
         {
             string queryDV = @"
                 SELECT 
@@ -458,6 +487,17 @@ namespace QuanLyKhachSan
                 {
                     int soLuong = Convert.ToInt32(row["SL"]);
                     decimal thanhTien = Convert.ToDecimal(row["Thành Tiền"]);
+
+                    // Tạo object HoaDonC cho dịch vụ
+                    HoaDonC dichVu = new HoaDonC
+                    {
+                        TenDV = row["Tên Dịch Vụ"].ToString(),
+                        DonGia = Convert.ToDecimal(row["Giá"]),
+                        SL = soLuong
+                    };
+
+                    // Thêm vào danh sách
+                    hoaDonList.Add(dichVu);
 
                     tongSoLuongDV += soLuong;
                     tongTienDV += thanhTien;
@@ -520,6 +560,27 @@ namespace QuanLyKhachSan
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+        public string LayHoTenKhachHang(int datPhongID)
+        {
+            string query = @"
+            SELECT KH.HOTEN
+            FROM DatPhong DP
+            JOIN KhachHang KH ON DP.KHACHHANGID = KH.KHACHHANGID
+            WHERE DP.DATPHONGID = @DatPhongID";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+            new SqlParameter("@DatPhongID", datPhongID)
+            };
+
+            DataTable result = dbHelper.GetData(query, parameters);
+            if (result != null && result.Rows.Count > 0)
+            {
+                return result.Rows[0]["HOTEN"].ToString();
+            }
+
+            return "Không tìm thấy khách hàng";
         }
 
         private void btnThanhToan_FormChiTiet_Click(object sender, EventArgs e)
