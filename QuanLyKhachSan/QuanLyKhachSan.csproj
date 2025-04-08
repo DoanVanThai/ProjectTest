@@ -97,11 +97,23 @@
     <Compile Include="DatPhong.Designer.cs">
       <DependentUpon>DatPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatPhongDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatPhongDetails.Designer.cs">
+      <DependentUpon>DatPhongDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogEditKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DialogEditKhachHang.Designer.cs">
       <DependentUpon>DialogEditKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogSuaPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogSuaPhong.Designer.cs">
+      <DependentUpon>DialogSuaPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="DialogThemHoaDon.cs">
       <SubType>Form</SubType>
@@ -114,6 +126,12 @@
     </Compile>
     <Compile Include="DialogThemKhachHang.Designer.cs">
       <DependentUpon>DialogThemKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogThemPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogThemPhong.Designer.cs">
+      <DependentUpon>DialogThemPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="FormXuatHoaDon.cs">
       <SubType>Form</SubType>
@@ -188,14 +206,23 @@
     <EmbeddedResource Include="DatPhong.resx">
       <DependentUpon>DatPhong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DatPhongDetails.resx">
+      <DependentUpon>DatPhongDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DialogEditKhachHang.resx">
       <DependentUpon>DialogEditKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogSuaPhong.resx">
+      <DependentUpon>DialogSuaPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DialogThemHoaDon.resx">
       <DependentUpon>DialogThemHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DialogThemKhachHang.resx">
       <DependentUpon>DialogThemKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogThemPhong.resx">
+      <DependentUpon>DialogThemPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormXuatHoaDon.resx">
       <DependentUpon>FormXuatHoaDon.cs</DependentUpon>
