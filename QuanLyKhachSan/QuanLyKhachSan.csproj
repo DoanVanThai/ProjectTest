@@ -60,7 +60,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -98,23 +97,11 @@
     <Compile Include="DatPhong.Designer.cs">
       <DependentUpon>DatPhong.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatPhongDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DatPhongDetails.Designer.cs">
-      <DependentUpon>DatPhongDetails.cs</DependentUpon>
-    </Compile>
     <Compile Include="DialogEditKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DialogEditKhachHang.Designer.cs">
       <DependentUpon>DialogEditKhachHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DialogSuaPhong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DialogSuaPhong.Designer.cs">
-      <DependentUpon>DialogSuaPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="DialogThemHoaDon.cs">
       <SubType>Form</SubType>
@@ -127,12 +114,6 @@
     </Compile>
     <Compile Include="DialogThemKhachHang.Designer.cs">
       <DependentUpon>DialogThemKhachHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DialogThemPhong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DialogThemPhong.Designer.cs">
-      <DependentUpon>DialogThemPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="FormXuatHoaDon.cs">
       <SubType>Form</SubType>
@@ -207,23 +188,14 @@
     <EmbeddedResource Include="DatPhong.resx">
       <DependentUpon>DatPhong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DatPhongDetails.resx">
-      <DependentUpon>DatPhongDetails.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DialogEditKhachHang.resx">
       <DependentUpon>DialogEditKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DialogSuaPhong.resx">
-      <DependentUpon>DialogSuaPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DialogThemHoaDon.resx">
       <DependentUpon>DialogThemHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DialogThemKhachHang.resx">
       <DependentUpon>DialogThemKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DialogThemPhong.resx">
-      <DependentUpon>DialogThemPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormXuatHoaDon.resx">
       <DependentUpon>FormXuatHoaDon.cs</DependentUpon>
@@ -258,7 +230,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyPhong.resx">
       <DependentUpon>QuanLyPhong.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ThongTinNhanVien.resx">
       <DependentUpon>ThongTinNhanVien.cs</DependentUpon>
@@ -331,7 +302,6 @@
   <ItemGroup>
     <None Include="Resources\wallet %281%29.png" />
   </ItemGroup>
-<<<<<<< HEAD
   <ItemGroup>
 <<<<<<< HEAD
     <None Include="Resources\icons8-plus-50.png" />
@@ -387,8 +357,6 @@
     </COMReference>
 >>>>>>> 11718cafa431041eb8e8f07a1b6f7211c9e37502
   </ItemGroup>
-=======
->>>>>>> 6fa0bc3 (Lưu lại để pull)
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

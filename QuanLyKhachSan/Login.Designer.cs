@@ -49,10 +49,9 @@
             // lguser
             // 
             this.lguser.BackColor = System.Drawing.SystemColors.GrayText;
-            this.lguser.Location = new System.Drawing.Point(123, 278);
-            this.lguser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lguser.Location = new System.Drawing.Point(92, 226);
             this.lguser.Name = "lguser";
-            this.lguser.Size = new System.Drawing.Size(436, 22);
+            this.lguser.Size = new System.Drawing.Size(328, 20);
             this.lguser.TabIndex = 0;
             // 
             // label1
@@ -60,8 +59,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(123, 258);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(92, 210);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 1;
@@ -74,8 +72,7 @@
             this.label2.Enabled = false;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(123, 351);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(92, 285);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 4;
@@ -86,10 +83,9 @@
             // 
             this.lgpass.BackColor = System.Drawing.SystemColors.GrayText;
             this.lgpass.Enabled = false;
-            this.lgpass.Location = new System.Drawing.Point(123, 370);
-            this.lgpass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lgpass.Location = new System.Drawing.Point(92, 301);
             this.lgpass.Name = "lgpass";
-            this.lgpass.Size = new System.Drawing.Size(436, 22);
+            this.lgpass.Size = new System.Drawing.Size(328, 20);
             this.lgpass.TabIndex = 3;
             this.lgpass.TextChanged += new System.EventHandler(this.lgpass_TextChanged);
             // 
@@ -97,10 +93,9 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.checkBox1.Location = new System.Drawing.Point(63, 425);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Location = new System.Drawing.Point(47, 345);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(114, 20);
+            this.checkBox1.Size = new System.Drawing.Size(99, 17);
             this.checkBox1.TabIndex = 6;
             this.checkBox1.Text = "  Nhớ mật khẩu";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -111,8 +106,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(231, 167);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(173, 136);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(22, 31);
             this.label3.TabIndex = 7;
@@ -122,10 +116,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(213, 502);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(160, 408);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 53);
+            this.button1.Size = new System.Drawing.Size(127, 43);
             this.button1.TabIndex = 9;
             this.button1.Text = "Đăng Nhập";
             this.button1.UseVisualStyleBackColor = false;
@@ -134,10 +127,9 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::QuanLyKhachSan.Properties.Resources.Capella_Hanoi_ivivu_1024x756;
-            this.pictureBox3.Location = new System.Drawing.Point(260, 78);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Location = new System.Drawing.Point(195, 63);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(85, 62);
+            this.pictureBox3.Size = new System.Drawing.Size(64, 50);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
@@ -146,10 +138,9 @@
             // 
             this.pictureBox2.Enabled = false;
             this.pictureBox2.Image = global::QuanLyKhachSan.Properties.Resources.icons8_key_32;
-            this.pictureBox2.Location = new System.Drawing.Point(63, 351);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(47, 285);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(52, 44);
+            this.pictureBox2.Size = new System.Drawing.Size(39, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
@@ -157,10 +148,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::QuanLyKhachSan.Properties.Resources.icons8_user_50;
-            this.pictureBox1.Location = new System.Drawing.Point(63, 258);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(47, 210);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(52, 44);
+            this.pictureBox1.Size = new System.Drawing.Size(39, 36);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -172,8 +162,7 @@
             this.label4.Enabled = false;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(479, 430);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(359, 349);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(15, 13);
             this.label4.TabIndex = 11;
@@ -185,20 +174,19 @@
             this.label5.AutoSize = true;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(499, 430);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(374, 349);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 18);
+            this.label5.Size = new System.Drawing.Size(48, 15);
             this.label5.TabIndex = 12;
             this.label5.Text = "Đăng kí";
             this.label5.Click += new System.EventHandler(this.label5_Click_1);
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(613, 789);
+            this.ClientSize = new System.Drawing.Size(460, 641);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
@@ -211,8 +199,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lguser);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Login";
+            this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
