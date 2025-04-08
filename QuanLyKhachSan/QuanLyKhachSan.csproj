@@ -303,12 +303,6 @@
     <None Include="Resources\wallet %281%29.png" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <None Include="Resources\icons8-plus-50.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-minus-50.png" />
-=======
     <None Include="Resources\them.png" />
     <None Include="Resources\xuatfile.png" />
     <None Include="Resources\timmmm.png" />
@@ -355,7 +349,6 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
->>>>>>> 11718cafa431041eb8e8f07a1b6f7211c9e37502
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -363,12 +356,5 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
-<Target Name="CopyNativeAssemblies" AfterTargets="Build">
-  <ItemGroup>
-    <NativeAssemblies Include="..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\SqlServerSpatial110.dll" />
-    <NativeAssemblies Include="..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\msvcr100.dll" />
-  </ItemGroup>
-  <Copy SourceFiles="@(NativeAssemblies)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
-</Target>
   </Target>
 </Project>
