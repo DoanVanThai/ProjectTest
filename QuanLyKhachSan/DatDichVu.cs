@@ -405,10 +405,5 @@ namespace QuanLyKhachSan
             MessageBox.Show("Đặt dịch vụ cho phòng thành công" , "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadDataIntoGrvDVdaDat();
         }
-
-        private void DatDichVu_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

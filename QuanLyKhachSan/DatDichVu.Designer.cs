@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             this.grvSearchDV = new System.Windows.Forms.DataGridView();
             this.grvDVdaDat = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -231,25 +230,11 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(428, 37);
             this.dateTimePicker1.TabIndex = 4;
-=======
-            this.button1 = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(603, 264);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
->>>>>>> 6fa0bc3 (Lưu lại để pull)
             // 
             // DatDichVu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1719, 1050);
             this.Controls.Add(this.dateDV);
             this.Controls.Add(this.comboBox1);
@@ -267,21 +252,12 @@
             this.dateDV.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-=======
-            this.ClientSize = new System.Drawing.Size(1528, 840);
-            this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "DatDichVu";
-            this.Text = "DatDichVu";
-            this.Load += new System.EventHandler(this.DatDichVu_Load);
->>>>>>> 6fa0bc3 (Lưu lại để pull)
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-<<<<<<< HEAD
         private System.Windows.Forms.DataGridView grvSearchDV;
         private System.Windows.Forms.DataGridView grvDVdaDat;
         private System.Windows.Forms.Panel panel1;
@@ -299,8 +275,5 @@
         private System.Windows.Forms.Label txtSum;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-=======
-        private System.Windows.Forms.Button button1;
->>>>>>> 6fa0bc3 (Lưu lại để pull)
     }
 }

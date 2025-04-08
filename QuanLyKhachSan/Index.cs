@@ -57,7 +57,6 @@ namespace QuanLyKhachSan
 
         private void button7_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Bạn đã nhấn nút Đặt phòng"); // Kiểm tra
             OpenChildForm(new DatPhong());
             label1.Text = "Đặt phòng";
         }
