@@ -34,7 +34,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::QuanLyKhachSan.Properties.Resources.Capella_Hanoi_ivivu_1024x756;
             this.pictureBox1.Location = new System.Drawing.Point(-1, -137);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(763, 708);

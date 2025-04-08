@@ -249,7 +249,6 @@ namespace QuanLyKhachSan
             // btn_upload
             // 
             this.btn_upload.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btn_upload.Image = global::QuanLyKhachSan.Properties.Resources.wallet__1_;
             this.btn_upload.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_upload.Location = new System.Drawing.Point(873, 23);
             this.btn_upload.Name = "btn_upload";
@@ -265,7 +264,6 @@ namespace QuanLyKhachSan
             // 
             this.btn_luu.BackColor = System.Drawing.Color.Aquamarine;
             this.btn_luu.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_luu.Image = global::QuanLyKhachSan.Properties.Resources.save;
             this.btn_luu.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btn_luu.Location = new System.Drawing.Point(1121, 186);
             this.btn_luu.Name = "btn_luu";
@@ -450,7 +448,6 @@ namespace QuanLyKhachSan
             // btn_themmoi
             // 
             this.btn_themmoi.BackColor = System.Drawing.Color.LightBlue;
-            this.btn_themmoi.Image = global::QuanLyKhachSan.Properties.Resources.them;
             this.btn_themmoi.Location = new System.Drawing.Point(18, 3);
             this.btn_themmoi.Name = "btn_themmoi";
             this.btn_themmoi.Size = new System.Drawing.Size(53, 54);
@@ -463,7 +460,6 @@ namespace QuanLyKhachSan
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.MistyRose;
-            this.button1.Image = global::QuanLyKhachSan.Properties.Resources.timmmm;
             this.button1.Location = new System.Drawing.Point(136, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(53, 54);
@@ -477,7 +473,6 @@ namespace QuanLyKhachSan
             // 
             this.btn_xuatfile.BackColor = System.Drawing.Color.LightGreen;
             this.btn_xuatfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_xuatfile.Image = global::QuanLyKhachSan.Properties.Resources.xuatfile;
             this.btn_xuatfile.Location = new System.Drawing.Point(77, 3);
             this.btn_xuatfile.Name = "btn_xuatfile";
             this.btn_xuatfile.Size = new System.Drawing.Size(53, 54);
@@ -491,7 +486,6 @@ namespace QuanLyKhachSan
             // 
             this.btn_refesh.BackColor = System.Drawing.Color.LightGreen;
             this.btn_refesh.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_refesh.Image = global::QuanLyKhachSan.Properties.Resources.refesh;
             this.btn_refesh.Location = new System.Drawing.Point(195, 4);
             this.btn_refesh.Name = "btn_refesh";
             this.btn_refesh.Size = new System.Drawing.Size(53, 54);

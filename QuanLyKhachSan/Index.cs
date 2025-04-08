@@ -39,8 +39,8 @@ namespace QuanLyKhachSan
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new QuanLyPhong());
-            label1.Text = "Quản lý phòng";
+            //OpenChildForm(new QuanLyPhong());
+            //label1.Text = "Quản lý phòng";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -57,8 +57,8 @@ namespace QuanLyKhachSan
 
         private void button7_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new DatPhong());
-            label1.Text = "Đặt phòng";
+            //OpenChildForm(new DatPhong());
+            //label1.Text = "Đặt phòng";
         }
 
         private void button4_Click(object sender, EventArgs e)

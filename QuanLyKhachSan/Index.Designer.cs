@@ -63,7 +63,6 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::QuanLyKhachSan.Properties.Resources.icons8_x_26;
             this.pictureBox3.Location = new System.Drawing.Point(1407, 15);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
@@ -249,7 +248,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::QuanLyKhachSan.Properties.Resources.Capella_Hanoi_ivivu_1024x756;
             this.pictureBox1.Location = new System.Drawing.Point(-11, -4);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";

@@ -58,7 +58,9 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -91,9 +93,7 @@
     <Compile Include="DatDichVu.Designer.cs">
       <DependentUpon>DatDichVu.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatPhong.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="DatPhong.cs" />
     <Compile Include="DatPhong.Designer.cs">
       <DependentUpon>DatPhong.cs</DependentUpon>
     </Compile>
@@ -158,9 +158,7 @@
     <Compile Include="QuanLyNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuanLyPhong.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="QuanLyPhong.cs" />
     <Compile Include="QuanLyPhong.Designer.cs">
       <DependentUpon>QuanLyPhong.cs</DependentUpon>
     </Compile>
@@ -307,6 +305,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-minus-50.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\them.png" />
     <None Include="Resources\xuatfile.png" />
@@ -357,13 +356,13 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-        <Error Condition="!Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
-<Target Name="CopyNativeAssemblies" AfterTargets="Build">
-  <ItemGroup>
-    <NativeAssemblies Include="..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\SqlServerSpatial110.dll" />
-    <NativeAssemblies Include="..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\msvcr100.dll" />
-  </ItemGroup>
-  <Copy SourceFiles="@(NativeAssemblies)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
-</Target>
+    <Error Condition="!Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
+  </Target>
+  <Target Name="CopyNativeAssemblies" AfterTargets="Build">
+    <ItemGroup>
+      <NativeAssemblies Include="..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\SqlServerSpatial110.dll" />
+      <NativeAssemblies Include="..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\msvcr100.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(NativeAssemblies)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
   </Target>
 </Project>

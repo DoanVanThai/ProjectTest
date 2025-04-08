@@ -180,7 +180,6 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::QuanLyKhachSan.Properties.Resources.icons8_plus_50;
             this.pictureBox2.Location = new System.Drawing.Point(709, 32);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(38, 39);
@@ -191,7 +190,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::QuanLyKhachSan.Properties.Resources.icons8_minus_50;
             this.pictureBox1.Location = new System.Drawing.Point(580, 32);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 39);

@@ -11,7 +11,7 @@ namespace QuanLyKhachSan
 {
     class classTT
     {
-        public static SqlConnection con = new SqlConnection("Data Source = TT; Initial Catalog = QUANLYKHACHSAN; Integrated Security = True");
+        public static SqlConnection con = new SqlConnection("Data Source = SFWEFSDC34\\SQLEXPRESS; Initial Catalog = QUANLYKHACHSAN; Integrated Security = True");
         public static void load_nhanvien(DataGridView tble_nhanvien)
         {
 

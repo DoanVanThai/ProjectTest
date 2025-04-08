@@ -13,12 +13,6 @@ namespace QuanLyKhachSan
 {
     public partial class Login: Form
     {
-
-        SqlConnection con;
-        SqlDataAdapter adt;
-        SqlCommand cmd;
-        DataTable dt;
-        private string selectedValue;
         public Login()
         {
             InitializeComponent();
