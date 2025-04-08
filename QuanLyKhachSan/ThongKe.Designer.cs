@@ -249,7 +249,7 @@
             // 
             // btnCapNhat_FormChiTiet
             // 
-            this.btnCapNhat_FormChiTiet.Image = global::QuanLyKhachSan.Properties.Resources.undo;
+            this.btnCapNhat_FormChiTiet.Image = global::QuanLyKhachSan.Properties.Resources.undo1;
             this.btnCapNhat_FormChiTiet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCapNhat_FormChiTiet.Location = new System.Drawing.Point(18, 15);
             this.btnCapNhat_FormChiTiet.Name = "btnCapNhat_FormChiTiet";
